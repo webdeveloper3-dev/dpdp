@@ -1,0 +1,16 @@
+{
+  "name": "dpdp-engine-client",
+  "version": "1.0.0",
+  "description": "Frontend DPO Compliance Admin Portal & Embeddable Consent Widgets (India DPDP Act 2023)",
+  "scripts": {
+    "start": "node serve.js"
+  },
+  "keywords": [
+    "dpdp-ui",
+    "dpo-portal",
+    "consent-widget",
+    "privacy-center"
+  ],
+  "author": "DPDP Engineering Team",
+  "license": "ISC"
+}

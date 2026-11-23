@@ -1,0 +1,26 @@
+{
+  "name": "dpdp-engine-server",
+  "version": "1.0.0",
+  "description": "Enterprise Generalized DPDP Compliance Microservice & Engine (India DPDP Act 2023)",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "seed": "node database/seed.js",
+    "test": "node tests/dpdp.test.js"
+  },
+  "keywords": [
+    "dpdp",
+    "privacy",
+    "compliance",
+    "consent",
+    "ropa",
+    "encryption",
+    "india-dpdp-act"
+  ],
+  "author": "DPDP Engineering Team",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  }
+}

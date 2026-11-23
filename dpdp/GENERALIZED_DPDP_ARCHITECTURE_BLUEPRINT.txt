@@ -1,0 +1,1106 @@
+====================================================================================================
+               ENTERPRISE GENERALIZED DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023
+                          SOFTWARE ARCHITECTURE & IMPLEMENTATION FRAMEWORK
+====================================================================================================
+Document Purpose : Generalized Enterprise Compliance Architecture, Reusable Microservice/SDK Design,
+                   Data Models, API Specifications, Cryptographic Engine & End-to-End Workflow
+Audience         : Software Architects, Backend Engineers, Full-Stack Developers, Product Managers,
+                   and Security/Compliance Officers in Service-Based IT Companies
+Applicability    : Any Client Web/Mobile/SaaS/ERP/CRM Application Processing Indian Digital Personal Data
+Based On         : India DPDP Act 2023 + Statutory RoPA Framework (Forms 01 to 13)
+Location         : dpdp/GENERALIZED_DPDP_COMPLIANCE_ARCHITECTURE_FRAMEWORK.txt
+====================================================================================================
+
+TABLE OF CONTENTS:
+----------------------------------------------------------------------------------------------------
+1. EXECUTIVE OVERVIEW & BUSINESS CONTEXT FOR SERVICE COMPANIES
+   1.1 The Business Need: Why Service-Based IT Companies Need a Generalized DPDP Engine
+   1.2 Core Legal Principles of DPDP Act 2023
+   1.3 Mapping the 13 DPDP Governance Forms to Software Engineering Components
+
+2. HIGH-LEVEL SYSTEM ARCHITECTURE & SYSTEM CONTEXT
+   2.1 Architecture Diagram: Generalized DPDP Pluggable Engine
+   2.2 Component Breakdown (Headless Core, SDKs, Admin Portal, Data Principal Portal)
+   2.3 Multi-Tenant / Multi-Client Architecture Pattern
+
+3. CORE DATA MODELS & DATABASE SCHEMA SPECIFICATIONS (SQL DDL)
+   3.1 Master Catalog & RoPA Registry (Forms 01 - 04, 06)
+   3.2 Purpose, Collection & Data Flow Registry (Forms 05, 07, 10, 11)
+   3.3 Notice & Dynamic Consent Artifact Registry (Forms 13)
+   3.4 Data Principal Rights (DSR) & Grievance Tickets (Forms 13)
+   3.5 Security, Access Roles & Audit Trail Registry (Forms 09, 12)
+   3.6 Retention & Automated Disposal Registry (Forms 08)
+
+4. DETAILED END-TO-END ARCHITECTURAL FLOWS
+   4.1 Flow 1: Data Discovery & RoPA Onboarding Workflow
+   4.2 Flow 2: Notice Display & Granular Multilingual Consent Capture
+   4.3 Flow 3: Consent Withdrawal & Cascading Processing Halt
+   4.4 Flow 4: Verifiable Parental Consent (VPC) for Minors (<18)
+   4.5 Flow 5: Data Principal Rights (DSR) Self-Service Workflow (Access, Correction, Erasure)
+   4.6 Flow 6: Grievance Redressal & DPO Escalation Lifecycle
+   4.7 Flow 7: Automated Retention, Archival & Cryptographic Erasure Engine
+   4.8 Flow 8: Security Breach Detection, Triage & DPBI Notification within 72 Hours
+
+5. SECURITY, ENCRYPTION & DATA PROTECTION SUBSYSTEM (SECTION 8(5))
+   5.1 Field-Level Encryption (FLE) at Rest (AES-256-GCM)
+   5.2 Blind Indexing (HMAC-SHA256) for Searchable Encrypted Fields
+   5.3 Role-Based Dynamic Data Masking Middleware
+   5.4 Key Management Strategy (KMS / HashiCorp Vault / Cloud KMS)
+
+6. GENERALIZED REUSABLE BACKEND SDK & MIDDLEWARE DESIGN
+   6.1 Architecture of the Generalized NPM/Pip Library (`@service-co/dpdp-engine`)
+   6.2 Express / Node.js Middleware Implementation Examples
+   6.3 Automatic Consent Verification Interceptor
+   6.4 Audit Logging Interceptor (Tamper-Proof Immutable Audit Log)
+
+7. REST API SPECIFICATIONS & CONTRACTS
+   7.1 Public / Data Principal Endpoints (Notice, Consent, DSR, Grievances)
+   7.2 Administrative / DPO Endpoints (RoPA, Audits, Processing Controls)
+   7.3 Internal System Hooks (Disposal triggers, Webhooks for Data Processors)
+
+8. FRONTEND & UI/UX IMPLEMENTATION GUIDE
+   8.1 Cookie & Web Consent Banner Guidelines
+   8.2 In-App Granular Consent Checkbox Patterns
+   8.3 Self-Service Data Principal Privacy Center / Dashboard
+   8.4 DPO / Compliance Officer Admin Portal
+
+9. STEP-BY-STEP CLIENT ONBOARDING & IMPLEMENTATION PLAYBOOK
+   9.1 Phase 1: Data Discovery & RoPA Mapping (Forms 01-06)
+   9.2 Phase 2: Notice & Consent Architecture Setup (Forms 05, 07, 13)
+   9.3 Phase 3: Core Security, Encryption & Masking Integration (Forms 09, 12)
+   9.4 Phase 4: DSR Self-Service & Grievance Portal Launch (Form 13)
+   9.5 Phase 5: Retention Automation & External Processor Contracts (Forms 08, 10, 11)
+
+====================================================================================================
+1. EXECUTIVE OVERVIEW & BUSINESS CONTEXT FOR SERVICE COMPANIES
+====================================================================================================
+
+1.1 The Business Need: Why Service-Based IT Companies Need a Generalized DPDP Engine
+------------------------------------------------------------------------------------
+As a service-based software development company building applications (ERPs, CRMs, FinTech apps, 
+EdTech portals, Healthcare systems, E-Commerce, mobile apps) for various enterprise clients, your clients 
+face severe statutory penalties under the Digital Personal Data Protection (DPDP) Act 2023:
+- Up to INR 250 Crores for failure to implement reasonable security safeguards preventing data breaches.
+- Up to INR 200 Crores for failure to notify the Data Protection Board of India (DPBI) and affected users.
+- Up to INR 200 Crores for violation of special duties regarding Children's data (<18 years).
+- Up to INR 150 Crores for failure to fulfill Data Principal Rights and Notice/Consent mandates.
+
+Instead of writing custom, bespoke compliance logic for every client from scratch, building a 
+**Generalized, Headless DPDP Compliance Engine & Reusable SDK** gives your company:
+1. Standardized Reusable IP: One core engine deployed as a library, microservice, or Dockerized sidecar.
+2. Faster Go-To-Market: Client applications achieve 100% DPDP compliance in days rather than months.
+3. Universal Compatibility: Works across Node.js/Express, Python/Django/FastAPI, Java/Spring, and PHP.
+4. Seamless Auditability: Automated translation of the 13 statutory governance forms into live system tables.
+
+1.2 Core Legal Principles of DPDP Act 2023
+------------------------------------------
+The framework operationalizes the seven foundational principles of the Act:
+1. Principle of Consent & Lawful Processing (Section 4 & 6): Personal data can only be processed with 
+   free, informed, specific, unconditional, and unambiguous consent, accompanied by an itemized notice.
+2. Principle of Purpose Limitation (Section 5 & 6): Data collected for Purpose A cannot be used for 
+   Purpose B without obtaining fresh, explicit consent.
+3. Principle of Data Minimization (Section 6(1)): Only collect personal data strictly necessary for the stated purpose.
+4. Principle of Accuracy (Section 8(3)): The Data Fiduciary must ensure personal data is complete, accurate, 
+   and consistently updated.
+5. Principle of Storage Limitation (Section 8(7)): Data must be erased as soon as the purpose is served 
+   or when consent is withdrawn, unless statutory retention is required.
+6. Principle of Integrity & Confidentiality (Section 8(5)): Mandatory reasonable technical and organizational 
+   safeguards (encryption, access controls, pseudonymization).
+7. Principle of Accountability (Section 8): Maintain verifiable RoPA, audit logs, and grievance mechanisms.
+
+1.3 Mapping the 13 DPDP Governance Forms to Software Engineering Components
+---------------------------------------------------------------------------
+The 13 statutory manual audit forms provided in the documentation map directly to digital software entities:
+
+| Form ID | Statutory Form Title | Digital Software Module / Database Entity |
+|:---|:---|:---|
+| Form 01 | Department, Function & Process Inventory | `dpdp_departments`, `dpdp_business_processes` (RoPA Registry) |
+| Form 02 | Personal Data Inventory & Risk Classification | `dpdp_data_catalog` (PII catalog, Risk scoring, Sensitivity) |
+| Form 03 | Applications, Software & Systems Inventory | `dpdp_applications_registry` (Systems holding personal data) |
+| Form 04 | Data Storage & Location Register | `dpdp_storage_locations` (Cloud buckets, DBs, Geo-fencing) |
+| Form 05 | Collection Point & Method Profile | `dpdp_collection_points` (Web, App, API, Offline intake) |
+| Form 06 | Data Principal Categories | `dpdp_principal_categories` (Employees, Customers, Minors, etc.) |
+| Form 07 | Purpose & Processing Profile | `dpdp_purposes` (Lawful basis, processing lifecycle stages) |
+| Form 08 | Retention & Disposal Register | `dpdp_retention_rules`, `dpdp_disposal_job_log` (Auto-purging) |
+| Form 09 | Roles, Responsibilities & Access Register | `dpdp_access_matrix`, RBAC middleware, Least-privilege rules |
+| Form 10 | External Sharing & Internal Data Flows | `dpdp_data_flows`, `dpdp_processor_contracts` (Data Processors) |
+| Form 11 | Third-Party Personal Data Register | `dpdp_third_party_data` (Emergency contacts, nominees, referees) |
+| Form 12 | Security Safeguards & Incident History | `dpdp_security_safeguards`, `dpdp_breach_incident_log` |
+| Form 13 | Notice, Consent & Rights Practices | `dpdp_notices`, `dpdp_consents`, `dpdp_dsr_requests`, Grievances |
+
+====================================================================================================
+2. HIGH-LEVEL SYSTEM ARCHITECTURE & SYSTEM CONTEXT
+====================================================================================================
+
+2.1 Architecture Diagram: Generalized DPDP Pluggable Engine
+------------------------------------------------------------
+```
++--------------------------------------------------------------------------------------------------+
+|                                    CLIENT APPLICATION ECOSYSTEM                                  |
+|   +--------------------------+   +--------------------------+   +----------------------------+   |
+|   | Client Web Application   |   | Client Mobile App        |   | Client Admin / HR Portal   |   |
+|   | (React / Vue / Angular)  |   | (React Native / Flutter) |   | (ERP / CRM Dashboard)      |   |
+|   +------------+-------------+   +------------+-------------+   +-------------+--------------+   |
++----------------|------------------------------|-------------------------------|------------------+
+                 | HTTPS                        | HTTPS                         | HTTPS
+                 v                              v                               v
++--------------------------------------------------------------------------------------------------+
+|                            GENERALIZED DPDP ENGINE / SDK MIDDLEWARE                              |
+|                                                                                                  |
+|   +------------------------------------+      +----------------------------------------------+   |
+|   | 1. Dynamic Notice & Consent Engine |      | 2. Interceptor & Middleware Layer            |   |
+|   |    - 22 Scheduled Indian Languages |      |    - Consent Verification Guard              |   |
+|   |    - Purpose-Itemized Checkboxes   |      |    - Role-Based Dynamic Data Masking         |   |
+|   |    - Immutable Consent Receipts    |      |    - Immutable Access Audit Logger           |   |
+|   +------------------------------------+      +----------------------------------------------+   |
+|                                                                                                  |
+|   +------------------------------------+      +----------------------------------------------+   |
+|   | 3. Cryptographic Subsystem         |      | 4. Data Principal Rights (DSR) Engine        |   |
+|   |    - Field-Level Encryption (AES)  |      |    - Right to Access / Data Export           |   |
+|   |    - HMAC-SHA256 Blind Indexing    |      |    - Right to Correction / Updating          |   |
+|   |    - KMS Envelope Encryption       |      |    - Right to Erasure / Forgotten            |   |
+|   +------------------------------------+      +----------------------------------------------+   |
+|                                                                                                  |
+|   +------------------------------------+      +----------------------------------------------+   |
+|   | 5. Grievance & DPO Escalation      |      | 6. Lifecycle & Disposal Daemon               |   |
+|   |    - SLA-tracked Ticket System     |      |    - Automated Retention Time-Checks         |   |
+|   |    - 72-Hour Breach Alert to DPBI  |      |    - Cryptographic Shredding / De-identification |
+|   +------------------------------------+      +----------------------------------------------+   |
++--------------------------------------------------------------------------------------------------+
+                                                |
+                                                v
++--------------------------------------------------------------------------------------------------+
+|                                      DATA STORAGE PERSISTENCE                                    |
+|   +------------------------------------+      +----------------------------------------------+   |
+|   | Core Client Application Database   |      | DPDP Compliance Master Database              |   |
+|   | (Encrypted PII columns + Blind Idx)|      | (RoPA Forms 01-13, Consent Receipts, DSR)    |   |
+|   +------------------------------------+      +----------------------------------------------+   |
++--------------------------------------------------------------------------------------------------+
+```
+
+2.2 Component Breakdown
+-----------------------
+1. Headless DPDP Core:
+   - Contains business logic for Notice, Consent, Rights, RoPA, Encryption, and Grievance workflows.
+   - Decoupled from any particular UI framework.
+2. Backend Interceptor SDK (`@service-co/dpdp-engine`):
+   - Express/Koa/NestJS/FastAPI middleware that intercepts incoming requests and outgoing responses.
+   - Verifies active valid consent before controller execution.
+   - Automatically masks PII data in responses according to role permissions.
+3. Self-Service Data Principal Privacy Center (Web/Mobile Widget):
+   - An embeddable React/Vue/HTML component for end-users to view active consents, withdraw consent, 
+     download personal data summaries (DSR Access), and raise grievance tickets.
+4. DPO / Admin Compliance Portal:
+   - Enterprise dashboard for the client's Data Protection Officer (DPO) and compliance officers 
+     to maintain RoPA forms 01-13, review DSR requests, handle grievances, and oversee breach drills.
+
+2.3 Multi-Tenant / Multi-Client Architecture Pattern
+----------------------------------------------------
+For a service company managing dozens of client projects, the DPDP engine supports two deployment modes:
+- Mode A (Embedded Module): Deployed directly inside the client's existing backend (same DB or schema).
+- Mode B (Centralized Privacy-as-a-Service Microservice): A shared multi-tenant DPDP server hosting 
+  compliance for multiple client projects, partitioned by `tenant_id` / `client_id` with separate encryption keys.
+
+====================================================================================================
+3. CORE DATA MODELS & DATABASE SCHEMA SPECIFICATIONS (SQL DDL)
+====================================================================================================
+
+The following ANSI-SQL DDL defines the unified database schema translating the 13 DPDP compliance forms 
+into a scalable, production-ready relational data model.
+
+3.1 Master Catalog & RoPA Registry (Forms 01 - 04, 06)
+------------------------------------------------------
+```sql
+-- Form 01: Departments and Business Functions
+CREATE TABLE dpdp_departments (
+    tenant_id VARCHAR(64) NOT NULL,
+    department_id VARCHAR(32) NOT NULL, -- e.g. DEP-01, DEP-02
+    department_name VARCHAR(255) NOT NULL,
+    department_head_name VARCHAR(255),
+    department_head_email VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (tenant_id, department_id)
+);
+
+-- Form 01: Business Processes (PRO ID)
+CREATE TABLE dpdp_business_processes (
+    tenant_id VARCHAR(64) NOT NULL,
+    process_id VARCHAR(32) NOT NULL, -- e.g. PRO-01, PRO-02
+    department_id VARCHAR(32) NOT NULL,
+    process_name VARCHAR(255) NOT NULL,
+    process_description TEXT,
+    process_owner_name VARCHAR(255),
+    process_owner_email VARCHAR(255),
+    is_active BOOLEAN DEFAULT TRUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (tenant_id, process_id),
+    FOREIGN KEY (tenant_id, department_id) REFERENCES dpdp_departments(tenant_id, department_id)
+);
+
+-- Form 03: Applications and Software Inventory (APP ID)
+CREATE TABLE dpdp_applications (
+    tenant_id VARCHAR(64) NOT NULL,
+    app_id VARCHAR(32) NOT NULL, -- e.g. APP-01
+    app_name VARCHAR(255) NOT NULL,
+    app_type ENUM('WEB_APP', 'MOBILE_APP', 'DATABASE', 'SPREADSHEET', 'THIRD_PARTY_SAAS', 'LEGACY') NOT NULL,
+    hosting_type ENUM('ON_PREMISE', 'CLOUD_INDIA', 'CLOUD_FOREIGN', 'HYBRID') NOT NULL,
+    vendor_name VARCHAR(255),
+    system_owner_name VARCHAR(255),
+    data_backup_frequency VARCHAR(100),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (tenant_id, app_id)
+);
+
+-- Form 04: Data Storage Locations (STR ID / REC ID)
+CREATE TABLE dpdp_storage_locations (
+    tenant_id VARCHAR(64) NOT NULL,
+    storage_id VARCHAR(32) NOT NULL, -- e.g. STR-01 (Digital) or REC-01 (Physical)
+    storage_type ENUM('SQL_DATABASE', 'NOSQL', 'OBJECT_STORAGE', 'FILE_SERVER', 'PHYSICAL_ARCHIVE') NOT NULL,
+    storage_name VARCHAR(255) NOT NULL,
+    cloud_provider VARCHAR(100), -- AWS, Azure, GCP, Local Data Center
+    geographic_location VARCHAR(100) DEFAULT 'India',
+    encryption_at_rest ENUM('AES_256', 'KMS_MANAGED', 'NONE') NOT NULL,
+    access_protocol VARCHAR(100),
+    is_cross_border BOOLEAN DEFAULT FALSE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (tenant_id, storage_id)
+);
+
+-- Form 06: Data Principal Categories (DPR ID)
+CREATE TABLE dpdp_principal_categories (
+    tenant_id VARCHAR(64) NOT NULL,
+    category_id VARCHAR(32) NOT NULL, -- e.g. DPR-01 (Employee), DPR-02 (Customer), DPR-03 (Minor)
+    category_name VARCHAR(150) NOT NULL,
+    description TEXT,
+    is_minor_category BOOLEAN DEFAULT FALSE, -- Requires Section 9 Parental Consent
+    is_disabled_category BOOLEAN DEFAULT FALSE, -- Requires Section 9 Legal Guardian Consent
+    approx_records_count INT DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (tenant_id, category_id)
+);
+
+-- Form 02: Personal Data Inventory Catalog & Risk Classification
+CREATE TABLE dpdp_data_catalog (
+    tenant_id VARCHAR(64) NOT NULL,
+    item_id VARCHAR(32) NOT NULL, -- e.g. PII-01, PII-02
+    process_id VARCHAR(32) NOT NULL,
+    app_id VARCHAR(32) NOT NULL,
+    storage_id VARCHAR(32) NOT NULL,
+    category_id VARCHAR(32) NOT NULL,
+    data_element_name VARCHAR(150) NOT NULL, -- e.g. Aadhaar, Mobile, Salary, Biometric Photo
+    classification_level ENUM('CRITICAL', 'HIGH', 'MEDIUM', 'LOW') NOT NULL,
+    storage_format ENUM('ENCRYPTED_TEXT', 'CLEAR_TEXT', 'HASHED', 'BINARY_BLOB', 'PHYSICAL_PAPER') NOT NULL,
+    is_mandatory_for_service BOOLEAN DEFAULT TRUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (tenant_id, item_id),
+    FOREIGN KEY (tenant_id, process_id) REFERENCES dpdp_business_processes(tenant_id, process_id),
+    FOREIGN KEY (tenant_id, app_id) REFERENCES dpdp_applications(tenant_id, app_id),
+    FOREIGN KEY (tenant_id, storage_id) REFERENCES dpdp_storage_locations(tenant_id, storage_id),
+    FOREIGN KEY (tenant_id, category_id) REFERENCES dpdp_principal_categories(tenant_id, category_id)
+);
+```
+
+3.2 Purpose, Collection & Data Flow Registry (Forms 05, 07, 10, 11)
+-------------------------------------------------------------------
+```sql
+-- Form 05: Collection Points
+CREATE TABLE dpdp_collection_points (
+    tenant_id VARCHAR(64) NOT NULL,
+    collection_id VARCHAR(32) NOT NULL, -- e.g. COL-01
+    collection_name VARCHAR(255) NOT NULL,
+    collection_channel ENUM('WEB_PORTAL', 'MOBILE_APP', 'API_INTEGRATION', 'PAPER_FORM', 'VERBAL_PHONE') NOT NULL,
+    collection_url VARCHAR(500),
+    is_consent_mechanism_embedded BOOLEAN DEFAULT TRUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (tenant_id, collection_id)
+);
+
+-- Form 07: Purpose Profile (PUR ID)
+CREATE TABLE dpdp_purposes (
+    tenant_id VARCHAR(64) NOT NULL,
+    purpose_id VARCHAR(32) NOT NULL, -- e.g. PUR-01, PUR-02
+    process_id VARCHAR(32) NOT NULL,
+    purpose_code VARCHAR(100) NOT NULL, -- e.g. 'PAYROLL_DISBURSEMENT', 'ATTENDANCE_VERIFICATION'
+    purpose_description TEXT NOT NULL,
+    lawful_basis ENUM('EXPLICIT_CONSENT', 'CERTAIN_LEGITIMATE_USES_SEC_7', 'EMPLOYMENT_SEC_7I', 'LEGAL_OBLIGATION') NOT NULL,
+    retention_period_months INT NOT NULL, -- Tenure data can be kept for this purpose
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (tenant_id, purpose_id),
+    FOREIGN KEY (tenant_id, process_id) REFERENCES dpdp_business_processes(tenant_id, process_id)
+);
+
+-- Form 10: External Data Sharing & Data Processors (SHR ID)
+CREATE TABLE dpdp_data_processors (
+    tenant_id VARCHAR(64) NOT NULL,
+    processor_id VARCHAR(32) NOT NULL, -- e.g. PROC-01
+    processor_name VARCHAR(255) NOT NULL,
+    service_provided VARCHAR(255) NOT NULL, -- e.g. 'Cloud Hosting', 'SMS Gateway', 'Payroll Processing'
+    dpa_signed BOOLEAN DEFAULT FALSE, -- Data Processing Agreement signed?
+    dpa_effective_date DATE,
+    dpa_expiry_date DATE,
+    country_of_processing VARCHAR(100) DEFAULT 'India',
+    is_sub_processor_permitted BOOLEAN DEFAULT FALSE,
+    security_audit_status VARCHAR(100),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (tenant_id, processor_id)
+);
+
+-- Form 11: Third-Party Personal Data Register (TPD ID)
+-- (Covers emergency contacts, nominees, references supplied by another person)
+CREATE TABLE dpdp_third_party_data_registry (
+    tenant_id VARCHAR(64) NOT NULL,
+    tpd_id VARCHAR(32) NOT NULL,
+    primary_principal_id VARCHAR(128) NOT NULL, -- The employee / user who provided the data
+    relationship_type ENUM('EMERGENCY_CONTACT', 'NOMINEE', 'FAMILY_DEPENDENT', 'REFERENCE') NOT NULL,
+    third_party_full_name VARCHAR(255) NOT NULL,
+    third_party_contact_masked VARCHAR(50),
+    is_informed_notice_dispatched BOOLEAN DEFAULT FALSE,
+    notice_dispatched_at TIMESTAMP NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (tenant_id, tpd_id)
+);
+```
+
+3.3 Notice & Dynamic Consent Artifact Registry (Form 13)
+--------------------------------------------------------
+```sql
+-- Form 13: Privacy Notices (NOT ID)
+CREATE TABLE dpdp_notices (
+    tenant_id VARCHAR(64) NOT NULL,
+    notice_id VARCHAR(32) NOT NULL, -- e.g. NOT-01
+    version_tag VARCHAR(20) NOT NULL, -- e.g. 'v1.0.0', 'v2.1.0'
+    language_code VARCHAR(10) DEFAULT 'en', -- e.g. 'en', 'hi', 'mr', 'ta', 'te' (22 Scheduled Languages)
+    notice_title VARCHAR(255) NOT NULL,
+    notice_body_markdown TEXT NOT NULL,
+    dpo_contact_info TEXT NOT NULL,
+    grievance_procedure TEXT NOT NULL,
+    is_active BOOLEAN DEFAULT TRUE,
+    published_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (tenant_id, notice_id, version_tag, language_code)
+);
+
+-- Dynamic Immutable Consent Records (CON ID - Verifiable Audit Trail)
+CREATE TABLE dpdp_consent_records (
+    consent_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    tenant_id VARCHAR(64) NOT NULL,
+    principal_id VARCHAR(128) NOT NULL, -- Unique identifier of Data Principal (User/Employee/Customer)
+    notice_id VARCHAR(32) NOT NULL,
+    notice_version VARCHAR(20) NOT NULL,
+    language_code VARCHAR(10) DEFAULT 'en',
+    consent_status ENUM('GIVEN', 'WITHDRAWN', 'EXPIRED', 'PAUSED') NOT NULL DEFAULT 'GIVEN',
+    ip_address VARCHAR(45) NOT NULL,
+    user_agent TEXT NOT NULL,
+    consent_signature_hash VARCHAR(64) NOT NULL, -- SHA-256 (principal_id + notice_version + timestamp + salt)
+    is_minor BOOLEAN DEFAULT FALSE,
+    guardian_principal_id VARCHAR(128) NULL, -- Required if is_minor is TRUE (Section 9)
+    guardian_verification_proof VARCHAR(255) NULL,
+    given_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    withdrawn_at TIMESTAMP NULL,
+    INDEX idx_principal (tenant_id, principal_id),
+    INDEX idx_status (tenant_id, consent_status)
+);
+
+-- Granular Purpose-Wise Consent Itemization
+CREATE TABLE dpdp_consent_items (
+    item_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    consent_id BIGINT NOT NULL,
+    purpose_id VARCHAR(32) NOT NULL,
+    is_granted BOOLEAN NOT NULL DEFAULT FALSE,
+    granted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (consent_id) REFERENCES dpdp_consent_records(consent_id) ON DELETE CASCADE
+);
+```
+
+3.4 Data Principal Rights (DSR) & Grievance Tickets (Form 13)
+--------------------------------------------------------------
+```sql
+-- Data Principal Rights Requests (DSR Requests - Sections 11, 12, 14)
+CREATE TABLE dpdp_dsr_requests (
+    request_id VARCHAR(64) PRIMARY KEY, -- UUIDv4
+    tenant_id VARCHAR(64) NOT NULL,
+    principal_id VARCHAR(128) NOT NULL,
+    request_type ENUM('RIGHT_TO_ACCESS', 'RIGHT_TO_CORRECTION', 'RIGHT_TO_ERASURE', 'RIGHT_TO_NOMINATE') NOT NULL,
+    request_status ENUM('SUBMITTED', 'IDENTITY_VERIFIED', 'IN_REVIEW', 'ACTION_TAKEN', 'REJECTED_WITH_REASON') NOT NULL DEFAULT 'SUBMITTED',
+    request_payload JSON, -- Details of fields to correct or nominee details
+    rejection_reason TEXT,
+    action_notes TEXT,
+    identity_verified_via VARCHAR(100), -- OTP, Aadhaar eKYC, In-person, Password
+    submitted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    sla_deadline TIMESTAMP NOT NULL, -- Statutory resolution deadline (e.g., 30 days)
+    resolved_at TIMESTAMP NULL,
+    resolved_by_admin_id VARCHAR(64),
+    INDEX idx_dsr_lookup (tenant_id, principal_id, request_status)
+);
+
+-- Grievance Redressal Mechanism (Section 13)
+CREATE TABLE dpdp_grievance_tickets (
+    ticket_id VARCHAR(64) PRIMARY KEY, -- e.g. GRV-2026-0001
+    tenant_id VARCHAR(64) NOT NULL,
+    principal_id VARCHAR(128) NOT NULL,
+    complaint_category ENUM('CONSENT_VIOLATION', 'UNAUTHORIZED_PROCESSING', 'DELAY_IN_DSR', 'SECURITY_CONCERN', 'OTHER') NOT NULL,
+    complaint_summary TEXT NOT NULL,
+    ticket_status ENUM('OPEN', 'ASSIGNED_TO_DPO', 'INVESTIGATING', 'RESOLVED', 'ESCALATED_TO_DPBI') NOT NULL DEFAULT 'OPEN',
+    dpo_response_text TEXT,
+    dpo_assigned_name VARCHAR(255),
+    submitted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    resolved_at TIMESTAMP NULL,
+    INDEX idx_grv_status (tenant_id, ticket_status)
+);
+```
+
+3.5 Security, Access Roles & Audit Trail Registry (Forms 09, 12)
+----------------------------------------------------------------
+```sql
+-- Immutable Audit Log for all PII Access & DSR Actions
+CREATE TABLE dpdp_audit_log (
+    audit_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    tenant_id VARCHAR(64) NOT NULL,
+    actor_id VARCHAR(64) NOT NULL, -- Who performed the action
+    actor_role VARCHAR(64) NOT NULL, -- Admin, Supervisor, Staff, System
+    target_principal_id VARCHAR(128), -- Whose data was touched
+    action_type ENUM('READ_PII', 'UPDATE_PII', 'DECRYPT_PII', 'CONSENT_CHANGE', 'DSR_PROCESS', 'BREACH_ALERT') NOT NULL,
+    accessed_table VARCHAR(100),
+    accessed_fields JSON, -- List of fields e.g. ["aadhaar", "mobile", "salary"]
+    ip_address VARCHAR(45),
+    user_agent TEXT,
+    status ENUM('SUCCESS', 'UNAUTHORIZED', 'BLOCKED_NO_CONSENT') NOT NULL,
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    INDEX idx_audit_principal (tenant_id, target_principal_id),
+    INDEX idx_audit_time (tenant_id, timestamp)
+);
+
+-- Form 12: Security Safeguards & Breach Incident History
+CREATE TABLE dpdp_breach_incidents (
+    incident_id VARCHAR(64) PRIMARY KEY,
+    tenant_id VARCHAR(64) NOT NULL,
+    incident_title VARCHAR(255) NOT NULL,
+    severity_level ENUM('LOW', 'MEDIUM', 'HIGH', 'CRITICAL') NOT NULL,
+    nature_of_breach ENUM('CONFIDENTIALITY_LEAK', 'INTEGRITY_TAMPERING', 'RANSOMWARE_UNAVAILABILITY', 'ACCIDENTAL_EXPOSURE') NOT NULL,
+    estimated_principals_affected INT DEFAULT 0,
+    categories_of_data_leaked TEXT,
+    containment_measures_taken TEXT,
+    reported_to_dpbi BOOLEAN DEFAULT FALSE,
+    dpbi_reported_at TIMESTAMP NULL,
+    principals_notified BOOLEAN DEFAULT FALSE,
+    principals_notified_at TIMESTAMP NULL,
+    discovered_at TIMESTAMP NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+3.6 Retention & Automated Disposal Registry (Form 08)
+-----------------------------------------------------
+```sql
+-- Form 08: Retention Schedule Rules
+CREATE TABLE dpdp_retention_rules (
+    tenant_id VARCHAR(64) NOT NULL,
+    rule_id VARCHAR(32) NOT NULL, -- e.g. RET-01
+    purpose_id VARCHAR(32) NOT NULL,
+    retention_period_days INT NOT NULL,
+    legal_statutory_basis VARCHAR(255) NOT NULL, -- e.g. 'Income Tax Act Sec 44AA (7 years)'
+    trigger_event ENUM('ACCOUNT_CLOSURE', 'CONTRACT_TERMINATION', 'LAST_LOGIN', 'PURPOSE_COMPLETED') NOT NULL,
+    disposal_action ENUM('HARD_DELETE', 'CRYPTOGRAPHIC_SHREDDING', 'ANONYMIZATION') NOT NULL,
+    is_active BOOLEAN DEFAULT TRUE,
+    PRIMARY KEY (tenant_id, rule_id),
+    FOREIGN KEY (tenant_id, purpose_id) REFERENCES dpdp_purposes(tenant_id, purpose_id)
+);
+
+-- Form 08: Disposal Execution Certificates / Logs
+CREATE TABLE dpdp_disposal_log (
+    disposal_id VARCHAR(64) PRIMARY KEY,
+    tenant_id VARCHAR(64) NOT NULL,
+    rule_id VARCHAR(32) NOT NULL,
+    principal_id VARCHAR(128) NOT NULL,
+    disposal_method ENUM('CRYPTOGRAPHIC_ERASURE', 'PHYSICAL_SHREDDING', 'OVERWRITE_ZERO', 'ANONYMIZATION') NOT NULL,
+    records_purged_summary JSON,
+    disposal_certificate_hash VARCHAR(64) NOT NULL, -- Cryptographic proof of erasure
+    executed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+====================================================================================================
+4. DETAILED END-TO-END ARCHITECTURAL FLOWS
+====================================================================================================
+
+4.1 Flow 1: Data Discovery & RoPA Onboarding Workflow
+-----------------------------------------------------
+```
+[Client Project Discovery]
+        |
+        v
++-------------------------------+      1. Scan codebase, ORM schemas, and endpoints.
+| Automated Schema & API Scan   | ---> 2. Identify all tables & columns holding PII.
++---------------+---------------+      3. Categorize fields: Direct Identifiers vs Sensitive.
+                |
+                v
++-------------------------------+      Populate Master RoPA Tables:
+| RoPA Registration Pipeline    | ---> - dpdp_departments & dpdp_business_processes (Form 01)
++---------------+---------------+      - dpdp_data_catalog (Form 02)
+                |                      - dpdp_applications & dpdp_storage_locations (Forms 03, 04)
+                v                      - dpdp_principal_categories & dpdp_purposes (Forms 06, 07)
++-------------------------------+
+| RoPA Approved by Client DPO   | ---> Generates immutable RoPA Snapshot for Regulatory Audits.
++-------------------------------+
+```
+
+4.2 Flow 2: Notice Display & Granular Multilingual Consent Capture
+------------------------------------------------------------------
+Under Sections 5 & 6 of the DPDP Act 2023, consent is invalid if it is bundled, pre-ticked, or vague.
+```
+  [User visits App / Signup]
+              |
+              v
+  +-------------------------------------+
+  | 1. Query Active Notice (/api/notice)| ---> Reads dpdp_notices matching user language (English + 22 languages).
+  +-------------------+-----------------+
+                      |
+                      v
+  +-------------------------------------+
+  | 2. Display Itemized Consent Modal   | ---> Displays granular unbundled toggles:
+  |    [x] Core Service (Mandatory)     |      - Purpose 1: Core account fulfillment (Required)
+  |    [ ] Marketing Email (Optional)   |      - Purpose 2: Analytics & personalization (Optional)
+  |    [ ] Location Tracking (Optional) |      - Purpose 3: Location telemetry (Optional)
+  +-------------------+-----------------+
+                      |
+                      v
+  [User Ticks Options & Submits Form]
+                      |
+                      v
+  +-------------------------------------+
+  | 3. POST /api/dpdp/consent/record    | ---> 1. Extracts IP address, User-Agent, Notice Version.
+  +-------------------+-----------------+      2. Generates cryptographic SHA-256 Consent Signature Hash.
+                      |                        3. Writes to dpdp_consent_records & dpdp_consent_items.
+                      v
+  +-------------------------------------+
+  | 4. Issue Consent Receipt to User    | ---> User receives a tamper-proof digital consent receipt.
+  +-------------------------------------+
+```
+
+4.3 Flow 3: Consent Withdrawal & Cascading Processing Halt
+----------------------------------------------------------
+Under Section 6(4), the Data Principal has the right to withdraw consent with the same ease with 
+which it was given. The consequences must not affect the legality of prior processing.
+```
+  [User Clicks "Withdraw Consent" in Privacy Center]
+                      |
+                      v
+  +-------------------------------------+
+  | 1. POST /api/dpdp/consent/withdraw  |
+  +-------------------+-----------------+
+                      |
+                      v
+  +-------------------------------------+
+  | 2. Update dpdp_consent_records      | ---> Status updated to 'WITHDRAWN', withdrawn_at = NOW().
+  +-------------------+-----------------+
+                      |
+                      v
+  +-------------------------------------+
+  | 3. Dispatch Webhooks & Events       | ---> Dispatches internal event: `DPDP_CONSENT_WITHDRAWN`.
+  +-------------------+-----------------+      - Invalidate cached user sessions for optional features.
+                      |                        - Notify external Data Processors (e.g., mailer, CRM).
+                      v                        - Pause data ingestion pipelines for that principal.
+  +-------------------------------------+
+  | 4. Trigger Retention & Erasure      | ---> Evaluates if data must now be scheduled for disposal
+  |    Evaluation                       |      or retained under statutory obligation (e.g., Tax).
+  +-------------------------------------+
+```
+
+4.4 Flow 4: Verifiable Parental Consent (VPC) for Minors (<18)
+--------------------------------------------------------------
+Section 9 mandates verifiable consent of the parent/lawful guardian before processing children's data, 
+and strictly prohibits tracking, behavioral monitoring, or targeted advertising directed at children.
+```
+  [User Inputs Date of Birth in App]
+                 |
+                 v
+       (Is Age < 18 Years?)
+           /         \
+     (No) /           \ (Yes)
+         v             v
+  [Standard Flow]  [Child Privacy Guard Triggered]
+                       |
+                       v
+  +-------------------------------------+
+  | 1. Freeze Data Collection Pipeline  | ---> Disable all tracking, profiling & analytics SDKs.
+  +-------------------+-----------------+
+                      |
+                      v
+  +-------------------------------------+
+  | 2. Solicit Parent/Guardian Details  | ---> Request Parent Name, Email/Mobile & Relationship Proof.
+  +-------------------+-----------------+
+                      |
+                      v
+  +-------------------------------------+
+  | 3. Dispatch Guardian Verification   | ---> Send secure OTP or digitally signed consent link to parent.
+  +-------------------+-----------------+
+                      |
+                      v
+  +-------------------------------------+
+  | 4. Record Guardian Consent Artifact | ---> Link `guardian_principal_id` in `dpdp_consent_records`.
+  +-------------------------------------+      Processing strictly restricted to core functional services.
+```
+
+4.5 Flow 5: Data Principal Rights (DSR) Self-Service Workflow
+-------------------------------------------------------------
+```
+  [Data Principal submits Request (Access / Correction / Erasure)]
+                                |
+                                v
+  +-------------------------------------------------------------+
+  | 1. POST /api/dpdp/dsr/request                               |
+  |    - Authenticate Data Principal (MFA / Active Session)     |
+  |    - Generate UUIDv4 request_id                             |
+  |    - Set statutory SLA deadline (e.g., 30 Days)             |
+  +-----------------------------+-------------------------------+
+                                |
+       +------------------------+------------------------+
+       |                                                 |
+       v (Type = RIGHT_TO_ACCESS)                        v (Type = RIGHT_TO_ERASURE)
++-------------------------------+              +--------------------------------+
+| Automated Data Aggregator     |              | Legal Hold & Retention Check   |
+| - Queries personal_table      |              | - Check active legal claims?   |
+| - Queries accounts_table      |              | - Check statutory tax tenure?  |
+| - Queries shared processors   |              +---------------+----------------+
+| - Generates Encrypted PDF/JSON|                              |
++---------------+---------------+                   +----------+----------+
+                |                                   |                     |
+                v                             (Hold Exists)         (No Hold)
++-------------------------------+                   v                     v
+| Secure Download Link Released |         [Reject with Statutory] [Execute Automated]
++-------------------------------+         [Written Explanation ]  [Cryptographic    ]
+                                                                  [Erasure Pipeline ]
+```
+
+4.6 Flow 6: Grievance Redressal & DPO Escalation Lifecycle
+----------------------------------------------------------
+Section 13 requires readily available grievance redressal. The Data Principal must exhaust this remedy 
+before approaching the Data Protection Board of India (DPBI).
+```
+[User Submits Grievance] -> [dpdp_grievance_tickets Created] -> [Auto-Assigned to DPO Dashboard]
+                                                                        |
+                                                                        v
+                                                          [DPO Reviews Investigation Log]
+                                                                        |
+                                         +------------------------------+------------------------------+
+                                         |                                                             |
+                                         v (Resolved within SLA)                                       v (Exceeded SLA / Unsatisfied)
+                         [Formal Written Resolution Sent]                              [Data Principal Escalates to]
+                         [Ticket Status = RESOLVED      ]                              [Data Protection Board (DPBI)]
+```
+
+4.7 Flow 7: Automated Retention, Archival & Cryptographic Erasure Engine
+------------------------------------------------------------------------
+```
+  [Daily Daemon Cron Job Executes: 02:00 AM]
+                      |
+                      v
+  +-------------------------------------+
+  | 1. Query dpdp_retention_rules       | ---> Matches `trigger_event` against user activity tables.
+  +-------------------+-----------------+
+                      |
+                      v
+  +-------------------------------------+
+  | 2. Identify Expired Records         | ---> Identifies accounts closed or inactive past statutory tenure.
+  +-------------------+-----------------+
+                      |
+                      v
+  +-------------------------------------+
+  | 3. Execute Irreversible Shredding   | ---> Method A (Hard Delete): `DELETE FROM personal_table WHERE ...`
+  +-------------------+-----------------+      Method B (Cryptographic Erasure): Destroy specific AES user key.
+                      |                        Method C (Anonymization): Overwrite PII with SHA-256 pseudonym.
+                      v
+  +-------------------------------------+
+  | 4. Generate Disposal Certificate    | ---> Writes SHA-256 certificate to `dpdp_disposal_log`.
+  +-------------------------------------+
+```
+
+4.8 Flow 8: Security Breach Detection, Triage & DPBI Notification within 72 Hours
+---------------------------------------------------------------------------------
+Section 8(6) strictly mandates that in the event of a personal data breach, the Data Fiduciary 
+MUST inform both the Data Protection Board of India (DPBI) and every affected Data Principal.
+```
+  [Security Anomaly / Breach Detected]
+                   |
+                   v
+  +-------------------------------------+
+  | 1. Security Incident Logged (Form 12| ---> `dpdp_breach_incidents` created with severity scoring.
+  +-------------------+-----------------+
+                   |
+                   v
+  +-------------------------------------+
+  | 2. Incident Response Triage (0-24 hrs) ---> Determine extent of leak, PII elements compromised.
+  +-------------------+-----------------+
+                   |
+                   v
+  +-------------------------------------+
+  | 3. Notify DPBI (within 72 Hours)    | ---> Secure transmission to DPBI portal containing:
+  +-------------------+-----------------+      - Nature of incident, affected principal count.
+                   |                           - Consequences and containment actions implemented.
+                   v
+  +-------------------------------------+
+  | 4. Direct Notice to Data Principals | ---> Dispatches clear, actionable SMS/Email to affected users:
+  +-------------------------------------+      - Recommendations for self-protection (reset passwords, 2FA).
+```
+
+====================================================================================================
+5. SECURITY, ENCRYPTION & DATA PROTECTION SUBSYSTEM (SECTION 8(5))
+====================================================================================================
+
+5.1 Field-Level Encryption (FLE) at Rest (AES-256-GCM)
+------------------------------------------------------
+All high-risk and critical personal identifiers (Aadhaar, PAN, Bank Account Number, Passport, Health Records) 
+must be encrypted before hitting database storage.
+
+Algorithm: AES-256-GCM (Authenticated Encryption with Associated Data).
+Payload Structure: `iv:auth_tag:ciphertext` (all base64-encoded).
+
+Node.js Implementation Specification:
+```javascript
+const crypto = require("crypto");
+
+const ALGORITHM = "aes-256-gcm";
+const IV_LENGTH = 12; // 96 bits for GCM
+const MASTER_KEY = Buffer.from(process.env.DPDP_MASTER_ENCRYPTION_KEY, "hex"); // 256-bit key
+
+function encryptPII(plainText) {
+  if (!plainText) return null;
+  const iv = crypto.randomBytes(IV_LENGTH);
+  const cipher = crypto.createCipheriv(ALGORITHM, MASTER_KEY, iv);
+  
+  let encrypted = cipher.update(String(plainText), "utf8", "base64");
+  encrypted += cipher.final("base64");
+  const authTag = cipher.getAuthTag().toString("base64");
+
+  // Format: iv:authTag:ciphertext
+  return `${iv.toString("base64")}:${authTag}:${encrypted}`;
+}
+
+function decryptPII(cipherPayload) {
+  if (!cipherPayload || typeof cipherPayload !== "string") return null;
+  const parts = cipherPayload.split(":");
+  if (parts.length !== 3) return cipherPayload; // Fallback if already plaintext
+
+  const [ivB64, tagB64, encryptedB64] = parts;
+  const iv = Buffer.from(ivB64, "base64");
+  const authTag = Buffer.from(tagB64, "base64");
+  
+  const decipher = crypto.createDecipheriv(ALGORITHM, MASTER_KEY, iv);
+  decipher.setAuthTag(authTag);
+  
+  let decrypted = decipher.update(encryptedB64, "base64", "utf8");
+  decrypted += decipher.final("utf8");
+  return decrypted;
+}
+```
+
+5.2 Blind Indexing (HMAC-SHA256) for Searchable Encrypted Fields
+----------------------------------------------------------------
+Problem: When an Aadhaar or Phone number is encrypted with AES-256-GCM, the ciphertext is randomized by the IV. 
+Therefore, queries like `WHERE phone = ?` will fail.
+Solution: Blind Indexing.
+- Compute a deterministic, keyed HMAC-SHA256 hash of the normalized plaintext value.
+- Store this hash in a separate indexed column (e.g., `phone_blind_idx`).
+- To look up a user by phone, compute `HMAC(phone)` and query: `WHERE phone_blind_idx = ?`.
+
+```javascript
+const BLIND_INDEX_SALT = process.env.DPDP_BLIND_INDEX_SECRET || "dpdp-search-salt-2026";
+
+function computeBlindIndex(value) {
+  if (!value) return null;
+  const normalized = String(value).trim().toLowerCase();
+  return crypto.createHmac("sha256", BLIND_INDEX_SALT).update(normalized).digest("hex");
+}
+```
+
+5.3 Role-Based Dynamic Data Masking Middleware
+----------------------------------------------
+Personal data displayed on screens must be masked unless the user has authorized clearance:
+- Aadhaar: `XXXXXXXX1234` (Mask all but last 4 digits)
+- Mobile: `XXXXXX7890` (Mask all but last 4 digits)
+- PAN: `XXXXX1234X` (Mask initial 5 and final 1 character)
+- Email: `a*****r@example.com`
+
+```javascript
+function maskAadhaar(val) {
+  if (!val || val.length < 4) return "XXXXXXXXXXXX";
+  return `XXXXXXXX${val.slice(-4)}`;
+}
+
+function maskMobile(val) {
+  if (!val || val.length < 4) return "XXXXXXXXXX";
+  return `XXXXXX${val.slice(-4)}`;
+}
+
+function maskEmail(email) {
+  if (!email || !email.includes("@")) return "******@domain.com";
+  const [user, domain] = email.split("@");
+  return `${user[0]}*****${user[user.length - 1]}@${domain}`;
+}
+```
+
+====================================================================================================
+6. GENERALIZED REUSABLE BACKEND SDK & MIDDLEWARE DESIGN
+====================================================================================================
+
+6.1 Architecture of the Generalized NPM/Pip Library (`@service-co/dpdp-engine`)
+------------------------------------------------------------------------------
+The reusable package encapsulates all compliance logic into clean, declarative Express middlewares:
+
+```
+@service-co/dpdp-engine/
+├── index.js               # Main package entrypoint
+├── lib/
+│   ├── crypto.js          # AES-256-GCM + Blind Indexing
+│   ├── masking.js         # Dynamic field masking functions
+│   ├── consentGuard.js    # Express middleware verifying active consent
+│   ├── auditLogger.js     # Immutable request/response audit middleware
+│   ├── dsrService.js      # Data Principal Rights processors
+│   └── retentionCron.js   # Automated disposal scheduler
+└── schemas/
+    └── dpdp_tables.sql    # Universal DDL script for client DBs
+```
+
+6.2 Express Middleware Usage Example in Client Projects
+-------------------------------------------------------
+```javascript
+const express = require("express");
+const { 
+  dpdpConsentGuard, 
+  dpdpAuditLogger, 
+  dpdpMasking 
+} = require("@service-co/dpdp-engine");
+
+const app = express();
+app.use(express.json());
+
+// Global DPDP Audit Logger on all API routes
+app.use(dpdpAuditLogger({
+  dbPool: req => req.tenantDB, // Supports dynamic multi-tenant DB pools
+  serviceName: "Client_Portal_API"
+}));
+
+// Route protected by mandatory consent check for PURPOSE: 'EMPLOYEE_MANAGEMENT'
+app.get(
+  "/api/employee/personal-info/:empId",
+  dpdpConsentGuard({ purposeCode: "EMPLOYEE_MANAGEMENT" }),
+  async (req, res) => {
+    const employee = await getEmployeeFromDB(req.params.empId);
+    
+    // Apply dynamic masking if user is not Super Admin
+    if (!req.user.isAdmin) {
+      employee.aadhaar = dpdpMasking.maskAadhaar(employee.aadhaar);
+      employee.mobile = dpdpMasking.maskMobile(employee.mobile);
+    }
+    
+    return res.json(employee);
+  }
+);
+```
+
+6.3 Automatic Consent Verification Interceptor
+----------------------------------------------
+If a Data Principal has withdrawn consent for a specific purpose, the `dpdpConsentGuard` middleware 
+intercepts the request before any controller logic executes, returning HTTP 403 Forbidden:
+```json
+{
+  "error": "CONSENT_WITHDRAWN",
+  "message": "Processing denied: Data Principal has withdrawn consent for purpose: EMPLOYEE_MANAGEMENT",
+  "notice_id": "NOT-01",
+  "renew_consent_url": "/privacy-center/consent?purpose=EMPLOYEE_MANAGEMENT"
+}
+```
+
+====================================================================================================
+7. REST API SPECIFICATIONS & CONTRACTS
+====================================================================================================
+
+7.1 Public & Data Principal Endpoints
+-------------------------------------
+1. `GET /api/dpdp/notice/active?lang=hi`
+   - Description: Retrieves the current active Privacy Notice in the requested language (default English).
+   - Response:
+     ```json
+     {
+       "notice_id": "NOT-01",
+       "version": "v1.2.0",
+       "language": "hi",
+       "title": "गोपनीयता सूचना (Privacy Notice)",
+       "purposes": [
+         { "purpose_id": "PUR-01", "name": "कोर सेवा (Core Service)", "mandatory": true },
+         { "purpose_id": "PUR-02", "name": "अधिसूचना (Notifications)", "mandatory": false }
+       ],
+       "dpo": { "name": "Privacy Officer", "email": "dpo@clientcompany.com" }
+     }
+     ```
+
+2. `POST /api/dpdp/consent/record`
+   - Description: Records a new immutable consent artifact.
+   - Request Body:
+     ```json
+     {
+       "principal_id": "EMP-104",
+       "notice_id": "NOT-01",
+       "notice_version": "v1.2.0",
+       "language": "en",
+       "granted_purposes": ["PUR-01", "PUR-02"],
+       "is_minor": false
+     }
+     ```
+   - Response:
+     ```json
+     {
+       "success": true,
+       "consent_id": 84920,
+       "consent_signature_hash": "a4f8b9...3c9e",
+       "timestamp": "2026-11-23T14:30:00Z"
+     }
+     ```
+
+3. `POST /api/dpdp/consent/withdraw`
+   - Description: Data Principal withdraws consent for one or all optional purposes.
+   - Request Body:
+     ```json
+     {
+       "principal_id": "EMP-104",
+       "purpose_ids": ["PUR-02"]
+     }
+     ```
+
+4. `POST /api/dpdp/dsr/request`
+   - Description: Submits a Data Principal Rights request (Access, Correction, Erasure, Nominate).
+   - Request Body:
+     ```json
+     {
+       "request_type": "RIGHT_TO_ACCESS",
+       "notes": "Requesting comprehensive copy of all personal data held."
+     }
+     ```
+
+5. `POST /api/dpdp/grievance/submit`
+   - Description: Files an official grievance ticket with the DPO.
+
+7.2 Administrative & DPO Endpoints
+----------------------------------
+1. `GET /api/dpdp/admin/ropa-summary` - Full RoPA dashboard overview across Forms 01 to 13.
+2. `GET /api/dpdp/admin/dsr-queue` - Pending DSR requests pending verification or fulfillment.
+3. `POST /api/dpdp/admin/dsr-resolve/:id` - Mark DSR fulfilled or reject with documented statutory grounds.
+4. `POST /api/dpdp/admin/incident/report` - Trigger 72-hour breach response pipeline.
+
+====================================================================================================
+8. FRONTEND & UI/UX IMPLEMENTATION GUIDE
+====================================================================================================
+
+8.1 Granular Consent Modal (React Component Pattern)
+----------------------------------------------------
+```jsx
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+
+export const DPDPNoticeConsentModal = ({ onConsentComplete, language = "en" }) => {
+  const [notice, setNotice] = useState(null);
+  const [consents, setConsents] = useState({});
+
+  useEffect(() => {
+    axios.get(`/api/dpdp/notice/active?lang=${language}`).then(res => {
+      setNotice(res.data);
+      // Mandatory purposes pre-selected; optional unselected by default
+      const initial = {};
+      res.data.purposes.forEach(p => { initial[p.purpose_id] = p.mandatory; });
+      setConsents(initial);
+    });
+  }, [language]);
+
+  const handleSubmit = async () => {
+    const granted = Object.keys(consents).filter(k => consents[k]);
+    await axios.post("/api/dpdp/consent/record", {
+      notice_id: notice.notice_id,
+      notice_version: notice.version,
+      language,
+      granted_purposes: granted
+    });
+    onConsentComplete();
+  };
+
+  if (!notice) return null;
+
+  return (
+    <div className="dpdp-modal-backdrop">
+      <div className="dpdp-modal-card">
+        <h2>{notice.title}</h2>
+        <div className="dpdp-notice-body">{notice.body}</div>
+        
+        <div className="dpdp-purpose-list">
+          {notice.purposes.map(p => (
+            <label key={p.purpose_id} className="dpdp-checkbox-row">
+              <input
+                type="checkbox"
+                checked={consents[p.purpose_id]}
+                disabled={p.mandatory} // Cannot uncheck mandatory core service
+                onChange={e => setConsents({...consents, [p.purpose_id]: e.target.checked})}
+              />
+              <span>{p.name} {p.mandatory && <strong className="required">(Required)</strong>}</span>
+            </label>
+          ))}
+        </div>
+
+        <button onClick={handleSubmit} className="dpdp-submit-btn">
+          I Agree & Continue
+        </button>
+      </div>
+    </div>
+  );
+};
+```
+
+8.2 Self-Service Data Principal Privacy Center
+----------------------------------------------
+Every client application should include a dedicated navigation tab: **Account Settings > Privacy & Data Protection**:
+- Active Consents Tab: View granted permissions with single-click "Withdraw" buttons.
+- My Data (Right to Access): Single-click "Request Data Export" (dispatches a password-protected zip file).
+- Rectification Request: Form to submit corrected official documents.
+- Grievance Redressal Tab: Direct messaging channel with the appointed Data Protection Officer.
+
+====================================================================================================
+9. STEP-BY-STEP CLIENT ONBOARDING & IMPLEMENTATION PLAYBOOK
+====================================================================================================
+
+For each new or existing client project, execute this standardized 5-phase delivery plan:
+
+### Phase 1: Data Discovery & RoPA Ingestion (Week 1)
+1. Run automated schema introspection on client database.
+2. Fill Form 01 (Departments/Processes), Form 02 (Data Catalog), Form 03 (Apps), Form 04 (Storage).
+3. Execute `dpdp_tables.sql` to install compliance schema in client DB.
+4. Populate RoPA baseline tables with verified IDs (DEP, PRO, APP, STR, PII).
+
+### Phase 2: Notice & Consent Layer Activation (Week 2)
+1. Draft tailored Privacy Notice in English and primary regional languages (Form 13).
+2. Insert active notice into `dpdp_notices`.
+3. Embed `DPDPNoticeConsentModal` into user signup and login journeys.
+4. Mount `dpdpConsentGuard` middleware on sensitive backend endpoints.
+
+### Phase 3: Security & Encryption Integration (Week 3)
+1. Generate and securely store 256-bit encryption master key in AWS Secrets Manager / Vault.
+2. Run database migration script to encrypt existing high-risk PII columns (Aadhaar, PAN, Bank details).
+3. Generate HMAC-SHA256 blind index columns for queryable encrypted fields.
+4. Activate dynamic masking middleware for non-administrative roles.
+
+### Phase 4: Data Principal Rights & Grievance Launch (Week 4)
+1. Mount DSR routes (`/api/dpdp/dsr/*`) and Grievance routes (`/api/dpdp/grievance/*`).
+2. Deploy Self-Service Privacy Center widget into client frontend.
+3. Configure DPO email alerts for incoming DSR requests and grievance tickets.
+
+### Phase 5: Retention Automation & Processor Audit (Week 5)
+1. Define retention rules in `dpdp_retention_rules` based on client sector laws (Tax, Labor, Companies Act).
+2. Deploy automated daily retention daemon (cron) to purge or anonymize expired records.
+3. Sign DPDP Data Processing Agreements (DPA) with all third-party processors listed in Form 10.
+4. Conduct incident simulation drill testing the 72-hour DPBI breach reporting protocol.
+
+====================================================================================================
+DOCUMENT SIGN-OFF & REVISION CONTROL
+====================================================================================================
+Status           : APPROVED GENERALIZED ARCHITECTURAL BLUEPRINT
+Version          : 1.0.0
+Framework Owner  : Lead Enterprise Solutions Architect
+Target Baseline  : Digital Personal Data Protection (DPDP) Act 2023, Republic of India
+====================================================================================================

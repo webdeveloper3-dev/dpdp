@@ -1,0 +1,67 @@
+%% ====================================================================
+%% ENTERPRISE GENERALIZED DPDP ENGINE & ARCHITECTURE FLOWS (MERMAID)
+%% Open in: https://mermaid.live or VS Code Mermaid Preview or draw.io
+%% ====================================================================
+
+%% --------------------------------------------------------------------
+%% DIAGRAM 1: 6-LAYER SYSTEM ARCHITECTURE
+%% --------------------------------------------------------------------
+graph TB
+    subgraph L1["Layer 1: Client Application Layer"]
+        WebApp["Client Web App (React / Angular / Vue)"]
+        MobileApp["Client Mobile App (Flutter / React Native)"]
+        AdminPortal["Client Admin / ERP Portal"]
+    end
+
+    subgraph L2["Layer 2: Middleware & Interceptors (@company/dpdp-engine)"]
+        Guard["dpdpConsentGuard (Purpose Check)"]
+        Masker["dpdpMasking (Aadhaar/Mobile Masking)"]
+        Logger["dpdpAuditLogger (Tamper-Proof Audit)"]
+    end
+
+    subgraph L3["Layer 3: Dynamic Notice & Consent Engine"]
+        NoticeRepo["Multilingual Notice Catalog (22 Languages)"]
+        ConsentMgr["Granular Consent Manager (Section 6)"]
+        VPCGuard["Verifiable Parental Consent (Minors <18 - Sec 9)"]
+        Hasher["SHA-256 Digital Receipt Generator"]
+    end
+
+    subgraph L4["Layer 4: Cryptographic Subsystem (Section 8(5))"]
+        AES["AES-256-GCM Field-Level Encryption"]
+        BlindIdx["HMAC-SHA256 Blind Index Engine"]
+        Shredder["Cryptographic Shredding Daemon"]
+    end
+
+    subgraph L5["Layer 5: DSR & Grievance Orchestrator"]
+        DSR["DSR Engine (Access, Correction, Erasure)"]
+        Grievance["Grievance Portal (30-day SLA)"]
+        BreachMgr["72-Hour Breach Triage & DPBI Notifier"]
+    end
+
+    subgraph L6["Layer 6: Persistence Storage"]
+        AppDB[("Core Client Database\n(Encrypted PII + Blind Idx)")]
+        MasterDB[("DPDP Master DB\n(14 RoPA Tables, Receipts, DSR)")]
+        RetentionCron["Nightly 02:00 AM Retention Daemon"]
+    end
+
+    WebApp -->|HTTPS| Guard
+    MobileApp -->|HTTPS| Guard
+    AdminPortal -->|HTTPS| Guard
+
+    Guard --> ConsentMgr
+    Guard --> Masker
+    Guard --> Logger
+
+    ConsentMgr --> Hasher
+    ConsentMgr --> NoticeRepo
+    ConsentMgr --> VPCGuard
+
+    Masker --> AES
+    AES --> AppDB
+    BlindIdx --> AppDB
+
+    DSR --> MasterDB
+    Grievance --> MasterDB
+    BreachMgr --> MasterDB
+    RetentionCron --> MasterDB
+    RetentionCron --> Shredder
