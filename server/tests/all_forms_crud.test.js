@@ -1,6 +1,6 @@
 const assert = require("node:assert");
 const http = require("node:http");
-const { app } = require("../src/server");
+const { app } = require("../server");
 
 async function request(options, data = null) {
   return new Promise((resolve, reject) => {

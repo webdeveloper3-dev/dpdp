@@ -13,12 +13,12 @@
  */
 
 const assert = require("node:assert");
-const aes = require("../src/crypto/aes");
-const blindIndex = require("../src/crypto/blindIndex");
-const masking = require("../src/crypto/masking");
+const aes = require("../utils/aes");
+const blindIndex = require("../utils/blindIndex");
+const masking = require("../utils/masking");
 const db = require("../database/db");
 const seed = require("../database/seed");
-const app = require("../src/app");
+const { app } = require("../server");
 const http = require("node:http");
 
 async function runTests() {
@@ -67,9 +67,9 @@ async function runTests() {
   // 5. Start Server for HTTP Integration Tests
   console.log("TEST 5: Running End-to-End HTTP API Integration Tests...");
   const server = http.createServer(app);
-  await new Promise(resolve => server.listen(0, resolve));
+  await new Promise(resolve => server.listen(0, "127.0.0.1", resolve));
   const port = server.address().port;
-  const baseUrl = `http://localhost:${port}`;
+  const baseUrl = `http://127.0.0.1:${port}`;
 
   try {
     // 5A: Healthcheck

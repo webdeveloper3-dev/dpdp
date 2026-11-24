@@ -2,11 +2,13 @@
   "name": "dpdp-engine-server",
   "version": "1.0.0",
   "description": "Enterprise Generalized DPDP Compliance Microservice & Engine (India DPDP Act 2023)",
-  "main": "src/server.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node src/server.js",
+    "start": "node server.js",
     "seed": "node database/seed.js",
-    "test": "node tests/dpdp.test.js"
+    "db:sync": "node database/sync.js",
+    "test": "node tests/dpdp.test.js",
+    "test:crud": "node tests/all_forms_crud.test.js"
   },
   "keywords": [
     "dpdp",
