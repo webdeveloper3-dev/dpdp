@@ -118,10 +118,13 @@ class RopaService {
     return await db.insert(config.table, record);
   }
 
-  async deleteFormItem(formPath, id) {
+  async deleteFormItem(formPath, id, tenantId = null) {
     const config = FORMS_CONFIG.find(f => f.path === formPath);
     if (!config) throw new Error(`Unknown RoPA form: ${formPath}`);
-    return await db.delete(config.table, item => item[config.idField] === id);
+    return await db.delete(
+      config.table,
+      item => item[config.idField] === id && (!tenantId || item.tenant_id === tenantId)
+    );
   }
 }
 

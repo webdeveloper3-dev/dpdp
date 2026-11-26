@@ -1,6 +1,7 @@
 const assert = require("node:assert");
 const http = require("node:http");
 const { app } = require("../server");
+const db = require("../database/db");
 
 async function request(options, data = null) {
   return new Promise((resolve, reject) => {
@@ -120,13 +121,15 @@ async function run() {
   console.log("  ✅ Form 13 (Notice /all) GET verified");
 
   console.log("\n🎉 ALL CRUD VERIFICATION TESTS PASSED (100% SUCCESS)!");
+  await db.close();
   server.close(() => process.exit(0));
 }
 
 // Start server on 5055
 const server = app.listen(5055, () => {
-  run().catch(err => {
+  run().catch(async err => {
     console.error("Test failed:", err);
+    await db.close();
     server.close(() => process.exit(1));
   });
 });

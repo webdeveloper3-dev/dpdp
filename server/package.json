@@ -7,8 +7,10 @@
     "start": "node server.js",
     "seed": "node database/seed.js",
     "db:sync": "node database/sync.js",
+    "db:migrate": "node database/migrate_to_mysql.js",
     "test": "node tests/dpdp.test.js",
-    "test:crud": "node tests/all_forms_crud.test.js"
+    "test:crud": "node tests/all_forms_crud.test.js",
+    "test:mysql": "node tests/verify_mysql_persistence.test.js"
   },
   "keywords": [
     "dpdp",
@@ -23,6 +25,8 @@
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "mysql2": "^3.24.6",
+    "sequelize": "^6.37.8"
   }
 }

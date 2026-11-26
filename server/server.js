@@ -32,6 +32,9 @@ let serverInstance = null;
 
 async function start(port = config.port) {
   try {
+    // Synchronize with MySQL if configured
+    await db.syncFromMySQL();
+
     // Initial Database Seed check
     const depts = await db.all("dpdp_departments");
     if (depts.length === 0) {

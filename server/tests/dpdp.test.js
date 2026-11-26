@@ -141,10 +141,16 @@ async function runTests() {
 }
 
 if (require.main === module) {
-  runTests().catch(err => {
-    console.error("❌ Test suite failed:", err);
-    process.exit(1);
-  });
+  runTests()
+    .then(async () => {
+      await db.close();
+      process.exit(0);
+    })
+    .catch(async err => {
+      console.error("❌ Test suite failed:", err);
+      await db.close();
+      process.exit(1);
+    });
 }
 
 module.exports = runTests;

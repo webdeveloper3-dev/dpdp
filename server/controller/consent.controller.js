@@ -51,12 +51,18 @@ class ConsentController {
 
   async withdraw(req, res, next) {
     try {
-      const { tenantId = "ASCII_GROUP", principalId, reason } = req.body;
+      const { tenantId, tenant_id, principalId, purposeId = null, reason = null } = req.body;
+      const resolvedTenantId = tenantId || tenant_id || "ASCII_GROUP";
       if (!principalId) {
         return res.status(400).json({ success: false, message: "Missing principalId" });
       }
 
-      const result = await consentService.withdrawConsent({ tenantId, principalId, reason });
+      const result = await consentService.withdrawConsent({
+        tenantId: resolvedTenantId,
+        principalId,
+        purposeId,
+        reason
+      });
       if (!result.found) {
         return res.status(404).json({
           success: false,

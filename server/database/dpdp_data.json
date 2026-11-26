@@ -3,9 +3,9 @@
     "dpdp_clients": [
       {
         "tenant_id": "ASCII_GROUP",
-        "client_name": "ASCII Online Solutions",
+        "client_name": "ASCII Trail-Delegation ERP",
         "entity_name": "ASCII Online Solutions Pvt. Ltd.",
-        "industry": "Enterprise Software & Cloud Services",
+        "industry": "Enterprise ERP (HR, Payroll, Attendance & Task Delegation)",
         "cin": "U72900MH2020PTC345678",
         "pan": "AAACA1234D",
         "dpo_name": "Gopal Gawas (Chief Compliance Officer)",
@@ -13,85 +13,45 @@
         "dpo_phone": "+91 98200 11223",
         "api_key": "dpdp_live_ascii_master_key_2026",
         "status": "ACTIVE",
-        "created_at": "2026-11-24T18:52:58.372Z"
-      },
-      {
-        "tenant_id": "APEX_HEALTHCARE",
-        "client_name": "Apex Multi-Speciality Hospitals",
-        "entity_name": "Apex Healthcare & Research Institute Ltd.",
-        "industry": "Healthcare & Pharmaceuticals",
-        "cin": "U85110MH2018PLC301122",
-        "pan": "AAACA5678K",
-        "dpo_name": "Dr. Sunita Kulkarni (Medical Legal DPO)",
-        "dpo_email": "dpo@apexhospital.org",
-        "dpo_phone": "+91 98222 44556",
-        "api_key": "dpdp_live_apex_health_key_2026",
-        "status": "ACTIVE",
-        "created_at": "2026-11-24T18:52:58.396Z"
-      },
-      {
-        "tenant_id": "BHARAT_RETAIL",
-        "client_name": "Bharat Mart Retail",
-        "entity_name": "Bharat Mart E-Commerce India Ltd.",
-        "industry": "Retail & Consumer Goods",
-        "cin": "U52100MH2019PLC298765",
-        "pan": "BBBCB4321E",
-        "dpo_name": "Adv. Rahul Verma",
-        "dpo_email": "privacy@bharatmart.in",
-        "dpo_phone": "+91 98111 88990",
-        "api_key": "dpdp_live_bharat_mart_key_2026",
-        "status": "ACTIVE",
-        "created_at": "2026-11-24T18:52:58.401Z"
+        "created_at": "2026-11-25T01:38:09.000Z"
       }
     ],
     "dpdp_departments": [
       {
         "tenant_id": "ASCII_GROUP",
         "department_id": "DEP-01",
-        "department_name": "Human Resources & Talent Acquisition",
+        "department_name": "Core HR, PIM & Employee Onboarding",
         "department_head_name": "Ramesh Sharma",
         "department_head_email": "hr@asciionline.com",
-        "created_at": "2026-11-24T18:52:58.374Z"
+        "created_at": "2026-11-25T01:38:09.000Z",
+        "updated_at": "2026-11-25T01:38:09.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
         "department_id": "DEP-02",
-        "department_name": "Finance, Taxation & Payroll",
+        "department_name": "Payroll, Accounts & Statutory Filings",
         "department_head_name": "Anita Deshmukh",
         "department_head_email": "accounts@asciionline.com",
-        "created_at": "2026-11-24T18:52:58.374Z"
+        "created_at": "2026-11-25T01:38:09.000Z",
+        "updated_at": "2026-11-25T01:38:09.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
         "department_id": "DEP-03",
-        "department_name": "Cloud Infrastructure & Cybersecurity",
+        "department_name": "Attendance, Leave & Field Operations",
+        "department_head_name": "Vikram Kulkarni",
+        "department_head_email": "ops@asciionline.com",
+        "created_at": "2026-11-25T01:38:09.000Z",
+        "updated_at": "2026-11-25T01:38:09.000Z"
+      },
+      {
+        "tenant_id": "ASCII_GROUP",
+        "department_id": "DEP-04",
+        "department_name": "Task Delegation, Activity Tracker & IT Security",
         "department_head_name": "Tejas Sawant",
         "department_head_email": "infosec@asciionline.com",
-        "created_at": "2026-11-24T18:52:58.375Z"
-      },
-      {
-        "tenant_id": "APEX_HEALTHCARE",
-        "department_id": "DEP-01",
-        "department_name": "Outpatient Department (OPD) & Admissions",
-        "department_head_name": "Dr. Vikram Joshi",
-        "department_head_email": "opd@apexhospital.org",
-        "created_at": "2026-11-24T18:52:58.397Z"
-      },
-      {
-        "tenant_id": "APEX_HEALTHCARE",
-        "department_id": "DEP-02",
-        "department_name": "Pathology, Diagnostics & Imaging",
-        "department_head_name": "Dr. Meena Iyer",
-        "department_head_email": "lab@apexhospital.org",
-        "created_at": "2026-11-24T18:52:58.397Z"
-      },
-      {
-        "tenant_id": "BHARAT_RETAIL",
-        "department_id": "DEP-01",
-        "department_name": "Logistics, Delivery & Fulfillment",
-        "department_head_name": "Kunal Bansal",
-        "department_head_email": "logistics@bharatmart.in",
-        "created_at": "2026-11-24T18:52:58.402Z"
+        "created_at": "2026-11-25T01:38:09.000Z",
+        "updated_at": "2026-11-25T01:38:09.000Z"
       }
     ],
     "dpdp_business_processes": [
@@ -99,147 +59,170 @@
         "tenant_id": "ASCII_GROUP",
         "process_id": "PRO-01",
         "department_id": "DEP-01",
-        "process_name": "Candidate Recruitment & Background Verification",
-        "process_description": "Screening resumes, collecting Aadhaar/PAN for background checks, reference calls",
+        "process_name": "Employee Onboarding, KYC & PIM Profile (personal_table, contact_table)",
+        "process_description": "Collecting employee identity, contact, address, education, work experience, emergency contacts & dependents",
         "risk_level": "HIGH",
-        "created_at": "2026-11-24T18:52:58.375Z"
+        "created_at": "2026-11-25T01:38:09.000Z",
+        "updated_at": "2026-11-25T01:38:09.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
         "process_id": "PRO-02",
         "department_id": "DEP-02",
-        "process_name": "Monthly Salary Disbursement & PF Tax Compliance",
-        "process_description": "Direct bank ACH transfers, Provident Fund (PF) deposits, Form 16 TDS generation",
+        "process_name": "Monthly Payroll Runs, Payslips & PF/ESIC (accounts_table, payroll_runs)",
+        "process_description": "Salary structure calculation, bank ACH payouts, Aadhaar/PAN verification, PF & Form 16 TDS compliance",
         "risk_level": "CRITICAL",
-        "created_at": "2026-11-24T18:52:58.376Z"
+        "created_at": "2026-11-25T01:38:09.000Z",
+        "updated_at": "2026-11-25T01:38:09.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
         "process_id": "PRO-03",
         "department_id": "DEP-03",
-        "process_name": "Identity & Access Management (IAM)",
-        "process_description": "Single Sign-On (SSO), VPN MFA logs, workstation telemetry monitoring",
-        "risk_level": "MEDIUM",
-        "created_at": "2026-11-24T18:52:58.376Z"
+        "process_name": "Biometric Selfie, GPS Attendance & Medical Leaves (attendance_table, leaves_2025)",
+        "process_description": "Geofenced punch-in lat/long, selfie verification, sick leave medical certificates in Medicals/",
+        "risk_level": "HIGH",
+        "created_at": "2026-11-25T01:38:09.000Z",
+        "updated_at": "2026-11-25T01:38:09.000Z"
       },
       {
-        "tenant_id": "APEX_HEALTHCARE",
-        "process_id": "PRO-01",
-        "department_id": "DEP-01",
-        "process_name": "Patient Intake, EMR & Medical History",
-        "process_description": "Recording symptoms, historical diagnosis, surgical records, blood group",
-        "risk_level": "CRITICAL",
-        "created_at": "2026-11-24T18:52:58.398Z"
+        "tenant_id": "ASCII_GROUP",
+        "process_id": "PRO-04",
+        "department_id": "DEP-04",
+        "process_name": "Task Delegation, Daily Reports & Multi-Tenant Auth (auth_table, erp_activity_log)",
+        "process_description": "JWT authentication, role allocation, task delegation notifications, daily report submissions & audit logs",
+        "risk_level": "MEDIUM",
+        "created_at": "2026-11-25T01:38:09.000Z",
+        "updated_at": "2026-11-25T01:38:09.000Z"
       }
     ],
     "dpdp_applications": [
       {
         "tenant_id": "ASCII_GROUP",
         "app_id": "APP-01",
-        "app_name": "ASCII HRMS & Attendance Web Portal",
+        "app_name": "Trail-Delegation ERP Web Portal (erp_web_updated)",
         "app_type": "WEB_APP",
-        "hosting_environment": "AWS Mumbai (ap-south-1)",
+        "hosting_environment": "Cloud / On-Premise Node + React",
         "data_residency_country": "India",
-        "is_active": true,
-        "created_at": "2026-11-24T18:52:58.379Z"
+        "is_active": 1,
+        "created_at": "2026-11-25T01:38:09.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
         "app_id": "APP-02",
-        "app_name": "ASCII Employee Mobile App (Flutter)",
+        "app_name": "Trail-Delegation Mobile App (erp_mobile_app / Expo)",
         "app_type": "MOBILE_APP",
-        "hosting_environment": "Google Cloud Mumbai",
+        "hosting_environment": "Android / iOS + Express API",
         "data_residency_country": "India",
-        "is_active": true,
-        "created_at": "2026-11-24T18:52:58.379Z"
+        "is_active": 1,
+        "created_at": "2026-11-25T01:38:09.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
         "app_id": "APP-03",
-        "app_name": "Master Financial Ledger PostgreSQL",
-        "app_type": "DATABASE",
-        "hosting_environment": "AWS Mumbai (ap-south-1)",
+        "app_name": "Trail-Delegation Admin & Tenant Portal (portal)",
+        "app_type": "WEB_APP",
+        "hosting_environment": "Internal Admin Network",
         "data_residency_country": "India",
-        "is_active": true,
-        "created_at": "2026-11-24T18:52:58.380Z"
+        "is_active": 1,
+        "created_at": "2026-11-25T01:38:09.000Z"
+      },
+      {
+        "tenant_id": "ASCII_GROUP",
+        "app_id": "APP-04",
+        "app_name": "Trail-Delegation Express Backend API (Server/index.js)",
+        "app_type": "API_SERVICE",
+        "hosting_environment": "Node.js Express + Socket.IO",
+        "data_residency_country": "India",
+        "is_active": 1,
+        "created_at": "2026-11-25T01:38:09.000Z"
       }
     ],
     "dpdp_storage_locations": [
       {
         "tenant_id": "ASCII_GROUP",
-        "storage_id": "STR-01",
-        "storage_name": "Production PostgreSQL RDS Cluster",
+        "storage_id": "STO-01",
+        "storage_name": "Master Auth & Tenant Routing MySQL (dbConnection1.js)",
         "storage_type": "SQL_DATABASE",
-        "geographic_location": "AWS Mumbai (ap-south-1)",
+        "geographic_location": "India (MySQL Host)",
         "encryption_at_rest": "AES_256_GCM",
-        "access_control_mechanism": "RBAC_LEAST_PRIVILEGE",
-        "created_at": "2026-11-24T18:52:58.380Z"
+        "access_control_mechanism": "JWT_AND_RBAC_MIDDLEWARE",
+        "created_at": "2026-11-25T01:38:09.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
-        "storage_id": "STR-02",
-        "storage_name": "Employee KYC Documents S3 Bucket",
-        "storage_type": "OBJECT_STORAGE_S3",
-        "geographic_location": "AWS Mumbai (ap-south-1)",
-        "encryption_at_rest": "KMS_MANAGED",
-        "access_control_mechanism": "IAM_ROLE_POLICIES",
-        "created_at": "2026-11-24T18:52:58.381Z"
+        "storage_id": "STO-02",
+        "storage_name": "Per-Tenant ERP MySQL Databases (Services/getTenantDb.js)",
+        "storage_type": "SQL_DATABASE",
+        "geographic_location": "India (Isolated Tenant DBs)",
+        "encryption_at_rest": "AES_256_GCM",
+        "access_control_mechanism": "ENTITY_ID_POOL_ISOLATION",
+        "created_at": "2026-11-25T01:38:09.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
-        "storage_id": "STR-03",
-        "storage_name": "Physical HR Archive Cupboard (HR-Room-B)",
+        "storage_id": "STO-03",
+        "storage_name": "ERP Media & KYC File Folders (Server/Uploads, Medicals, DailyReportFiles)",
         "storage_type": "FILE_SERVER",
-        "geographic_location": "ASCII Office Pune (Physical Lock & Key)",
-        "encryption_at_rest": "NONE",
-        "access_control_mechanism": "BIOMETRIC_DOOR_ACCESS",
-        "created_at": "2026-11-24T18:52:58.381Z"
+        "geographic_location": "India (Local / Server Volume)",
+        "encryption_at_rest": "OS_LEVEL_ENCRYPTION",
+        "access_control_mechanism": "AUTH_MIDDLEWARE_PROTECTED",
+        "created_at": "2026-11-25T01:38:09.000Z"
       }
     ],
     "dpdp_collection_points": [
       {
         "tenant_id": "ASCII_GROUP",
         "point_id": "COL-01",
-        "point_name": "Employee Self-Service Onboarding Portal",
+        "point_name": "ERP Web My Info & Employee Onboarding (erp_web_updated)",
         "channel_type": "WEB_PORTAL",
-        "is_notice_displayed": true,
-        "is_active": true,
-        "created_at": "2026-11-24T18:52:58.382Z"
+        "is_notice_displayed": 1,
+        "is_active": 1,
+        "created_at": "2026-11-25T01:38:09.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
         "point_id": "COL-02",
-        "point_name": "Careers Job Application Page",
-        "channel_type": "WEB_PORTAL",
-        "is_notice_displayed": true,
-        "is_active": true,
-        "created_at": "2026-11-24T18:52:58.383Z"
+        "point_name": "ERP Mobile Biometric Selfie & GPS Punch-In (erp_mobile_app)",
+        "channel_type": "MOBILE_APP",
+        "is_notice_displayed": 1,
+        "is_active": 1,
+        "created_at": "2026-11-25T01:38:09.000Z"
+      },
+      {
+        "tenant_id": "ASCII_GROUP",
+        "point_id": "COL-03",
+        "point_name": "Bulk Employee CSV Import (insertCSVDataWIthCredentials.js)",
+        "channel_type": "INTERNAL_IMPORT",
+        "is_notice_displayed": 1,
+        "is_active": 1,
+        "created_at": "2026-11-25T01:38:09.000Z"
       }
     ],
     "dpdp_principal_categories": [
       {
         "tenant_id": "ASCII_GROUP",
         "category_id": "DPR-01",
-        "category_name": "Full-Time Employees & Contractors",
-        "is_minor_category": false,
-        "special_safeguards_required": false,
-        "created_at": "2026-11-24T18:52:58.383Z"
+        "category_name": "Full-Time Employees & Supervisors",
+        "is_minor_category": 0,
+        "special_safeguards_required": 0,
+        "created_at": "2026-11-25T01:38:09.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
         "category_id": "DPR-02",
-        "category_name": "Job Candidates & Applicants",
-        "is_minor_category": false,
-        "special_safeguards_required": false,
-        "created_at": "2026-11-24T18:52:58.384Z"
+        "category_name": "Contractors, Interns & Job Applicants",
+        "is_minor_category": 0,
+        "special_safeguards_required": 0,
+        "created_at": "2026-11-25T01:38:09.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
         "category_id": "DPR-03",
-        "category_name": "Minor Dependents of Staff (< 18 Years)",
-        "is_minor_category": true,
-        "special_safeguards_required": true,
-        "created_at": "2026-11-24T18:52:58.384Z"
+        "category_name": "Employee Minor Dependents (< 18 Years, Sec 9)",
+        "is_minor_category": 1,
+        "special_safeguards_required": 1,
+        "created_at": "2026-11-25T01:38:09.000Z"
       }
     ],
     "dpdp_data_catalog": [
@@ -247,113 +230,123 @@
         "tenant_id": "ASCII_GROUP",
         "item_id": "CAT-01",
         "process_id": "PRO-02",
-        "data_element_name": "Aadhaar Card Number",
+        "data_element_name": "Aadhaar Number (accounts_table.adhar)",
         "classification_level": "CRITICAL",
         "storage_format": "ENCRYPTED_TEXT",
-        "has_blind_index": true,
-        "created_at": "2026-11-24T18:52:58.376Z"
+        "has_blind_index": 1,
+        "created_at": "2026-11-25T01:38:09.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
         "item_id": "CAT-02",
         "process_id": "PRO-02",
-        "data_element_name": "Bank Account & IFSC Number",
+        "data_element_name": "PAN Card Number (accounts_table.pan_card)",
         "classification_level": "CRITICAL",
         "storage_format": "ENCRYPTED_TEXT",
-        "has_blind_index": false,
-        "created_at": "2026-11-24T18:52:58.377Z"
+        "has_blind_index": 1,
+        "created_at": "2026-11-25T01:38:09.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
         "item_id": "CAT-03",
-        "process_id": "PRO-01",
-        "data_element_name": "Mobile Phone Number",
-        "classification_level": "HIGH",
+        "process_id": "PRO-02",
+        "data_element_name": "Bank Account, IFSC & PF Number (accounts_table)",
+        "classification_level": "CRITICAL",
         "storage_format": "ENCRYPTED_TEXT",
-        "has_blind_index": true,
-        "created_at": "2026-11-24T18:52:58.378Z"
+        "has_blind_index": 0,
+        "created_at": "2026-11-25T01:38:09.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
         "item_id": "CAT-04",
-        "process_id": "PRO-01",
-        "data_element_name": "PAN Card Number",
+        "process_id": "PRO-03",
+        "data_element_name": "Biometric Punch Selfies & Profile Photo (Uploads/)",
         "classification_level": "CRITICAL",
         "storage_format": "ENCRYPTED_TEXT",
-        "has_blind_index": true,
-        "created_at": "2026-11-24T18:52:58.378Z"
+        "has_blind_index": 0,
+        "created_at": "2026-11-25T01:38:09.000Z"
       },
       {
-        "tenant_id": "APEX_HEALTHCARE",
-        "item_id": "CAT-01",
-        "process_id": "PRO-01",
-        "data_element_name": "Diagnostic Blood Test Reports",
-        "classification_level": "CRITICAL",
-        "storage_format": "ENCRYPTED_TEXT",
-        "has_blind_index": false,
-        "created_at": "2026-11-24T18:52:58.399Z"
-      },
-      {
-        "tenant_id": "APEX_HEALTHCARE",
-        "item_id": "CAT-02",
-        "process_id": "PRO-01",
-        "data_element_name": "Patient Mobile & WhatsApp Alert Number",
+        "tenant_id": "ASCII_GROUP",
+        "item_id": "CAT-05",
+        "process_id": "PRO-03",
+        "data_element_name": "Punch-In GPS Lat/Long Coordinates (attendance_table)",
         "classification_level": "HIGH",
         "storage_format": "ENCRYPTED_TEXT",
-        "has_blind_index": true,
-        "created_at": "2026-11-24T18:52:58.399Z"
+        "has_blind_index": 0,
+        "created_at": "2026-11-25T01:38:09.000Z"
+      },
+      {
+        "tenant_id": "ASCII_GROUP",
+        "item_id": "CAT-06",
+        "process_id": "PRO-01",
+        "data_element_name": "Mobile, Alternate Phone & Email (contact_table)",
+        "classification_level": "HIGH",
+        "storage_format": "ENCRYPTED_TEXT",
+        "has_blind_index": 1,
+        "created_at": "2026-11-25T01:38:09.000Z"
+      },
+      {
+        "tenant_id": "ASCII_GROUP",
+        "item_id": "CAT-07",
+        "process_id": "PRO-03",
+        "data_element_name": "Blood Group & Sick Leave Medical Certificates (Medicals/)",
+        "classification_level": "CRITICAL",
+        "storage_format": "ENCRYPTED_TEXT",
+        "has_blind_index": 0,
+        "created_at": "2026-11-25T01:38:09.000Z"
+      },
+      {
+        "tenant_id": "ASCII_GROUP",
+        "item_id": "CAT-08",
+        "process_id": "PRO-01",
+        "data_element_name": "Emergency Contacts & Dependent Info (dependent_info)",
+        "classification_level": "MEDIUM",
+        "storage_format": "ENCRYPTED_TEXT",
+        "has_blind_index": 0,
+        "created_at": "2026-11-25T01:38:09.000Z"
       }
     ],
     "dpdp_purposes": [
       {
         "tenant_id": "ASCII_GROUP",
         "purpose_id": "PUR-01",
-        "purpose_code": "CORE_SERVICE",
-        "purpose_description": "Providing employee intranet access, email accounts, and identity authentication",
+        "purpose_code": "ERP_AUTH_DELEGATION",
+        "purpose_description": "ERP login (auth_table), role-based access, task delegation & daily report tracking",
         "lawful_basis": "EXPLICIT_CONSENT",
-        "is_mandatory": true,
+        "is_mandatory": 1,
         "retention_period_months": 36,
-        "created_at": "2026-11-24T18:52:58.385Z"
+        "created_at": "2026-11-25T01:38:09.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
         "purpose_id": "PUR-02",
-        "purpose_code": "PAYROLL_COMPLIANCE",
-        "purpose_description": "Statutory payroll disbursement, PF, and Form 16 TDS compliance under Indian law",
+        "purpose_code": "PAYROLL_STATUTORY_PF_TDS",
+        "purpose_description": "Monthly salary disbursement, payslips, PF/ESIC & Form 16 TDS (accounts_table, payroll_runs)",
         "lawful_basis": "EMPLOYMENT_SEC_7I",
-        "is_mandatory": true,
+        "is_mandatory": 1,
         "retention_period_months": 84,
-        "created_at": "2026-11-24T18:52:58.386Z"
+        "created_at": "2026-11-25T01:38:09.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
         "purpose_id": "PUR-03",
-        "purpose_code": "OPTIONAL_HEALTH_BENEFITS",
-        "purpose_description": "Enrollment in optional corporate health insurance, gym, and wellness allowances",
+        "purpose_code": "ATTENDANCE_BIOMETRIC_GPS",
+        "purpose_description": "Punch-in selfie verification & geofenced GPS attendance tracking (attendance_table)",
         "lawful_basis": "EXPLICIT_CONSENT",
-        "is_mandatory": false,
-        "retention_period_months": 24,
-        "created_at": "2026-11-24T18:52:58.386Z"
+        "is_mandatory": 0,
+        "retention_period_months": 3,
+        "created_at": "2026-11-25T01:38:09.000Z"
       },
       {
-        "tenant_id": "APEX_HEALTHCARE",
-        "purpose_id": "PUR-01",
-        "purpose_code": "MEDICAL_TREATMENT",
-        "purpose_description": "Providing diagnosis, clinical care, lab tests, and doctor consultations",
+        "tenant_id": "ASCII_GROUP",
+        "purpose_id": "PUR-04",
+        "purpose_code": "MEDICAL_LEAVE_WELFARE",
+        "purpose_description": "Sick leave medical certificates (Medicals/) & emergency contact / dependent welfare",
         "lawful_basis": "CERTAIN_LEGITIMATE_USES_SEC_7",
-        "is_mandatory": true,
-        "retention_period_months": 120,
-        "created_at": "2026-11-24T18:52:58.400Z"
-      },
-      {
-        "tenant_id": "BHARAT_RETAIL",
-        "purpose_id": "PUR-01",
-        "purpose_code": "ORDER_FULFILLMENT",
-        "purpose_description": "Processing payments, delivering orders to shipping addresses, and SMS tracking",
-        "lawful_basis": "EXPLICIT_CONSENT",
-        "is_mandatory": true,
-        "retention_period_months": 60,
-        "created_at": "2026-11-24T18:52:58.403Z"
+        "is_mandatory": 0,
+        "retention_period_months": 12,
+        "created_at": "2026-11-25T01:38:09.000Z"
       }
     ],
     "dpdp_notices": [
@@ -362,128 +355,206 @@
         "notice_id": "NOT-01",
         "version_tag": "v1.0",
         "language_code": "en",
-        "notice_title": "ASCII Online Solutions Privacy Notice (DPDP Act 2023)",
-        "notice_body_markdown": "ASCII processes personal data for delivering contracted IT services, fulfilling employee payroll obligations, and ensuring system security in compliance with the Digital Personal Data Protection Act 2023. You have the right to access your personal data, request correction or erasure, and designate a legal nominee.",
+        "notice_title": "ASCII Trail-Delegation ERP Privacy Notice (DPDP Act 2023)",
+        "notice_body_markdown": "ASCII Trail-Delegation ERP processes employee KYC (Aadhaar, PAN, Bank Account), biometric/GPS attendance, leave medical records, and task delegation logs strictly for HR, payroll, and workplace operations under the Digital Personal Data Protection Act 2023. You may view your data, request correction or erasure, withdraw optional consents, or nominate a representative under Section 14.",
         "dpo_name": "Gopal Gawas",
         "dpo_email": "compliance@asciionline.com",
         "dpo_phone": "+91 98200 11223",
-        "is_active": true,
-        "created_at": "2026-11-24T18:52:58.392Z"
+        "is_active": 1,
+        "created_at": "2026-11-25T01:38:09.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
         "notice_id": "NOT-01",
         "version_tag": "v1.0",
         "language_code": "hi",
-        "notice_title": "ASCII ऑनलाइन सॉल्यूशंस गोपनीयता सूचना (DPDP अधिनियम 2023)",
-        "notice_body_markdown": "ASCII आईटी सेवाएं प्रदान करने, कर्मचारी पेरोल दायित्वों को पूरा करने और DPDP अधिनियम 2023 के तहत सिस्टम सुरक्षा बनाए रखने के लिए व्यक्तिगत डेटा संसाधित करता है। आपको अपने डेटा तक पहुँचने, सुधार या हटाने का अनुरोध करने का अधिकार है।",
+        "notice_title": "ASCII Trail-Delegation ERP गोपनीयता सूचना (DPDP अधिनियम 2023)",
+        "notice_body_markdown": "ASCII Trail-Delegation ERP कर्मचारी KYC (आधार, पैन, बैंक खाता), बायोमेट्रिक/GPS उपस्थिति, अवकाश और कार्य प्रबंधन के लिए DPDP अधिनियम 2023 के तहत व्यक्तिगत डेटा संसाधित करता है। आपको डेटा देखने, सुधारने, हटाने या वैकल्पिक सहमति वापस लेने का अधिकार है।",
         "dpo_name": "गोपाल गावस",
         "dpo_email": "compliance@asciionline.com",
         "dpo_phone": "+91 98200 11223",
-        "is_active": true,
-        "created_at": "2026-11-24T18:52:58.393Z"
+        "is_active": 1,
+        "created_at": "2026-11-25T01:38:09.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
         "notice_id": "NOT-01",
         "version_tag": "v1.0",
         "language_code": "mr",
-        "notice_title": "ASCII ऑनलाइन सोल्युशन्स गोपनीयता सूचना (DPDP कायदा २०२३)",
-        "notice_body_markdown": "ASCII करारबद्ध आयटी सेवा देण्यासाठी, कर्मचारी पेरोल पूर्ण करण्यासाठी आणि डिजिटल वैयक्तिक डेटा संरक्षण कायदा २०२३ अंतर्गत प्रणाली सुरक्षित ठेवण्यासाठी डेटा वापरते.",
+        "notice_title": "ASCII Trail-Delegation ERP गोपनीयता सूचना (DPDP कायदा २०२३)",
+        "notice_body_markdown": "ASCII Trail-Delegation ERP कर्मचारी KYC (आधार, पॅन, बँक खाते), बायोमेट्रिक/GPS हजेरी आणि पेरोलसाठी DPDP कायदा २०२३ अंतर्गत वैयक्तिक डेटा प्रक्रिया करते. तुम्ही तुमचा डेटा पाहू शकता, दुरुस्त करू शकता किंवा ऐच्छिक संमती मागे घेऊ शकता.",
         "dpo_name": "गोपाल गावस",
         "dpo_email": "compliance@asciionline.com",
         "dpo_phone": "+91 98200 11223",
-        "is_active": true,
-        "created_at": "2026-11-24T18:52:58.393Z"
-      },
-      {
-        "tenant_id": "APEX_HEALTHCARE",
-        "notice_id": "NOT-01",
-        "version_tag": "v1.0",
-        "language_code": "en",
-        "notice_title": "Apex Hospital Patient Privacy Notice (DPDP Act 2023)",
-        "notice_body_markdown": "Apex Hospitals processes medical records strictly for patient care and legal healthcare mandates under the DPDP Act 2023. You have the right to access your medical records and designate a legal healthcare nominee.",
-        "dpo_name": "Dr. Sunita Kulkarni",
-        "dpo_email": "dpo@apexhospital.org",
-        "dpo_phone": "+91 98222 44556",
-        "is_active": true,
-        "created_at": "2026-11-24T18:52:58.401Z"
-      },
-      {
-        "tenant_id": "BHARAT_RETAIL",
-        "notice_id": "NOT-01",
-        "version_tag": "v1.0",
-        "language_code": "en",
-        "notice_title": "Bharat Mart Customer Privacy Notice",
-        "notice_body_markdown": "We respect your privacy under the Indian DPDP Act 2023. We collect delivery addresses and payment details only to fulfill your orders. You can withdraw marketing consent at any time.",
-        "dpo_name": "Adv. Rahul Verma",
-        "dpo_email": "privacy@bharatmart.in",
-        "dpo_phone": "+91 98111 88990",
-        "is_active": true,
-        "created_at": "2026-11-24T18:52:58.404Z"
+        "is_active": 1,
+        "created_at": "2026-11-25T01:38:09.000Z"
       }
     ],
     "dpdp_consent_records": [
       {
+        "consent_id": 1,
         "tenant_id": "ASCII_GROUP",
         "principal_id": "EMP_1001",
         "notice_id": "NOT-01",
         "notice_version": "v1.0",
-        "consent_status": "GIVEN",
+        "consent_status": "WITHDRAWN",
         "ip_address": "103.22.45.10",
-        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/126.0",
+        "user_agent": "Trail-Delegation ERP Web/1.0",
         "consent_signature_hash": "a3f5c71b98de24a1b8c0e2f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5",
-        "is_minor": false,
-        "given_at": "2026-11-21T18:52:58.394Z",
-        "consent_id": 1,
-        "created_at": "2026-11-24T18:52:58.394Z"
+        "is_minor": 0,
+        "guardian_principal_id": null,
+        "given_at": "2026-11-25T01:38:09.000Z",
+        "withdrawn_at": "2026-11-25T01:46:42.000Z",
+        "withdrawal_reason": null
       },
       {
+        "consent_id": 3,
         "tenant_id": "ASCII_GROUP",
-        "principal_id": "TEST_USER_1795546378507",
+        "principal_id": "USER_9594",
         "notice_id": "NOT-01",
         "notice_version": "v1.0",
-        "consent_status": "WITHDRAWN",
+        "consent_status": "GIVEN",
         "ip_address": "127.0.0.1",
-        "user_agent": "node",
-        "consent_signature_hash": "30934baace7c5b7c99b8988c6a72165a27ffc49f5114cd59f0ea0e4e0d56f513",
-        "is_minor": false,
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+        "consent_signature_hash": "0ec7ca14d40b2e187eb42d909850911fbb4453e2a488fc4741fba04406c44f3a",
+        "is_minor": 0,
         "guardian_principal_id": null,
-        "given_at": "2026-11-24T18:52:58.536Z",
-        "withdrawn_at": "2026-11-24T18:52:58.549Z",
-        "consent_id": 2,
-        "created_at": "2026-11-24T18:52:58.536Z",
-        "updated_at": "2026-11-24T18:52:58.549Z"
+        "given_at": "2026-11-25T01:46:29.000Z",
+        "withdrawn_at": null,
+        "withdrawal_reason": null
+      },
+      {
+        "consent_id": 4,
+        "tenant_id": "ASCII_GROUP",
+        "principal_id": "USER_0898",
+        "notice_id": "NOT-01",
+        "notice_version": "v1.0",
+        "consent_status": "GIVEN",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+        "consent_signature_hash": "ba004041798977d253911f002b52078cd1bf635bb93f9298c4bc0376c07bf9bc",
+        "is_minor": 0,
+        "guardian_principal_id": null,
+        "given_at": "2026-11-25T01:47:10.000Z",
+        "withdrawn_at": null,
+        "withdrawal_reason": null
+      },
+      {
+        "consent_id": 5,
+        "tenant_id": "ASCII_GROUP",
+        "principal_id": "MINOR_USER_99",
+        "notice_id": "NOT-01",
+        "notice_version": "v1.0",
+        "consent_status": "GIVEN",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+        "consent_signature_hash": "80ddf00bad9e80c2869bd4e474d1622fb80434716d81f6e377543a09418aed53",
+        "is_minor": 1,
+        "guardian_principal_id": "GUARDIAN_testtttt",
+        "given_at": "2026-11-25T03:07:26.000Z",
+        "withdrawn_at": null,
+        "withdrawal_reason": null
       }
     ],
     "dpdp_consent_items": [
       {
-        "consent_id": 2,
-        "purpose_id": "PUR-01",
-        "is_granted": false,
         "item_id": 1,
-        "created_at": "2026-11-24T18:52:58.537Z",
-        "updated_at": "2026-11-24T18:52:58.550Z"
+        "consent_id": 1,
+        "purpose_id": "PUR-01",
+        "is_granted": 0,
+        "created_at": "2026-11-25T01:46:42.000Z"
       },
       {
-        "consent_id": 2,
-        "purpose_id": "PUR-02",
-        "is_granted": false,
         "item_id": 2,
-        "created_at": "2026-11-24T18:52:58.537Z",
-        "updated_at": "2026-11-24T18:52:58.550Z"
+        "consent_id": 1,
+        "purpose_id": "PUR-02",
+        "is_granted": 0,
+        "created_at": "2026-11-25T01:46:42.000Z"
+      },
+      {
+        "item_id": 3,
+        "consent_id": 1,
+        "purpose_id": "PUR-03",
+        "is_granted": 0,
+        "created_at": "2026-11-25T01:46:42.000Z"
+      },
+      {
+        "item_id": 6,
+        "consent_id": 3,
+        "purpose_id": "PUR-01",
+        "is_granted": 1,
+        "created_at": "2026-11-25T01:46:29.000Z"
+      },
+      {
+        "item_id": 7,
+        "consent_id": 3,
+        "purpose_id": "PUR-02",
+        "is_granted": 1,
+        "created_at": "2026-11-25T01:46:29.000Z"
+      },
+      {
+        "item_id": 8,
+        "consent_id": 3,
+        "purpose_id": "PUR-03",
+        "is_granted": 1,
+        "created_at": "2026-11-25T01:46:29.000Z"
+      },
+      {
+        "item_id": 9,
+        "consent_id": 4,
+        "purpose_id": "PUR-01",
+        "is_granted": 1,
+        "created_at": "2026-11-25T01:47:10.000Z"
+      },
+      {
+        "item_id": 10,
+        "consent_id": 4,
+        "purpose_id": "PUR-02",
+        "is_granted": 0,
+        "created_at": "2026-11-25T01:47:10.000Z"
+      },
+      {
+        "item_id": 11,
+        "consent_id": 4,
+        "purpose_id": "PUR-03",
+        "is_granted": 0,
+        "created_at": "2026-11-25T01:47:10.000Z"
+      },
+      {
+        "item_id": 12,
+        "consent_id": 5,
+        "purpose_id": "PUR-01",
+        "is_granted": 1,
+        "created_at": "2026-11-25T03:07:26.000Z"
+      },
+      {
+        "item_id": 13,
+        "consent_id": 5,
+        "purpose_id": "PUR-02",
+        "is_granted": 1,
+        "created_at": "2026-11-25T03:07:26.000Z"
+      },
+      {
+        "item_id": 14,
+        "consent_id": 5,
+        "purpose_id": "PUR-03",
+        "is_granted": 0,
+        "created_at": "2026-11-25T03:07:26.000Z"
       }
     ],
     "dpdp_dsr_requests": [
       {
         "request_id": "DSR-9012",
         "tenant_id": "ASCII_GROUP",
-        "principal_id": "USER_GUEST_99",
-        "request_type": "RIGHT_TO_ERASURE",
+        "principal_id": "EMP_1001",
+        "request_type": "RIGHT_TO_ACCESS",
         "request_status": "SUBMITTED",
-        "sla_deadline": "2026-12-21T18:52:58.395Z",
-        "submitted_at": "2026-11-24T18:52:58.395Z",
-        "created_at": "2026-11-24T18:52:58.395Z"
+        "rejection_reason": null,
+        "export_file_url": null,
+        "sla_deadline": "2026-12-22T01:38:09.000Z",
+        "submitted_at": "2026-11-25T01:38:09.000Z",
+        "resolved_at": null,
+        "details": null
       }
     ],
     "dpdp_grievance_tickets": [
@@ -491,11 +562,12 @@
         "ticket_id": "GRV-3310",
         "tenant_id": "ASCII_GROUP",
         "principal_id": "EMP_1001",
-        "complaint_summary": "Requesting confirmation that marketing email notifications have ceased following my opt-out.",
+        "complaint_summary": "Requesting confirmation of 90-day selfie retention purge in attendance_table.",
         "ticket_status": "OPEN",
-        "sla_deadline": "2026-12-23T18:52:58.396Z",
-        "submitted_at": "2026-11-24T18:52:58.396Z",
-        "created_at": "2026-11-24T18:52:58.396Z"
+        "dpo_response_text": null,
+        "sla_deadline": "2026-12-24T01:38:09.000Z",
+        "submitted_at": "2026-11-25T01:38:09.000Z",
+        "resolved_at": null
       }
     ],
     "dpdp_retention_rules": [
@@ -503,19 +575,31 @@
         "tenant_id": "ASCII_GROUP",
         "rule_id": "RET-01",
         "purpose_id": "PUR-03",
-        "retention_period_days": 730,
-        "trigger_event": "CONTRACT_TERMINATION",
+        "retention_period_days": 90,
+        "trigger_event": "PUNCH_CAPTURE",
         "disposal_action": "CRYPTOGRAPHIC_SHREDDING",
-        "created_at": "2026-11-24T18:52:58.387Z"
+        "legal_hold_justification": null,
+        "created_at": "2026-11-25T01:38:09.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
         "rule_id": "RET-02",
         "purpose_id": "PUR-02",
         "retention_period_days": 2555,
-        "trigger_event": "CONTRACT_TERMINATION",
+        "trigger_event": "EMPLOYEE_EXIT",
+        "disposal_action": "ANONYMIZE_AND_ARCHIVE",
+        "legal_hold_justification": null,
+        "created_at": "2026-11-25T01:38:09.000Z"
+      },
+      {
+        "tenant_id": "ASCII_GROUP",
+        "rule_id": "RET-03",
+        "purpose_id": "PUR-04",
+        "retention_period_days": 365,
+        "trigger_event": "LEAVE_APPROVAL",
         "disposal_action": "HARD_DELETE",
-        "created_at": "2026-11-24T18:52:58.388Z"
+        "legal_hold_justification": null,
+        "created_at": "2026-11-25T01:38:09.000Z"
       }
     ],
     "dpdp_disposal_log": [],
@@ -524,42 +608,51 @@
       {
         "tenant_id": "ASCII_GROUP",
         "matrix_id": "ACC-01",
-        "role_name": "HR Recruiter",
-        "data_element": "Aadhaar / Mobile",
+        "role_name": "HR / Supervisor",
+        "data_element": "Aadhaar, Mobile & Attendance GPS",
         "access_permission": "READ_MASKED",
-        "justification": "Candidate screening requires identity verification without revealing full numbers",
-        "created_at": "2026-11-24T18:52:58.388Z"
+        "justification": "Operational supervision & attendance verification without exposing raw Aadhaar/mobile",
+        "created_at": "2026-11-25T01:38:09.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
         "matrix_id": "ACC-02",
-        "role_name": "Payroll Manager",
-        "data_element": "Bank Details / PAN",
+        "role_name": "Payroll & Accounts Officer",
+        "data_element": "Bank Account, IFSC, PAN & Salary",
         "access_permission": "READ_UNMASKED",
-        "justification": "Mandatory statutory processing for salary bank ACH batches",
-        "created_at": "2026-11-24T18:52:58.389Z"
+        "justification": "Mandatory statutory processing for salary ACH & PF/TDS filings (logged in erp_activity_log)",
+        "created_at": "2026-11-25T01:38:09.000Z"
+      },
+      {
+        "tenant_id": "ASCII_GROUP",
+        "matrix_id": "ACC-03",
+        "role_name": "Super Admin / Entity Admin",
+        "data_element": "All Employee PII",
+        "access_permission": "READ_MASKED",
+        "justification": "System administration with audit-logged elevation required for unmasked view",
+        "created_at": "2026-11-25T01:38:09.000Z"
       }
     ],
     "dpdp_data_processors": [
       {
         "tenant_id": "ASCII_GROUP",
         "processor_id": "PROC-01",
-        "processor_name": "Razorpay Software Pvt. Ltd.",
-        "service_provided": "Salary Payouts & Expense Reimbursements",
-        "dpa_signed": true,
-        "data_shared_categories": "Bank Account, IFSC, Beneficiary Name",
-        "country_hosted": "India",
-        "created_at": "2026-11-24T18:52:58.389Z"
+        "processor_name": "Google Firebase Cloud Messaging (firebaseKey.json)",
+        "service_provided": "Mobile Push Notifications for Task Delegation & Leave Alerts",
+        "dpa_signed": 1,
+        "data_shared_categories": "Device FCM Token, Task Title, Employee ID",
+        "country_hosted": "India / Global Cloud",
+        "created_at": "2026-11-25T01:38:09.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
         "processor_id": "PROC-02",
-        "processor_name": "Amazon Web Services India",
-        "service_provided": "Cloud Infrastructure Hosting & KMS",
-        "dpa_signed": true,
-        "data_shared_categories": "Encrypted Application Data at Rest",
+        "processor_name": "SMTP / Nodemailer Email Relay (sendEmailController.js)",
+        "service_provided": "Payslip Delivery, Password Reset & Attendance Alerts",
+        "dpa_signed": 1,
+        "data_shared_categories": "Employee Email, Name, Notification Subject",
         "country_hosted": "India",
-        "created_at": "2026-11-24T18:52:58.390Z"
+        "created_at": "2026-11-25T01:38:09.000Z"
       }
     ],
     "dpdp_third_party_data": [
@@ -568,35 +661,44 @@
         "third_party_id": "TPD-01",
         "principal_id": "EMP_1001",
         "nominee_name": "Sunita Gawas",
-        "relationship": "Spouse",
+        "relationship": "Spouse (Emergency Contact & Sec 14 Nominee)",
         "contact_phone": "+91 98200 44332",
-        "created_at": "2026-11-24T18:52:58.390Z"
+        "created_at": "2026-11-25T01:38:09.000Z"
       }
     ],
     "dpdp_security_safeguards": [
       {
         "tenant_id": "ASCII_GROUP",
         "safeguard_id": "SAF-01",
-        "safeguard_title": "AES-256-GCM Field-Level Encryption at Rest",
+        "safeguard_title": "AES-256-GCM Encryption & HMAC-SHA256 Blind Index (accounts_table)",
         "control_type": "ENCRYPTION_AT_REST",
         "implementation_status": "DEPLOYED",
-        "audit_frequency": "ANNUAL",
-        "created_at": "2026-11-24T18:52:58.391Z"
+        "audit_frequency": "CONTINUOUS",
+        "created_at": "2026-11-25T01:38:09.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
         "safeguard_id": "SAF-02",
-        "safeguard_title": "Role-Based Dynamic Masking Middleware",
+        "safeguard_title": "JWT Auth & Per-Tenant DB Pool Isolation (Middleware/auth.js)",
         "control_type": "ACCESS_CONTROL",
         "implementation_status": "DEPLOYED",
         "audit_frequency": "CONTINUOUS",
-        "created_at": "2026-11-24T18:52:58.391Z"
+        "created_at": "2026-11-25T01:38:09.000Z"
+      },
+      {
+        "tenant_id": "ASCII_GROUP",
+        "safeguard_id": "SAF-03",
+        "safeguard_title": "PII Access & Export Audit Trail (erp_activity_log)",
+        "control_type": "AUDIT_LOGGING",
+        "implementation_status": "DEPLOYED",
+        "audit_frequency": "CONTINUOUS",
+        "created_at": "2026-11-25T01:38:09.000Z"
       }
     ]
   },
   "autoInc": {
     "dpdp_consent_records": 3,
-    "dpdp_consent_items": 3,
+    "dpdp_consent_items": 6,
     "dpdp_disposal_log": 1
   }
 }

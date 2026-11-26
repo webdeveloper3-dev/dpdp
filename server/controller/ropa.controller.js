@@ -39,7 +39,8 @@ class RopaController {
   async deleteFormItem(req, res, next) {
     try {
       const { formPath, id } = req.params;
-      const count = await ropaService.deleteFormItem(formPath, id);
+      const tenantId = req.query.tenant_id || null;
+      const count = await ropaService.deleteFormItem(formPath, id, tenantId);
       return res.json({ success: true, count, message: `Deleted ${id}` });
     } catch (err) {
       next(err);

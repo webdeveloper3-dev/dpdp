@@ -8,7 +8,7 @@ router.post("/demo-encrypt", (req, res, next) => cryptoController.demoEncrypt(re
 
 router.get(
   "/protected-data/:principalId",
-  dpdpConsentGuard({ purposeCode: "CORE_SERVICE" }),
+  dpdpConsentGuard({ purposeCode: "ERP_AUTH_DELEGATION" }),
   (req, res, next) => cryptoController.getProtectedData(req, res, next)
 );
 

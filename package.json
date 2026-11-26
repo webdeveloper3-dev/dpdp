@@ -5,8 +5,14 @@
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",
+    "start:client": "npm --prefix client run dev",
+    "dev:client": "npm --prefix client run dev",
     "dev": "nodemon server/server.js",
-    "test": "node server/tests/dpdp.test.js"
+    "test": "node server/tests/dpdp.test.js",
+    "test:crud": "node server/tests/all_forms_crud.test.js",
+    "test:mysql": "node server/tests/verify_mysql_persistence.test.js",
+    "db:sync": "node server/database/sync.js",
+    "db:migrate": "node server/database/migrate_to_mysql.js"
   },
   "keywords": [
     "nodejs",
