@@ -27,14 +27,60 @@ CREATE TABLE IF NOT EXISTS dpdp_clients (
 );
 
 -- ----------------------------------------------------------------------------------------------------
+-- TABLE 0B: ENTITIES / ORGANISATION PROFILES (Form 01, Part A)
+-- ----------------------------------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS dpdp_entities (
+    tenant_id VARCHAR(64) NOT NULL,
+    entity_id VARCHAR(32) NOT NULL,
+    entity_name VARCHAR(255) NOT NULL,
+    entity_type VARCHAR(60) DEFAULT 'Company',
+    registered_address TEXT,
+    head_name VARCHAR(150),
+    head_designation VARCHAR(150),
+    handles_minors_under_18 VARCHAR(20) DEFAULT 'No',
+    privacy_contact_person VARCHAR(255),
+    outsourced_agencies TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (tenant_id, entity_id),
+    FOREIGN KEY (tenant_id) REFERENCES dpdp_clients(tenant_id) ON DELETE CASCADE
+);
+
+-- ----------------------------------------------------------------------------------------------------
+-- TABLE 0C: OPERATING COMPANIES / BRANCHES / UNITS (Under Entity)
+-- ----------------------------------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS dpdp_companies (
+    tenant_id VARCHAR(64) NOT NULL,
+    company_id VARCHAR(32) NOT NULL,
+    entity_id VARCHAR(32) NOT NULL,
+    company_name VARCHAR(255) NOT NULL,
+    cin VARCHAR(50),
+    pan VARCHAR(20),
+    branch_locations TEXT,
+    staff_permanent INT DEFAULT 0,
+    staff_contract INT DEFAULT 0,
+    staff_outsourced INT DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (tenant_id, company_id),
+    FOREIGN KEY (tenant_id) REFERENCES dpdp_clients(tenant_id) ON DELETE CASCADE
+);
+
+-- ----------------------------------------------------------------------------------------------------
 -- TABLE 1: DEPARTMENTS & FUNCTIONAL DIVISIONS (Form 01, Part B)
 -- ----------------------------------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS dpdp_departments (
     tenant_id VARCHAR(64) NOT NULL,
     department_id VARCHAR(32) NOT NULL,
+    entity_id VARCHAR(32),
+    company_id VARCHAR(32),
     department_name VARCHAR(255) NOT NULL,
     department_head_name VARCHAR(150),
     department_head_email VARCHAR(255),
+    staff_count INT,
+    locations VARCHAR(255),
+    handles_personal_data VARCHAR(20) DEFAULT 'Yes',
+    uses_external_vendors TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (tenant_id, department_id),
@@ -42,14 +88,39 @@ CREATE TABLE IF NOT EXISTS dpdp_departments (
 );
 
 -- ----------------------------------------------------------------------------------------------------
--- TABLE 2: BUSINESS PROCESSES & WORKFLOWS (Form 01, Part C)
+-- TABLE 1C: ORGANISATIONAL FUNCTIONS CHECKLIST (Form 01, Part C)
+-- ----------------------------------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS dpdp_functions (
+    tenant_id VARCHAR(64) NOT NULL,
+    function_id VARCHAR(32) NOT NULL,
+    entity_id VARCHAR(32),
+    company_id VARCHAR(32),
+    department_id VARCHAR(32) NOT NULL,
+    function_name VARCHAR(255) NOT NULL,
+    exists_flag BOOLEAN DEFAULT TRUE,
+    remarks TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (tenant_id, function_id),
+    FOREIGN KEY (tenant_id) REFERENCES dpdp_clients(tenant_id) ON DELETE CASCADE
+);
+
+-- ----------------------------------------------------------------------------------------------------
+-- TABLE 2: BUSINESS PROCESSES & WORKFLOWS (Form 01, Part D)
 -- ----------------------------------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS dpdp_business_processes (
     tenant_id VARCHAR(64) NOT NULL,
     process_id VARCHAR(32) NOT NULL,
+    entity_id VARCHAR(32),
+    company_id VARCHAR(32),
     department_id VARCHAR(32) NOT NULL,
+    function_id VARCHAR(32),
     process_name VARCHAR(255) NOT NULL,
     process_description TEXT,
+    frequency VARCHAR(50) DEFAULT 'Daily',
+    format VARCHAR(30) DEFAULT 'Digital',
+    involves_personal_data VARCHAR(20) DEFAULT 'Yes',
+    other_departments VARCHAR(255),
     risk_level VARCHAR(20) DEFAULT 'MEDIUM', -- LOW, MEDIUM, HIGH, CRITICAL
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,

@@ -18,9 +18,21 @@ const BusinessProcess = sequelize.define(
       primaryKey: true,
       allowNull: false
     },
+    entity_id: {
+      type: DataTypes.STRING(32),
+      allowNull: true
+    },
+    company_id: {
+      type: DataTypes.STRING(32),
+      allowNull: true
+    },
     department_id: {
       type: DataTypes.STRING(32),
       allowNull: false
+    },
+    function_id: {
+      type: DataTypes.STRING(32),
+      allowNull: true
     },
     process_name: {
       type: DataTypes.STRING(255),
@@ -28,6 +40,22 @@ const BusinessProcess = sequelize.define(
     },
     process_description: {
       type: DataTypes.TEXT,
+      allowNull: true
+    },
+    frequency: {
+      type: DataTypes.STRING(50),
+      defaultValue: "Daily"
+    },
+    format: {
+      type: DataTypes.STRING(30),
+      defaultValue: "Digital"
+    },
+    involves_personal_data: {
+      type: DataTypes.STRING(20),
+      defaultValue: "Yes"
+    },
+    other_departments: {
+      type: DataTypes.STRING(255),
       allowNull: true
     },
     risk_level: {

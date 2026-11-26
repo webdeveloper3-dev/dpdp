@@ -53,7 +53,10 @@ async function migrate() {
 
     const tableOrder = [
       "dpdp_clients",
+      "dpdp_entities",
+      "dpdp_companies",
       "dpdp_departments",
+      "dpdp_functions",
       "dpdp_business_processes",
       "dpdp_applications",
       "dpdp_storage_locations",

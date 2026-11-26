@@ -27,6 +27,55 @@ async function request(options, data = null) {
 async function run() {
   console.log("🔍 Testing All 13 Forms CRUD Endpoints on Port 5055...");
 
+  // Form 01: Generalized Entity -> Company -> Function
+  const postEnt = await request({
+    hostname: "localhost",
+    port: 5055,
+    path: "/api/dpdp/ropa/entity",
+    method: "POST",
+    headers: { "Content-Type": "application/json" }
+  }, {
+    tenant_id: "ASCII_GROUP",
+    entity_id: "ENT-TEST-99",
+    entity_name: "Test Entity Pvt Ltd",
+    entity_type: "Company"
+  });
+  assert.strictEqual(postEnt.status, 201);
+  console.log("  ✅ Form 01 (Entity) POST verified");
+
+  const delEnt = await request({
+    hostname: "localhost",
+    port: 5055,
+    path: "/api/dpdp/ropa/entity/ENT-TEST-99?tenant_id=ASCII_GROUP",
+    method: "DELETE"
+  });
+  assert.strictEqual(delEnt.status, 200);
+  console.log("  ✅ Form 01 (Entity) DELETE verified");
+
+  const postCmp = await request({
+    hostname: "localhost",
+    port: 5055,
+    path: "/api/dpdp/ropa/company",
+    method: "POST",
+    headers: { "Content-Type": "application/json" }
+  }, {
+    tenant_id: "ASCII_GROUP",
+    company_id: "CMP-TEST-99",
+    entity_id: "ENT-01",
+    company_name: "Test Branch Unit"
+  });
+  assert.strictEqual(postCmp.status, 201);
+  console.log("  ✅ Form 01 (Company) POST verified");
+
+  const delCmp = await request({
+    hostname: "localhost",
+    port: 5055,
+    path: "/api/dpdp/ropa/company/CMP-TEST-99?tenant_id=ASCII_GROUP",
+    method: "DELETE"
+  });
+  assert.strictEqual(delCmp.status, 200);
+  console.log("  ✅ Form 01 (Company) DELETE verified");
+
   // Form 03: Application
   const postApp = await request({
     hostname: "localhost",

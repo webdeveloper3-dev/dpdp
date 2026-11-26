@@ -13,7 +13,137 @@
         "dpo_phone": "+91 98200 11223",
         "api_key": "dpdp_live_ascii_master_key_2026",
         "status": "ACTIVE",
-        "created_at": "2026-11-25T01:38:09.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z"
+      },
+      {
+        "tenant_id": "ST_PETER_SCHOOL",
+        "client_name": "St. Peter School",
+        "entity_name": "St. Peter Educational Trust",
+        "industry": "School & Education",
+        "cin": "TRUST-MH-2008-4512",
+        "pan": "AABTS4512K",
+        "dpo_name": "Fr. Thomas D'Souza (Principal & DPO)",
+        "dpo_email": "privacy@stpeterschool.edu.in",
+        "dpo_phone": "+91 98210 55443",
+        "api_key": "dpdp_live_st_peter_school_2026",
+        "status": "ACTIVE",
+        "created_at": "2026-11-25T23:30:17.000Z"
+      }
+    ],
+    "dpdp_entities": [
+      {
+        "tenant_id": "ASCII_GROUP",
+        "entity_id": "ENT-01",
+        "entity_name": "ASCII Online Solutions Pvt. Ltd.",
+        "entity_type": "Company",
+        "registered_address": "Pune & Mumbai Operations Hub, Maharashtra, India",
+        "head_name": "Gopal Gawas",
+        "head_designation": "Chief Compliance Officer & Director",
+        "handles_minors_under_18": "Yes",
+        "privacy_contact_person": "Gopal Gawas (compliance@asciionline.com)",
+        "outsourced_agencies": "Google Firebase (FCM Push), SMTP Relay, Cloud Hosting",
+        "created_at": "2026-11-25T23:30:17.000Z",
+        "updated_at": "2026-11-25T23:30:17.000Z"
+      },
+      {
+        "tenant_id": "ASCII_GROUP",
+        "entity_id": "ENT-02",
+        "entity_name": "St Peter School",
+        "entity_type": "Company",
+        "registered_address": "Mumbai",
+        "head_name": "NA",
+        "head_designation": "",
+        "handles_minors_under_18": "No",
+        "privacy_contact_person": "NA",
+        "outsourced_agencies": "",
+        "created_at": "2026-11-25T23:17:40.000Z",
+        "updated_at": "2026-11-25T23:17:40.000Z"
+      },
+      {
+        "tenant_id": "ST_PETER_SCHOOL",
+        "entity_id": "ENT-01",
+        "entity_name": "St. Peter Educational Trust",
+        "entity_type": "Trust",
+        "registered_address": "St. Peter Road, Bandra West, Mumbai, Maharashtra",
+        "head_name": "Fr. Thomas D'Souza",
+        "head_designation": "Principal & Managing Trustee",
+        "handles_minors_under_18": "Yes",
+        "privacy_contact_person": "Fr. Thomas D'Souza (privacy@stpeterschool.edu.in)",
+        "outsourced_agencies": "School Bus Transport Contractor, Razorpay Fee Gateway",
+        "created_at": "2026-11-25T23:30:17.000Z",
+        "updated_at": "2026-11-25T23:30:17.000Z"
+      }
+    ],
+    "dpdp_companies": [
+      {
+        "tenant_id": "ASCII_GROUP",
+        "company_id": "CMP-01",
+        "entity_id": "ENT-01",
+        "company_name": "ASCII Trail-Delegation ERP — Head Office",
+        "cin": "U72900MH2020PTC345678",
+        "pan": "AAACA1234D",
+        "branch_locations": "Pune HQ, Mumbai Branch",
+        "staff_permanent": 85,
+        "staff_contract": 20,
+        "staff_outsourced": 10,
+        "created_at": "2026-11-25T23:30:17.000Z",
+        "updated_at": "2026-11-25T23:30:17.000Z"
+      },
+      {
+        "tenant_id": "ASCII_GROUP",
+        "company_id": "CMP-02",
+        "entity_id": "ENT-01",
+        "company_name": "ASCII ERP Client Support & Field Unit",
+        "cin": "U72900MH2020PTC345678",
+        "pan": "AAACA1234D",
+        "branch_locations": "Mumbai Regional Desk",
+        "staff_permanent": 25,
+        "staff_contract": 12,
+        "staff_outsourced": 5,
+        "created_at": "2026-11-25T23:30:17.000Z",
+        "updated_at": "2026-11-25T23:30:17.000Z"
+      },
+      {
+        "tenant_id": "ASCII_GROUP",
+        "company_id": "CMP-03",
+        "entity_id": "ENT-02",
+        "company_name": "panchgani",
+        "cin": "na",
+        "pan": "",
+        "branch_locations": "na",
+        "staff_permanent": 0,
+        "staff_contract": 0,
+        "staff_outsourced": 0,
+        "created_at": "2026-11-25T23:18:06.000Z",
+        "updated_at": "2026-11-25T23:18:06.000Z"
+      },
+      {
+        "tenant_id": "ST_PETER_SCHOOL",
+        "company_id": "CMP-01",
+        "entity_id": "ENT-01",
+        "company_name": "St. Peter Primary & High School (Main Campus)",
+        "cin": "UDISE-272301001",
+        "pan": "AABTS4512K",
+        "branch_locations": "Main Campus, Bandra West",
+        "staff_permanent": 65,
+        "staff_contract": 12,
+        "staff_outsourced": 8,
+        "created_at": "2026-11-25T23:30:17.000Z",
+        "updated_at": "2026-11-25T23:30:17.000Z"
+      },
+      {
+        "tenant_id": "ST_PETER_SCHOOL",
+        "company_id": "CMP-02",
+        "entity_id": "ENT-01",
+        "company_name": "St. Peter Junior College & Transport Wing",
+        "cin": "UDISE-272301002",
+        "pan": "AABTS4512K",
+        "branch_locations": "Annex Building & Bus Yard",
+        "staff_permanent": 22,
+        "staff_contract": 6,
+        "staff_outsourced": 14,
+        "created_at": "2026-11-25T23:30:17.000Z",
+        "updated_at": "2026-11-25T23:30:17.000Z"
       }
     ],
     "dpdp_departments": [
@@ -23,8 +153,14 @@
         "department_name": "Core HR, PIM & Employee Onboarding",
         "department_head_name": "Ramesh Sharma",
         "department_head_email": "hr@asciionline.com",
-        "created_at": "2026-11-25T01:38:09.000Z",
-        "updated_at": "2026-11-25T01:38:09.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z",
+        "updated_at": "2026-11-25T23:30:17.000Z",
+        "entity_id": "ENT-01",
+        "company_id": "CMP-01",
+        "staff_count": 14,
+        "locations": "Pune HQ",
+        "handles_personal_data": "Yes",
+        "uses_external_vendors": "Background Verification Agency"
       },
       {
         "tenant_id": "ASCII_GROUP",
@@ -32,8 +168,14 @@
         "department_name": "Payroll, Accounts & Statutory Filings",
         "department_head_name": "Anita Deshmukh",
         "department_head_email": "accounts@asciionline.com",
-        "created_at": "2026-11-25T01:38:09.000Z",
-        "updated_at": "2026-11-25T01:38:09.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z",
+        "updated_at": "2026-11-25T23:30:17.000Z",
+        "entity_id": "ENT-01",
+        "company_id": "CMP-01",
+        "staff_count": 10,
+        "locations": "Pune HQ",
+        "handles_personal_data": "Yes",
+        "uses_external_vendors": "Banking ACH / PF Portal"
       },
       {
         "tenant_id": "ASCII_GROUP",
@@ -41,8 +183,14 @@
         "department_name": "Attendance, Leave & Field Operations",
         "department_head_name": "Vikram Kulkarni",
         "department_head_email": "ops@asciionline.com",
-        "created_at": "2026-11-25T01:38:09.000Z",
-        "updated_at": "2026-11-25T01:38:09.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z",
+        "updated_at": "2026-11-25T23:30:17.000Z",
+        "entity_id": "ENT-01",
+        "company_id": "CMP-02",
+        "staff_count": 30,
+        "locations": "Pune HQ & Mumbai Branch",
+        "handles_personal_data": "Yes",
+        "uses_external_vendors": "None"
       },
       {
         "tenant_id": "ASCII_GROUP",
@@ -50,8 +198,214 @@
         "department_name": "Task Delegation, Activity Tracker & IT Security",
         "department_head_name": "Tejas Sawant",
         "department_head_email": "infosec@asciionline.com",
-        "created_at": "2026-11-25T01:38:09.000Z",
-        "updated_at": "2026-11-25T01:38:09.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z",
+        "updated_at": "2026-11-25T23:30:17.000Z",
+        "entity_id": "ENT-01",
+        "company_id": "CMP-01",
+        "staff_count": 22,
+        "locations": "Pune HQ",
+        "handles_personal_data": "Yes",
+        "uses_external_vendors": "Google Firebase FCM, SMTP Email Relay"
+      },
+      {
+        "tenant_id": "ASCII_GROUP",
+        "department_id": "DEP-05",
+        "department_name": "Accounts",
+        "department_head_name": "xyz",
+        "department_head_email": "web.developer3@cumballahillhighschool.org",
+        "created_at": "2026-11-25T23:27:17.000Z",
+        "updated_at": "2026-11-25T23:27:17.000Z",
+        "entity_id": "ENT-02",
+        "company_id": "CMP-03",
+        "staff_count": 0,
+        "locations": "",
+        "handles_personal_data": "Yes",
+        "uses_external_vendors": ""
+      },
+      {
+        "tenant_id": "ASCII_GROUP",
+        "department_id": "DEP-06",
+        "department_name": "IT",
+        "department_head_name": "zyx",
+        "department_head_email": "web.developer3@cumballahillhighschool.org",
+        "created_at": "2026-11-25T23:27:31.000Z",
+        "updated_at": "2026-11-25T23:27:31.000Z",
+        "entity_id": "ENT-02",
+        "company_id": "CMP-03",
+        "staff_count": 0,
+        "locations": "",
+        "handles_personal_data": "Yes",
+        "uses_external_vendors": ""
+      },
+      {
+        "tenant_id": "ST_PETER_SCHOOL",
+        "department_id": "DEP-01",
+        "department_name": "Admissions & Student Office",
+        "department_head_name": "Mrs. Sunita Nair",
+        "department_head_email": "admissions@stpeterschool.edu.in",
+        "created_at": "2026-11-25T23:30:17.000Z",
+        "updated_at": "2026-11-25T23:30:17.000Z",
+        "entity_id": "ENT-01",
+        "company_id": "CMP-01",
+        "staff_count": 5,
+        "locations": "Main Campus Ground Floor",
+        "handles_personal_data": "Yes",
+        "uses_external_vendors": "Online Admission Portal"
+      },
+      {
+        "tenant_id": "ST_PETER_SCHOOL",
+        "department_id": "DEP-02",
+        "department_name": "Accounts & Fee Office",
+        "department_head_name": "Mr. Rajesh Kulkarni",
+        "department_head_email": "fees@stpeterschool.edu.in",
+        "created_at": "2026-11-25T23:30:17.000Z",
+        "updated_at": "2026-11-25T23:30:17.000Z",
+        "entity_id": "ENT-01",
+        "company_id": "CMP-01",
+        "staff_count": 4,
+        "locations": "Main Campus Admin Block",
+        "handles_personal_data": "Yes",
+        "uses_external_vendors": "Razorpay Fee Gateway"
+      },
+      {
+        "tenant_id": "ST_PETER_SCHOOL",
+        "department_id": "DEP-03",
+        "department_name": "Health Room & Attendance",
+        "department_head_name": "Nurse Maria Gomes",
+        "department_head_email": "health@stpeterschool.edu.in",
+        "created_at": "2026-11-25T23:30:17.000Z",
+        "updated_at": "2026-11-25T23:30:17.000Z",
+        "entity_id": "ENT-01",
+        "company_id": "CMP-01",
+        "staff_count": 3,
+        "locations": "Main Campus Infirmary",
+        "handles_personal_data": "Yes",
+        "uses_external_vendors": "None"
+      },
+      {
+        "tenant_id": "ST_PETER_SCHOOL",
+        "department_id": "DEP-04",
+        "department_name": "School Bus & Transport",
+        "department_head_name": "Mr. Suresh Patil",
+        "department_head_email": "transport@stpeterschool.edu.in",
+        "created_at": "2026-11-25T23:30:17.000Z",
+        "updated_at": "2026-11-25T23:30:17.000Z",
+        "entity_id": "ENT-01",
+        "company_id": "CMP-02",
+        "staff_count": 14,
+        "locations": "Bus Yard",
+        "handles_personal_data": "Yes",
+        "uses_external_vendors": "SafeBus GPS Tracking"
+      }
+    ],
+    "dpdp_functions": [
+      {
+        "tenant_id": "ASCII_GROUP",
+        "function_id": "FN-001",
+        "department_id": "DEP-01",
+        "function_name": "Human resources, recruitment and joining formalities",
+        "exists_flag": 1,
+        "remarks": "Handles PIM onboarding, KYC & dependent info",
+        "created_at": "2026-11-25T23:30:17.000Z",
+        "updated_at": "2026-11-25T23:30:17.000Z",
+        "entity_id": "ENT-01",
+        "company_id": "CMP-01"
+      },
+      {
+        "tenant_id": "ASCII_GROUP",
+        "function_id": "FN-002",
+        "department_id": "DEP-02",
+        "function_name": "Payroll, provident fund, insurance and statutory compliance",
+        "exists_flag": 1,
+        "remarks": "Salary runs, PF/ESIC & Form 16 TDS",
+        "created_at": "2026-11-25T23:30:17.000Z",
+        "updated_at": "2026-11-25T23:30:17.000Z",
+        "entity_id": "ENT-01",
+        "company_id": "CMP-01"
+      },
+      {
+        "tenant_id": "ASCII_GROUP",
+        "function_id": "FN-003",
+        "department_id": "DEP-03",
+        "function_name": "Attendance, leave management and field operations",
+        "exists_flag": 1,
+        "remarks": "Biometric punch selfie, GPS attendance & sick leave medicals",
+        "created_at": "2026-11-25T23:30:17.000Z",
+        "updated_at": "2026-11-25T23:30:17.000Z",
+        "entity_id": "ENT-01",
+        "company_id": "CMP-02"
+      },
+      {
+        "tenant_id": "ASCII_GROUP",
+        "function_id": "FN-004",
+        "department_id": "DEP-04",
+        "function_name": "IT, systems, website, email and network administration",
+        "exists_flag": 1,
+        "remarks": "ERP auth_table RBAC, task delegation & activity logging",
+        "created_at": "2026-11-25T23:30:17.000Z",
+        "updated_at": "2026-11-25T23:30:17.000Z",
+        "entity_id": "ENT-01",
+        "company_id": "CMP-01"
+      },
+      {
+        "tenant_id": "ASCII_GROUP",
+        "function_id": "FN-005",
+        "department_id": "DEP-05",
+        "function_name": "payroll",
+        "exists_flag": 1,
+        "remarks": "",
+        "created_at": "2026-11-25T23:27:47.000Z",
+        "updated_at": "2026-11-25T23:27:47.000Z",
+        "entity_id": "ENT-02",
+        "company_id": "CMP-03"
+      },
+      {
+        "tenant_id": "ST_PETER_SCHOOL",
+        "function_id": "FN-001",
+        "department_id": "DEP-01",
+        "function_name": "Student Admissions & Records",
+        "exists_flag": 1,
+        "remarks": "Handles admission forms, birth certificates & student IDs",
+        "created_at": "2026-11-25T23:30:17.000Z",
+        "updated_at": "2026-11-25T23:30:17.000Z",
+        "entity_id": "ENT-01",
+        "company_id": "CMP-01"
+      },
+      {
+        "tenant_id": "ST_PETER_SCHOOL",
+        "function_id": "FN-002",
+        "department_id": "DEP-02",
+        "function_name": "Fee Collection & Receipts",
+        "exists_flag": 1,
+        "remarks": "Term fees, online payments & scholarship concessions",
+        "created_at": "2026-11-25T23:30:17.000Z",
+        "updated_at": "2026-11-25T23:30:17.000Z",
+        "entity_id": "ENT-01",
+        "company_id": "CMP-01"
+      },
+      {
+        "tenant_id": "ST_PETER_SCHOOL",
+        "function_id": "FN-003",
+        "department_id": "DEP-03",
+        "function_name": "Daily Attendance & Medical Care",
+        "exists_flag": 1,
+        "remarks": "Class attendance, blood group & allergy records",
+        "created_at": "2026-11-25T23:30:17.000Z",
+        "updated_at": "2026-11-25T23:30:17.000Z",
+        "entity_id": "ENT-01",
+        "company_id": "CMP-01"
+      },
+      {
+        "tenant_id": "ST_PETER_SCHOOL",
+        "function_id": "FN-004",
+        "department_id": "DEP-04",
+        "function_name": "Bus Route & Student Pickup Safety",
+        "exists_flag": 1,
+        "remarks": "Bus stops, parent pickup alerts & authorized pickup persons",
+        "created_at": "2026-11-25T23:30:17.000Z",
+        "updated_at": "2026-11-25T23:30:17.000Z",
+        "entity_id": "ENT-01",
+        "company_id": "CMP-02"
       }
     ],
     "dpdp_business_processes": [
@@ -62,8 +416,15 @@
         "process_name": "Employee Onboarding, KYC & PIM Profile (personal_table, contact_table)",
         "process_description": "Collecting employee identity, contact, address, education, work experience, emergency contacts & dependents",
         "risk_level": "HIGH",
-        "created_at": "2026-11-25T01:38:09.000Z",
-        "updated_at": "2026-11-25T01:38:09.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z",
+        "updated_at": "2026-11-25T23:30:17.000Z",
+        "entity_id": "ENT-01",
+        "company_id": "CMP-01",
+        "function_id": "FN-001",
+        "frequency": "Daily",
+        "format": "Digital",
+        "involves_personal_data": "Yes",
+        "other_departments": "DEP-02"
       },
       {
         "tenant_id": "ASCII_GROUP",
@@ -72,8 +433,15 @@
         "process_name": "Monthly Payroll Runs, Payslips & PF/ESIC (accounts_table, payroll_runs)",
         "process_description": "Salary structure calculation, bank ACH payouts, Aadhaar/PAN verification, PF & Form 16 TDS compliance",
         "risk_level": "CRITICAL",
-        "created_at": "2026-11-25T01:38:09.000Z",
-        "updated_at": "2026-11-25T01:38:09.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z",
+        "updated_at": "2026-11-25T23:30:17.000Z",
+        "entity_id": "ENT-01",
+        "company_id": "CMP-01",
+        "function_id": "FN-002",
+        "frequency": "Monthly",
+        "format": "Digital",
+        "involves_personal_data": "Yes",
+        "other_departments": "DEP-01"
       },
       {
         "tenant_id": "ASCII_GROUP",
@@ -82,8 +450,15 @@
         "process_name": "Biometric Selfie, GPS Attendance & Medical Leaves (attendance_table, leaves_2025)",
         "process_description": "Geofenced punch-in lat/long, selfie verification, sick leave medical certificates in Medicals/",
         "risk_level": "HIGH",
-        "created_at": "2026-11-25T01:38:09.000Z",
-        "updated_at": "2026-11-25T01:38:09.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z",
+        "updated_at": "2026-11-25T23:30:17.000Z",
+        "entity_id": "ENT-01",
+        "company_id": "CMP-02",
+        "function_id": "FN-003",
+        "frequency": "Daily",
+        "format": "Digital",
+        "involves_personal_data": "Yes",
+        "other_departments": "DEP-01, DEP-02"
       },
       {
         "tenant_id": "ASCII_GROUP",
@@ -92,8 +467,83 @@
         "process_name": "Task Delegation, Daily Reports & Multi-Tenant Auth (auth_table, erp_activity_log)",
         "process_description": "JWT authentication, role allocation, task delegation notifications, daily report submissions & audit logs",
         "risk_level": "MEDIUM",
-        "created_at": "2026-11-25T01:38:09.000Z",
-        "updated_at": "2026-11-25T01:38:09.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z",
+        "updated_at": "2026-11-25T23:30:17.000Z",
+        "entity_id": "ENT-01",
+        "company_id": "CMP-01",
+        "function_id": "FN-004",
+        "frequency": "Daily",
+        "format": "Digital",
+        "involves_personal_data": "Yes",
+        "other_departments": "DEP-01, DEP-03"
+      },
+      {
+        "tenant_id": "ST_PETER_SCHOOL",
+        "process_id": "PRO-01",
+        "department_id": "DEP-01",
+        "process_name": "New Student Admission Form",
+        "process_description": "Collecting student name, DOB, Aadhaar/birth certificate, parent phone & home address",
+        "risk_level": "HIGH",
+        "created_at": "2026-11-25T23:30:17.000Z",
+        "updated_at": "2026-11-25T23:30:17.000Z",
+        "entity_id": "ENT-01",
+        "company_id": "CMP-01",
+        "function_id": "FN-001",
+        "frequency": "Yearly / event-based",
+        "format": "Both",
+        "involves_personal_data": "Yes",
+        "other_departments": "DEP-02"
+      },
+      {
+        "tenant_id": "ST_PETER_SCHOOL",
+        "process_id": "PRO-02",
+        "department_id": "DEP-02",
+        "process_name": "Term Fee & Receipt Processing",
+        "process_description": "Generating fee challans, online payment links and parent fee receipts",
+        "risk_level": "HIGH",
+        "created_at": "2026-11-25T23:30:17.000Z",
+        "updated_at": "2026-11-25T23:30:17.000Z",
+        "entity_id": "ENT-01",
+        "company_id": "CMP-01",
+        "function_id": "FN-002",
+        "frequency": "Monthly",
+        "format": "Digital",
+        "involves_personal_data": "Yes",
+        "other_departments": "DEP-01"
+      },
+      {
+        "tenant_id": "ST_PETER_SCHOOL",
+        "process_id": "PRO-03",
+        "department_id": "DEP-03",
+        "process_name": "Student Attendance & Sick Room Log",
+        "process_description": "Marking daily attendance and recording allergies, blood group & nurse visits",
+        "risk_level": "CRITICAL",
+        "created_at": "2026-11-25T23:30:17.000Z",
+        "updated_at": "2026-11-25T23:30:17.000Z",
+        "entity_id": "ENT-01",
+        "company_id": "CMP-01",
+        "function_id": "FN-003",
+        "frequency": "Daily",
+        "format": "Both",
+        "involves_personal_data": "Yes",
+        "other_departments": "DEP-01"
+      },
+      {
+        "tenant_id": "ST_PETER_SCHOOL",
+        "process_id": "PRO-04",
+        "department_id": "DEP-04",
+        "process_name": "School Bus Pickup & Parent Alert",
+        "process_description": "Tracking bus stop pickup/drop and verifying authorized pickup guardian",
+        "risk_level": "HIGH",
+        "created_at": "2026-11-25T23:30:17.000Z",
+        "updated_at": "2026-11-25T23:30:17.000Z",
+        "entity_id": "ENT-01",
+        "company_id": "CMP-02",
+        "function_id": "FN-004",
+        "frequency": "Daily",
+        "format": "Digital",
+        "involves_personal_data": "Yes",
+        "other_departments": "DEP-01"
       }
     ],
     "dpdp_applications": [
@@ -105,7 +555,7 @@
         "hosting_environment": "Cloud / On-Premise Node + React",
         "data_residency_country": "India",
         "is_active": 1,
-        "created_at": "2026-11-25T01:38:09.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
@@ -115,7 +565,7 @@
         "hosting_environment": "Android / iOS + Express API",
         "data_residency_country": "India",
         "is_active": 1,
-        "created_at": "2026-11-25T01:38:09.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
@@ -125,7 +575,7 @@
         "hosting_environment": "Internal Admin Network",
         "data_residency_country": "India",
         "is_active": 1,
-        "created_at": "2026-11-25T01:38:09.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
@@ -135,7 +585,37 @@
         "hosting_environment": "Node.js Express + Socket.IO",
         "data_residency_country": "India",
         "is_active": 1,
-        "created_at": "2026-11-25T01:38:09.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z"
+      },
+      {
+        "tenant_id": "ST_PETER_SCHOOL",
+        "app_id": "APP-01",
+        "app_name": "St. Peter School ERP Portal",
+        "app_type": "WEB_APP",
+        "hosting_environment": "Cloud India (Mumbai)",
+        "data_residency_country": "India",
+        "is_active": 1,
+        "created_at": "2026-11-25T23:30:17.000Z"
+      },
+      {
+        "tenant_id": "ST_PETER_SCHOOL",
+        "app_id": "APP-02",
+        "app_name": "St. Peter Parent Mobile App",
+        "app_type": "MOBILE_APP",
+        "hosting_environment": "Android / iOS + Cloud India",
+        "data_residency_country": "India",
+        "is_active": 1,
+        "created_at": "2026-11-25T23:30:17.000Z"
+      },
+      {
+        "tenant_id": "ST_PETER_SCHOOL",
+        "app_id": "APP-03",
+        "app_name": "Tally Fee Accounting",
+        "app_type": "DATABASE",
+        "hosting_environment": "School Admin Office PC",
+        "data_residency_country": "India",
+        "is_active": 1,
+        "created_at": "2026-11-25T23:30:17.000Z"
       }
     ],
     "dpdp_storage_locations": [
@@ -147,7 +627,7 @@
         "geographic_location": "India (MySQL Host)",
         "encryption_at_rest": "AES_256_GCM",
         "access_control_mechanism": "JWT_AND_RBAC_MIDDLEWARE",
-        "created_at": "2026-11-25T01:38:09.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
@@ -157,7 +637,7 @@
         "geographic_location": "India (Isolated Tenant DBs)",
         "encryption_at_rest": "AES_256_GCM",
         "access_control_mechanism": "ENTITY_ID_POOL_ISOLATION",
-        "created_at": "2026-11-25T01:38:09.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
@@ -167,7 +647,27 @@
         "geographic_location": "India (Local / Server Volume)",
         "encryption_at_rest": "OS_LEVEL_ENCRYPTION",
         "access_control_mechanism": "AUTH_MIDDLEWARE_PROTECTED",
-        "created_at": "2026-11-25T01:38:09.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z"
+      },
+      {
+        "tenant_id": "ST_PETER_SCHOOL",
+        "storage_id": "STO-01",
+        "storage_name": "School ERP Cloud Database (Mumbai)",
+        "storage_type": "SQL_DATABASE",
+        "geographic_location": "India (Mumbai)",
+        "encryption_at_rest": "AES_256_GCM",
+        "access_control_mechanism": "ROLE_BASED_PASSWORD",
+        "created_at": "2026-11-25T23:30:17.000Z"
+      },
+      {
+        "tenant_id": "ST_PETER_SCHOOL",
+        "storage_id": "STO-02",
+        "storage_name": "Locked Admission Record Cupboard (Office Room 1)",
+        "storage_type": "FILE_SERVER",
+        "geographic_location": "Main Campus Office",
+        "encryption_at_rest": "PHYSICAL_LOCK",
+        "access_control_mechanism": "OFFICE_KEY_REGISTER",
+        "created_at": "2026-11-25T23:30:17.000Z"
       }
     ],
     "dpdp_collection_points": [
@@ -178,7 +678,7 @@
         "channel_type": "WEB_PORTAL",
         "is_notice_displayed": 1,
         "is_active": 1,
-        "created_at": "2026-11-25T01:38:09.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
@@ -187,7 +687,7 @@
         "channel_type": "MOBILE_APP",
         "is_notice_displayed": 1,
         "is_active": 1,
-        "created_at": "2026-11-25T01:38:09.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
@@ -196,7 +696,25 @@
         "channel_type": "INTERNAL_IMPORT",
         "is_notice_displayed": 1,
         "is_active": 1,
-        "created_at": "2026-11-25T01:38:09.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z"
+      },
+      {
+        "tenant_id": "ST_PETER_SCHOOL",
+        "point_id": "COL-01",
+        "point_name": "School Office Paper Admission Form",
+        "channel_type": "PAPER_FORM",
+        "is_notice_displayed": 1,
+        "is_active": 1,
+        "created_at": "2026-11-25T23:30:17.000Z"
+      },
+      {
+        "tenant_id": "ST_PETER_SCHOOL",
+        "point_id": "COL-02",
+        "point_name": "Online Parent Admission & Fee Portal",
+        "channel_type": "WEB_PORTAL",
+        "is_notice_displayed": 1,
+        "is_active": 1,
+        "created_at": "2026-11-25T23:30:17.000Z"
       }
     ],
     "dpdp_principal_categories": [
@@ -206,7 +724,7 @@
         "category_name": "Full-Time Employees & Supervisors",
         "is_minor_category": 0,
         "special_safeguards_required": 0,
-        "created_at": "2026-11-25T01:38:09.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
@@ -214,7 +732,7 @@
         "category_name": "Contractors, Interns & Job Applicants",
         "is_minor_category": 0,
         "special_safeguards_required": 0,
-        "created_at": "2026-11-25T01:38:09.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
@@ -222,7 +740,31 @@
         "category_name": "Employee Minor Dependents (< 18 Years, Sec 9)",
         "is_minor_category": 1,
         "special_safeguards_required": 1,
-        "created_at": "2026-11-25T01:38:09.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z"
+      },
+      {
+        "tenant_id": "ST_PETER_SCHOOL",
+        "category_id": "DPR-01",
+        "category_name": "Students (Under 18 Years — Sec 9 Minor)",
+        "is_minor_category": 1,
+        "special_safeguards_required": 1,
+        "created_at": "2026-11-25T23:30:17.000Z"
+      },
+      {
+        "tenant_id": "ST_PETER_SCHOOL",
+        "category_id": "DPR-02",
+        "category_name": "Parents & Legal Guardians",
+        "is_minor_category": 0,
+        "special_safeguards_required": 0,
+        "created_at": "2026-11-25T23:30:17.000Z"
+      },
+      {
+        "tenant_id": "ST_PETER_SCHOOL",
+        "category_id": "DPR-03",
+        "category_name": "Teachers & School Staff",
+        "is_minor_category": 0,
+        "special_safeguards_required": 0,
+        "created_at": "2026-11-25T23:30:17.000Z"
       }
     ],
     "dpdp_data_catalog": [
@@ -234,7 +776,7 @@
         "classification_level": "CRITICAL",
         "storage_format": "ENCRYPTED_TEXT",
         "has_blind_index": 1,
-        "created_at": "2026-11-25T01:38:09.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
@@ -244,7 +786,7 @@
         "classification_level": "CRITICAL",
         "storage_format": "ENCRYPTED_TEXT",
         "has_blind_index": 1,
-        "created_at": "2026-11-25T01:38:09.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
@@ -254,7 +796,7 @@
         "classification_level": "CRITICAL",
         "storage_format": "ENCRYPTED_TEXT",
         "has_blind_index": 0,
-        "created_at": "2026-11-25T01:38:09.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
@@ -264,7 +806,7 @@
         "classification_level": "CRITICAL",
         "storage_format": "ENCRYPTED_TEXT",
         "has_blind_index": 0,
-        "created_at": "2026-11-25T01:38:09.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
@@ -274,7 +816,7 @@
         "classification_level": "HIGH",
         "storage_format": "ENCRYPTED_TEXT",
         "has_blind_index": 0,
-        "created_at": "2026-11-25T01:38:09.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
@@ -284,7 +826,7 @@
         "classification_level": "HIGH",
         "storage_format": "ENCRYPTED_TEXT",
         "has_blind_index": 1,
-        "created_at": "2026-11-25T01:38:09.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
@@ -294,7 +836,7 @@
         "classification_level": "CRITICAL",
         "storage_format": "ENCRYPTED_TEXT",
         "has_blind_index": 0,
-        "created_at": "2026-11-25T01:38:09.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
@@ -304,7 +846,57 @@
         "classification_level": "MEDIUM",
         "storage_format": "ENCRYPTED_TEXT",
         "has_blind_index": 0,
-        "created_at": "2026-11-25T01:38:09.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z"
+      },
+      {
+        "tenant_id": "ST_PETER_SCHOOL",
+        "item_id": "CAT-01",
+        "process_id": "PRO-01",
+        "data_element_name": "Student Full Name & Date of Birth",
+        "classification_level": "HIGH",
+        "storage_format": "ENCRYPTED_TEXT",
+        "has_blind_index": 0,
+        "created_at": "2026-11-25T23:30:17.000Z"
+      },
+      {
+        "tenant_id": "ST_PETER_SCHOOL",
+        "item_id": "CAT-02",
+        "process_id": "PRO-01",
+        "data_element_name": "Student Aadhaar & Birth Certificate",
+        "classification_level": "CRITICAL",
+        "storage_format": "ENCRYPTED_TEXT",
+        "has_blind_index": 1,
+        "created_at": "2026-11-25T23:30:17.000Z"
+      },
+      {
+        "tenant_id": "ST_PETER_SCHOOL",
+        "item_id": "CAT-03",
+        "process_id": "PRO-01",
+        "data_element_name": "Parent Mobile Number & Home Address",
+        "classification_level": "HIGH",
+        "storage_format": "ENCRYPTED_TEXT",
+        "has_blind_index": 1,
+        "created_at": "2026-11-25T23:30:17.000Z"
+      },
+      {
+        "tenant_id": "ST_PETER_SCHOOL",
+        "item_id": "CAT-04",
+        "process_id": "PRO-03",
+        "data_element_name": "Student Medical Allergies & Blood Group",
+        "classification_level": "CRITICAL",
+        "storage_format": "ENCRYPTED_TEXT",
+        "has_blind_index": 0,
+        "created_at": "2026-11-25T23:30:17.000Z"
+      },
+      {
+        "tenant_id": "ST_PETER_SCHOOL",
+        "item_id": "CAT-05",
+        "process_id": "PRO-04",
+        "data_element_name": "School Bus GPS & Pickup Photo",
+        "classification_level": "HIGH",
+        "storage_format": "ENCRYPTED_TEXT",
+        "has_blind_index": 0,
+        "created_at": "2026-11-25T23:30:17.000Z"
       }
     ],
     "dpdp_purposes": [
@@ -316,7 +908,7 @@
         "lawful_basis": "EXPLICIT_CONSENT",
         "is_mandatory": 1,
         "retention_period_months": 36,
-        "created_at": "2026-11-25T01:38:09.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
@@ -326,7 +918,7 @@
         "lawful_basis": "EMPLOYMENT_SEC_7I",
         "is_mandatory": 1,
         "retention_period_months": 84,
-        "created_at": "2026-11-25T01:38:09.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
@@ -336,7 +928,7 @@
         "lawful_basis": "EXPLICIT_CONSENT",
         "is_mandatory": 0,
         "retention_period_months": 3,
-        "created_at": "2026-11-25T01:38:09.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
@@ -346,7 +938,47 @@
         "lawful_basis": "CERTAIN_LEGITIMATE_USES_SEC_7",
         "is_mandatory": 0,
         "retention_period_months": 12,
-        "created_at": "2026-11-25T01:38:09.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z"
+      },
+      {
+        "tenant_id": "ASCII_GROUP",
+        "purpose_id": "PUR-05",
+        "purpose_code": "TEST",
+        "purpose_description": "na",
+        "lawful_basis": "EXPLICIT_CONSENT",
+        "is_mandatory": 1,
+        "retention_period_months": 24,
+        "created_at": "2026-11-26T00:38:26.000Z"
+      },
+      {
+        "tenant_id": "ST_PETER_SCHOOL",
+        "purpose_id": "PUR-01",
+        "purpose_code": "SCHOOL_ADMISSION_EDUCATION",
+        "purpose_description": "Student admission, attendance, exam report cards and parent communication",
+        "lawful_basis": "EXPLICIT_CONSENT",
+        "is_mandatory": 1,
+        "retention_period_months": 60,
+        "created_at": "2026-11-25T23:30:17.000Z"
+      },
+      {
+        "tenant_id": "ST_PETER_SCHOOL",
+        "purpose_id": "PUR-02",
+        "purpose_code": "FEE_BILLING_ACCOUNTS",
+        "purpose_description": "School fee collection, receipts and statutory education board records",
+        "lawful_basis": "EXPLICIT_CONSENT",
+        "is_mandatory": 1,
+        "retention_period_months": 84,
+        "created_at": "2026-11-25T23:30:17.000Z"
+      },
+      {
+        "tenant_id": "ST_PETER_SCHOOL",
+        "purpose_id": "PUR-03",
+        "purpose_code": "BUS_GPS_AND_EVENT_PHOTOS",
+        "purpose_description": "School bus live GPS alerts and annual day / sports event photographs",
+        "lawful_basis": "EXPLICIT_CONSENT",
+        "is_mandatory": 0,
+        "retention_period_months": 12,
+        "created_at": "2026-11-25T23:30:17.000Z"
       }
     ],
     "dpdp_notices": [
@@ -361,7 +993,7 @@
         "dpo_email": "compliance@asciionline.com",
         "dpo_phone": "+91 98200 11223",
         "is_active": 1,
-        "created_at": "2026-11-25T01:38:09.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
@@ -374,7 +1006,7 @@
         "dpo_email": "compliance@asciionline.com",
         "dpo_phone": "+91 98200 11223",
         "is_active": 1,
-        "created_at": "2026-11-25T01:38:09.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
@@ -387,7 +1019,46 @@
         "dpo_email": "compliance@asciionline.com",
         "dpo_phone": "+91 98200 11223",
         "is_active": 1,
-        "created_at": "2026-11-25T01:38:09.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z"
+      },
+      {
+        "tenant_id": "ST_PETER_SCHOOL",
+        "notice_id": "NOT-01",
+        "version_tag": "v1.0",
+        "language_code": "en",
+        "notice_title": "St. Peter School Parent & Student Privacy Notice (DPDP Act 2023)",
+        "notice_body_markdown": "St. Peter School collects student admission details, parent contact info, medical allergies, and attendance strictly for education, student safety, and fee administration. Because students are under 18, verifiable parent/guardian consent is required under Section 9, and optional bus GPS / event photo permissions may be withdrawn anytime.",
+        "dpo_name": "Fr. Thomas D'Souza",
+        "dpo_email": "privacy@stpeterschool.edu.in",
+        "dpo_phone": "+91 98210 55443",
+        "is_active": 1,
+        "created_at": "2026-11-25T23:30:17.000Z"
+      },
+      {
+        "tenant_id": "ST_PETER_SCHOOL",
+        "notice_id": "NOT-01",
+        "version_tag": "v1.0",
+        "language_code": "hi",
+        "notice_title": "सेंट पीटर स्कूल अभिभावक एवं छात्र गोपनीयता सूचना (DPDP अधिनियम 2023)",
+        "notice_body_markdown": "सेंट पीटर स्कूल शिक्षा, छात्र सुरक्षा और शुल्क प्रबंधन के लिए छात्र प्रवेश विवरण, माता-पिता का संपर्क और चिकित्सा जानकारी एकत्र करता है। 18 वर्ष से कम आयु के छात्रों के लिए माता-पिता की सहमति आवश्यक है।",
+        "dpo_name": "फादर थॉमस डिसूजा",
+        "dpo_email": "privacy@stpeterschool.edu.in",
+        "dpo_phone": "+91 98210 55443",
+        "is_active": 1,
+        "created_at": "2026-11-25T23:30:17.000Z"
+      },
+      {
+        "tenant_id": "ST_PETER_SCHOOL",
+        "notice_id": "NOT-01",
+        "version_tag": "v1.0",
+        "language_code": "mr",
+        "notice_title": "सेंट पीटर स्कूल पालक व विद्यार्थी गोपनीयता सूचना (DPDP कायदा २०२३)",
+        "notice_body_markdown": "सेंट पीटर स्कूल शिक्षण, विद्यार्थी सुरक्षा आणि शुल्क व्यवस्थापनासाठी प्रवेश तपशील, पालक संपर्क आणि वैद्यकीय माहिती गोळा करते. १८ वर्षांखालील विद्यार्थ्यांसाठी पालकांची संमती आवश्यक आहे.",
+        "dpo_name": "फादर थॉमस डिसोझा",
+        "dpo_email": "privacy@stpeterschool.edu.in",
+        "dpo_phone": "+91 98210 55443",
+        "is_active": 1,
+        "created_at": "2026-11-25T23:30:17.000Z"
       }
     ],
     "dpdp_consent_records": [
@@ -397,14 +1068,30 @@
         "principal_id": "EMP_1001",
         "notice_id": "NOT-01",
         "notice_version": "v1.0",
-        "consent_status": "WITHDRAWN",
+        "consent_status": "GIVEN",
         "ip_address": "103.22.45.10",
         "user_agent": "Trail-Delegation ERP Web/1.0",
         "consent_signature_hash": "a3f5c71b98de24a1b8c0e2f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5",
         "is_minor": 0,
         "guardian_principal_id": null,
-        "given_at": "2026-11-25T01:38:09.000Z",
+        "given_at": "2026-11-25T23:30:17.000Z",
         "withdrawn_at": "2026-11-25T01:46:42.000Z",
+        "withdrawal_reason": null
+      },
+      {
+        "consent_id": 2,
+        "tenant_id": "ST_PETER_SCHOOL",
+        "principal_id": "STU_101",
+        "notice_id": "NOT-01",
+        "notice_version": "v1.0",
+        "consent_status": "GIVEN",
+        "ip_address": "103.22.45.20",
+        "user_agent": "St. Peter Parent Portal/1.0",
+        "consent_signature_hash": "b4e6d82a09ef35b2c9d1f3a6b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7",
+        "is_minor": 1,
+        "guardian_principal_id": "PARENT_101",
+        "given_at": "2026-11-25T23:30:17.000Z",
+        "withdrawn_at": null,
         "withdrawal_reason": null
       },
       {
@@ -426,32 +1113,128 @@
       {
         "consent_id": 4,
         "tenant_id": "ASCII_GROUP",
-        "principal_id": "USER_0898",
+        "principal_id": "EMP_1002",
         "notice_id": "NOT-01",
         "notice_version": "v1.0",
         "consent_status": "GIVEN",
         "ip_address": "127.0.0.1",
-        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
-        "consent_signature_hash": "ba004041798977d253911f002b52078cd1bf635bb93f9298c4bc0376c07bf9bc",
+        "user_agent": "Mozilla/5.0 (Windows NT; Windows NT 10.0; en-IN) WindowsPowerShell/5.1.26100.10068",
+        "consent_signature_hash": "68e13f89c1207d4bac5c510404bb216652d283c4b7019311d710758eb967d6df",
         "is_minor": 0,
         "guardian_principal_id": null,
-        "given_at": "2026-11-25T01:47:10.000Z",
+        "given_at": "2026-11-26T00:29:24.000Z",
         "withdrawn_at": null,
         "withdrawal_reason": null
       },
       {
         "consent_id": 5,
         "tenant_id": "ASCII_GROUP",
-        "principal_id": "MINOR_USER_99",
+        "principal_id": "test11",
         "notice_id": "NOT-01",
         "notice_version": "v1.0",
         "consent_status": "GIVEN",
         "ip_address": "127.0.0.1",
-        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
-        "consent_signature_hash": "80ddf00bad9e80c2869bd4e474d1622fb80434716d81f6e377543a09418aed53",
-        "is_minor": 1,
-        "guardian_principal_id": "GUARDIAN_testtttt",
-        "given_at": "2026-11-25T03:07:26.000Z",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/158.0.0.0 Safari/537.36",
+        "consent_signature_hash": "780899c3386acdae1e93ac6f935b07112714ceb27a5d7480779a038935a130a1",
+        "is_minor": 0,
+        "guardian_principal_id": null,
+        "given_at": "2026-11-26T00:34:33.000Z",
+        "withdrawn_at": null,
+        "withdrawal_reason": null
+      },
+      {
+        "consent_id": 6,
+        "tenant_id": "ASCII_GROUP",
+        "principal_id": "test11",
+        "notice_id": "NOT-01",
+        "notice_version": "v1.0",
+        "consent_status": "GIVEN",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/158.0.0.0 Safari/537.36",
+        "consent_signature_hash": "4f9d6abbacbf83173725acd61f3b4a49cdb1a8dfba948b21898b6b6a3969fbee",
+        "is_minor": 0,
+        "guardian_principal_id": null,
+        "given_at": "2026-11-26T00:34:36.000Z",
+        "withdrawn_at": null,
+        "withdrawal_reason": null
+      },
+      {
+        "consent_id": 7,
+        "tenant_id": "ASCII_GROUP",
+        "principal_id": "test11",
+        "notice_id": "NOT-01",
+        "notice_version": "v1.0",
+        "consent_status": "GIVEN",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/158.0.0.0 Safari/537.36",
+        "consent_signature_hash": "505f6c3aee0a49c84ad6b1b4747fc5b18e9a9382aa90579d5e97227c5cfe6243",
+        "is_minor": 0,
+        "guardian_principal_id": null,
+        "given_at": "2026-11-26T00:34:39.000Z",
+        "withdrawn_at": null,
+        "withdrawal_reason": null
+      },
+      {
+        "consent_id": 8,
+        "tenant_id": "ASCII_GROUP",
+        "principal_id": "EMP_002",
+        "notice_id": "NOT-01",
+        "notice_version": "v1.0",
+        "consent_status": "GIVEN",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/158.0.0.0 Safari/537.36",
+        "consent_signature_hash": "91ea50b95c4c3126574f4eadfb6e79ef6db30827ef632b1ffee166e2f968180a",
+        "is_minor": 0,
+        "guardian_principal_id": null,
+        "given_at": "2026-11-26T00:39:52.000Z",
+        "withdrawn_at": null,
+        "withdrawal_reason": null
+      },
+      {
+        "consent_id": 9,
+        "tenant_id": "ASCII_GROUP",
+        "principal_id": "EMP_1002",
+        "notice_id": "NOT-01",
+        "notice_version": "v1.0",
+        "consent_status": "GIVEN",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/158.0.0.0 Safari/537.36",
+        "consent_signature_hash": "aea4a5d00e59f5e32ca0d8276b290c46389815bc5031ca6867c4b1b51abf0e9a",
+        "is_minor": 0,
+        "guardian_principal_id": null,
+        "given_at": "2026-11-26T00:40:09.000Z",
+        "withdrawn_at": null,
+        "withdrawal_reason": null
+      },
+      {
+        "consent_id": 10,
+        "tenant_id": "ASCII_GROUP",
+        "principal_id": "EMP_1001",
+        "notice_id": "NOT-01",
+        "notice_version": "v1.0",
+        "consent_status": "GIVEN",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/158.0.0.0 Safari/537.36",
+        "consent_signature_hash": "8ab0f2df47ca53c89ccb883d7afe51880a40917fb08ca767244c126bc25d1535",
+        "is_minor": 0,
+        "guardian_principal_id": null,
+        "given_at": "2026-11-26T00:40:45.000Z",
+        "withdrawn_at": null,
+        "withdrawal_reason": null
+      },
+      {
+        "consent_id": 11,
+        "tenant_id": "ASCII_GROUP",
+        "principal_id": "EMP_1003",
+        "notice_id": "NOT-01",
+        "notice_version": "v1.0",
+        "consent_status": "GIVEN",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/158.0.0.0 Safari/537.36",
+        "consent_signature_hash": "cca66d1a90c0585cf65775579e620f8211e3a7ddc6620e6e282a2c7691bdca94",
+        "is_minor": 0,
+        "guardian_principal_id": null,
+        "given_at": "2026-11-26T00:40:51.000Z",
         "withdrawn_at": null,
         "withdrawal_reason": null
       }
@@ -461,29 +1244,43 @@
         "item_id": 1,
         "consent_id": 1,
         "purpose_id": "PUR-01",
-        "is_granted": 0,
-        "created_at": "2026-11-25T01:46:42.000Z"
+        "is_granted": 1,
+        "created_at": "2026-11-25T23:30:17.000Z"
       },
       {
         "item_id": 2,
         "consent_id": 1,
         "purpose_id": "PUR-02",
-        "is_granted": 0,
-        "created_at": "2026-11-25T01:46:42.000Z"
+        "is_granted": 1,
+        "created_at": "2026-11-25T23:30:17.000Z"
       },
       {
         "item_id": 3,
         "consent_id": 1,
         "purpose_id": "PUR-03",
-        "is_granted": 0,
-        "created_at": "2026-11-25T01:46:42.000Z"
+        "is_granted": 1,
+        "created_at": "2026-11-25T23:30:17.000Z"
+      },
+      {
+        "item_id": 4,
+        "consent_id": 2,
+        "purpose_id": "PUR-01",
+        "is_granted": 1,
+        "created_at": "2026-11-25T23:30:17.000Z"
+      },
+      {
+        "item_id": 5,
+        "consent_id": 2,
+        "purpose_id": "PUR-02",
+        "is_granted": 1,
+        "created_at": "2026-11-25T23:30:17.000Z"
       },
       {
         "item_id": 6,
-        "consent_id": 3,
-        "purpose_id": "PUR-01",
+        "consent_id": 2,
+        "purpose_id": "PUR-03",
         "is_granted": 1,
-        "created_at": "2026-11-25T01:46:29.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z"
       },
       {
         "item_id": 7,
@@ -504,45 +1301,268 @@
         "consent_id": 4,
         "purpose_id": "PUR-01",
         "is_granted": 1,
-        "created_at": "2026-11-25T01:47:10.000Z"
+        "created_at": "2026-11-26T00:29:24.000Z"
       },
       {
         "item_id": 10,
         "consent_id": 4,
         "purpose_id": "PUR-02",
-        "is_granted": 0,
-        "created_at": "2026-11-25T01:47:10.000Z"
+        "is_granted": 1,
+        "created_at": "2026-11-26T00:29:24.000Z"
       },
       {
         "item_id": 11,
         "consent_id": 4,
         "purpose_id": "PUR-03",
         "is_granted": 0,
-        "created_at": "2026-11-25T01:47:10.000Z"
+        "created_at": "2026-11-26T00:29:41.000Z"
       },
       {
         "item_id": 12,
-        "consent_id": 5,
-        "purpose_id": "PUR-01",
-        "is_granted": 1,
-        "created_at": "2026-11-25T03:07:26.000Z"
+        "consent_id": 4,
+        "purpose_id": "PUR-04",
+        "is_granted": 0,
+        "created_at": "2026-11-26T00:29:39.000Z"
       },
       {
         "item_id": 13,
         "consent_id": 5,
-        "purpose_id": "PUR-02",
+        "purpose_id": "PUR-01",
         "is_granted": 1,
-        "created_at": "2026-11-25T03:07:26.000Z"
+        "created_at": "2026-11-26T00:34:33.000Z"
       },
       {
         "item_id": 14,
         "consent_id": 5,
+        "purpose_id": "PUR-02",
+        "is_granted": 1,
+        "created_at": "2026-11-26T00:34:33.000Z"
+      },
+      {
+        "item_id": 15,
+        "consent_id": 5,
         "purpose_id": "PUR-03",
         "is_granted": 0,
-        "created_at": "2026-11-25T03:07:26.000Z"
+        "created_at": "2026-11-26T00:34:33.000Z"
+      },
+      {
+        "item_id": 16,
+        "consent_id": 5,
+        "purpose_id": "PUR-04",
+        "is_granted": 0,
+        "created_at": "2026-11-26T00:34:33.000Z"
+      },
+      {
+        "item_id": 17,
+        "consent_id": 6,
+        "purpose_id": "PUR-01",
+        "is_granted": 1,
+        "created_at": "2026-11-26T00:34:36.000Z"
+      },
+      {
+        "item_id": 18,
+        "consent_id": 6,
+        "purpose_id": "PUR-02",
+        "is_granted": 1,
+        "created_at": "2026-11-26T00:34:36.000Z"
+      },
+      {
+        "item_id": 19,
+        "consent_id": 6,
+        "purpose_id": "PUR-03",
+        "is_granted": 0,
+        "created_at": "2026-11-26T00:34:36.000Z"
+      },
+      {
+        "item_id": 20,
+        "consent_id": 6,
+        "purpose_id": "PUR-04",
+        "is_granted": 0,
+        "created_at": "2026-11-26T00:34:36.000Z"
+      },
+      {
+        "item_id": 21,
+        "consent_id": 7,
+        "purpose_id": "PUR-01",
+        "is_granted": 1,
+        "created_at": "2026-11-26T00:34:39.000Z"
+      },
+      {
+        "item_id": 22,
+        "consent_id": 7,
+        "purpose_id": "PUR-02",
+        "is_granted": 1,
+        "created_at": "2026-11-26T00:34:39.000Z"
+      },
+      {
+        "item_id": 23,
+        "consent_id": 7,
+        "purpose_id": "PUR-03",
+        "is_granted": 0,
+        "created_at": "2026-11-26T00:34:39.000Z"
+      },
+      {
+        "item_id": 24,
+        "consent_id": 7,
+        "purpose_id": "PUR-04",
+        "is_granted": 0,
+        "created_at": "2026-11-26T00:34:39.000Z"
+      },
+      {
+        "item_id": 25,
+        "consent_id": 8,
+        "purpose_id": "PUR-01",
+        "is_granted": 1,
+        "created_at": "2026-11-26T00:39:52.000Z"
+      },
+      {
+        "item_id": 26,
+        "consent_id": 8,
+        "purpose_id": "PUR-02",
+        "is_granted": 1,
+        "created_at": "2026-11-26T00:39:52.000Z"
+      },
+      {
+        "item_id": 27,
+        "consent_id": 8,
+        "purpose_id": "PUR-03",
+        "is_granted": 1,
+        "created_at": "2026-11-26T00:39:52.000Z"
+      },
+      {
+        "item_id": 28,
+        "consent_id": 8,
+        "purpose_id": "PUR-04",
+        "is_granted": 1,
+        "created_at": "2026-11-26T00:39:52.000Z"
+      },
+      {
+        "item_id": 29,
+        "consent_id": 8,
+        "purpose_id": "PUR-05",
+        "is_granted": 1,
+        "created_at": "2026-11-26T00:39:52.000Z"
+      },
+      {
+        "item_id": 30,
+        "consent_id": 9,
+        "purpose_id": "PUR-01",
+        "is_granted": 1,
+        "created_at": "2026-11-26T00:40:09.000Z"
+      },
+      {
+        "item_id": 31,
+        "consent_id": 9,
+        "purpose_id": "PUR-02",
+        "is_granted": 1,
+        "created_at": "2026-11-26T00:40:09.000Z"
+      },
+      {
+        "item_id": 32,
+        "consent_id": 9,
+        "purpose_id": "PUR-03",
+        "is_granted": 1,
+        "created_at": "2026-11-26T00:40:09.000Z"
+      },
+      {
+        "item_id": 33,
+        "consent_id": 9,
+        "purpose_id": "PUR-04",
+        "is_granted": 1,
+        "created_at": "2026-11-26T00:40:09.000Z"
+      },
+      {
+        "item_id": 34,
+        "consent_id": 9,
+        "purpose_id": "PUR-05",
+        "is_granted": 1,
+        "created_at": "2026-11-26T00:40:09.000Z"
+      },
+      {
+        "item_id": 35,
+        "consent_id": 10,
+        "purpose_id": "PUR-01",
+        "is_granted": 1,
+        "created_at": "2026-11-26T00:40:45.000Z"
+      },
+      {
+        "item_id": 36,
+        "consent_id": 10,
+        "purpose_id": "PUR-02",
+        "is_granted": 1,
+        "created_at": "2026-11-26T00:40:45.000Z"
+      },
+      {
+        "item_id": 37,
+        "consent_id": 10,
+        "purpose_id": "PUR-03",
+        "is_granted": 1,
+        "created_at": "2026-11-26T00:40:45.000Z"
+      },
+      {
+        "item_id": 38,
+        "consent_id": 10,
+        "purpose_id": "PUR-04",
+        "is_granted": 1,
+        "created_at": "2026-11-26T00:40:45.000Z"
+      },
+      {
+        "item_id": 39,
+        "consent_id": 10,
+        "purpose_id": "PUR-05",
+        "is_granted": 1,
+        "created_at": "2026-11-26T00:40:45.000Z"
+      },
+      {
+        "item_id": 40,
+        "consent_id": 11,
+        "purpose_id": "PUR-01",
+        "is_granted": 1,
+        "created_at": "2026-11-26T00:40:51.000Z"
+      },
+      {
+        "item_id": 41,
+        "consent_id": 11,
+        "purpose_id": "PUR-02",
+        "is_granted": 1,
+        "created_at": "2026-11-26T00:40:52.000Z"
+      },
+      {
+        "item_id": 42,
+        "consent_id": 11,
+        "purpose_id": "PUR-03",
+        "is_granted": 1,
+        "created_at": "2026-11-26T00:40:52.000Z"
+      },
+      {
+        "item_id": 43,
+        "consent_id": 11,
+        "purpose_id": "PUR-04",
+        "is_granted": 1,
+        "created_at": "2026-11-26T00:40:52.000Z"
+      },
+      {
+        "item_id": 44,
+        "consent_id": 11,
+        "purpose_id": "PUR-05",
+        "is_granted": 0,
+        "created_at": "2026-11-26T00:43:07.000Z"
       }
     ],
     "dpdp_dsr_requests": [
+      {
+        "request_id": "DSR-201",
+        "tenant_id": "ST_PETER_SCHOOL",
+        "principal_id": "STU_101",
+        "request_type": "RIGHT_TO_CORRECTION",
+        "request_status": "SUBMITTED",
+        "rejection_reason": null,
+        "export_file_url": null,
+        "sla_deadline": "2026-12-23T23:30:17.000Z",
+        "submitted_at": "2026-11-25T23:30:17.000Z",
+        "resolved_at": null,
+        "details": null
+      },
       {
         "request_id": "DSR-9012",
         "tenant_id": "ASCII_GROUP",
@@ -551,13 +1571,37 @@
         "request_status": "SUBMITTED",
         "rejection_reason": null,
         "export_file_url": null,
-        "sla_deadline": "2026-12-22T01:38:09.000Z",
-        "submitted_at": "2026-11-25T01:38:09.000Z",
+        "sla_deadline": "2026-12-22T23:30:17.000Z",
+        "submitted_at": "2026-11-25T23:30:17.000Z",
         "resolved_at": null,
         "details": null
+      },
+      {
+        "request_id": "DSR-BA3D81C1",
+        "tenant_id": "ASCII_GROUP",
+        "principal_id": "EMP_1003",
+        "request_type": "RIGHT_TO_ACCESS",
+        "request_status": "SUBMITTED",
+        "rejection_reason": null,
+        "export_file_url": null,
+        "sla_deadline": "2026-12-26T06:13:31.877Z",
+        "submitted_at": "2026-11-26T06:13:31.877Z",
+        "details": {},
+        "created_at": "2026-11-26T06:13:31.877Z"
       }
     ],
     "dpdp_grievance_tickets": [
+      {
+        "ticket_id": "GRV-201",
+        "tenant_id": "ST_PETER_SCHOOL",
+        "principal_id": "PARENT_101",
+        "complaint_summary": "Parent requested removal of student photo from school event gallery.",
+        "ticket_status": "OPEN",
+        "dpo_response_text": null,
+        "sla_deadline": "2026-12-24T23:30:17.000Z",
+        "submitted_at": "2026-11-25T23:30:17.000Z",
+        "resolved_at": null
+      },
       {
         "ticket_id": "GRV-3310",
         "tenant_id": "ASCII_GROUP",
@@ -565,8 +1609,8 @@
         "complaint_summary": "Requesting confirmation of 90-day selfie retention purge in attendance_table.",
         "ticket_status": "OPEN",
         "dpo_response_text": null,
-        "sla_deadline": "2026-12-24T01:38:09.000Z",
-        "submitted_at": "2026-11-25T01:38:09.000Z",
+        "sla_deadline": "2026-12-24T23:30:17.000Z",
+        "submitted_at": "2026-11-25T23:30:17.000Z",
         "resolved_at": null
       }
     ],
@@ -579,7 +1623,7 @@
         "trigger_event": "PUNCH_CAPTURE",
         "disposal_action": "CRYPTOGRAPHIC_SHREDDING",
         "legal_hold_justification": null,
-        "created_at": "2026-11-25T01:38:09.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
@@ -589,7 +1633,7 @@
         "trigger_event": "EMPLOYEE_EXIT",
         "disposal_action": "ANONYMIZE_AND_ARCHIVE",
         "legal_hold_justification": null,
-        "created_at": "2026-11-25T01:38:09.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
@@ -599,7 +1643,27 @@
         "trigger_event": "LEAVE_APPROVAL",
         "disposal_action": "HARD_DELETE",
         "legal_hold_justification": null,
-        "created_at": "2026-11-25T01:38:09.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z"
+      },
+      {
+        "tenant_id": "ST_PETER_SCHOOL",
+        "rule_id": "RET-01",
+        "purpose_id": "PUR-03",
+        "retention_period_days": 365,
+        "trigger_event": "ACADEMIC_YEAR_END",
+        "disposal_action": "HARD_DELETE",
+        "legal_hold_justification": null,
+        "created_at": "2026-11-25T23:30:17.000Z"
+      },
+      {
+        "tenant_id": "ST_PETER_SCHOOL",
+        "rule_id": "RET-02",
+        "purpose_id": "PUR-01",
+        "retention_period_days": 1825,
+        "trigger_event": "STUDENT_LEAVING",
+        "disposal_action": "ANONYMIZE_AND_ARCHIVE",
+        "legal_hold_justification": null,
+        "created_at": "2026-11-25T23:30:17.000Z"
       }
     ],
     "dpdp_disposal_log": [],
@@ -612,7 +1676,7 @@
         "data_element": "Aadhaar, Mobile & Attendance GPS",
         "access_permission": "READ_MASKED",
         "justification": "Operational supervision & attendance verification without exposing raw Aadhaar/mobile",
-        "created_at": "2026-11-25T01:38:09.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
@@ -621,7 +1685,7 @@
         "data_element": "Bank Account, IFSC, PAN & Salary",
         "access_permission": "READ_UNMASKED",
         "justification": "Mandatory statutory processing for salary ACH & PF/TDS filings (logged in erp_activity_log)",
-        "created_at": "2026-11-25T01:38:09.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
@@ -630,7 +1694,25 @@
         "data_element": "All Employee PII",
         "access_permission": "READ_MASKED",
         "justification": "System administration with audit-logged elevation required for unmasked view",
-        "created_at": "2026-11-25T01:38:09.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z"
+      },
+      {
+        "tenant_id": "ST_PETER_SCHOOL",
+        "matrix_id": "ACC-01",
+        "role_name": "Class Teacher",
+        "data_element": "Student Name, Attendance & Parent Mobile",
+        "access_permission": "READ_MASKED",
+        "justification": "Daily classroom attendance & parent call without exporting full student IDs",
+        "created_at": "2026-11-25T23:30:17.000Z"
+      },
+      {
+        "tenant_id": "ST_PETER_SCHOOL",
+        "matrix_id": "ACC-02",
+        "role_name": "Principal & Office Admin",
+        "data_element": "Admission Files, Aadhaar & Medical Records",
+        "access_permission": "READ_UNMASKED",
+        "justification": "Official school board verification & student medical safety",
+        "created_at": "2026-11-25T23:30:17.000Z"
       }
     ],
     "dpdp_data_processors": [
@@ -642,7 +1724,7 @@
         "dpa_signed": 1,
         "data_shared_categories": "Device FCM Token, Task Title, Employee ID",
         "country_hosted": "India / Global Cloud",
-        "created_at": "2026-11-25T01:38:09.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
@@ -652,7 +1734,27 @@
         "dpa_signed": 1,
         "data_shared_categories": "Employee Email, Name, Notification Subject",
         "country_hosted": "India",
-        "created_at": "2026-11-25T01:38:09.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z"
+      },
+      {
+        "tenant_id": "ST_PETER_SCHOOL",
+        "processor_id": "PROC-01",
+        "processor_name": "Razorpay Fee Payment Gateway",
+        "service_provided": "Online School Fee Payments",
+        "dpa_signed": 1,
+        "data_shared_categories": "Parent Name, Email, Mobile, Fee Amount",
+        "country_hosted": "India",
+        "created_at": "2026-11-25T23:30:17.000Z"
+      },
+      {
+        "tenant_id": "ST_PETER_SCHOOL",
+        "processor_id": "PROC-02",
+        "processor_name": "SafeBus GPS Tracking Vendor",
+        "service_provided": "School Bus Location & Pickup SMS Alerts",
+        "dpa_signed": 1,
+        "data_shared_categories": "Student Name, Bus Route, Parent Mobile",
+        "country_hosted": "India",
+        "created_at": "2026-11-25T23:30:17.000Z"
       }
     ],
     "dpdp_third_party_data": [
@@ -663,7 +1765,16 @@
         "nominee_name": "Sunita Gawas",
         "relationship": "Spouse (Emergency Contact & Sec 14 Nominee)",
         "contact_phone": "+91 98200 44332",
-        "created_at": "2026-11-25T01:38:09.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z"
+      },
+      {
+        "tenant_id": "ST_PETER_SCHOOL",
+        "third_party_id": "TPD-01",
+        "principal_id": "STU_101",
+        "nominee_name": "Mrs. Meera Fernandes",
+        "relationship": "Grandmother (Authorized School Pickup)",
+        "contact_phone": "+91 98211 33221",
+        "created_at": "2026-11-25T23:30:17.000Z"
       }
     ],
     "dpdp_security_safeguards": [
@@ -674,7 +1785,7 @@
         "control_type": "ENCRYPTION_AT_REST",
         "implementation_status": "DEPLOYED",
         "audit_frequency": "CONTINUOUS",
-        "created_at": "2026-11-25T01:38:09.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
@@ -683,7 +1794,7 @@
         "control_type": "ACCESS_CONTROL",
         "implementation_status": "DEPLOYED",
         "audit_frequency": "CONTINUOUS",
-        "created_at": "2026-11-25T01:38:09.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z"
       },
       {
         "tenant_id": "ASCII_GROUP",
@@ -692,13 +1803,31 @@
         "control_type": "AUDIT_LOGGING",
         "implementation_status": "DEPLOYED",
         "audit_frequency": "CONTINUOUS",
-        "created_at": "2026-11-25T01:38:09.000Z"
+        "created_at": "2026-11-25T23:30:17.000Z"
+      },
+      {
+        "tenant_id": "ST_PETER_SCHOOL",
+        "safeguard_id": "SAF-01",
+        "safeguard_title": "Locked Admission Cupboard & Office Key Register",
+        "control_type": "PHYSICAL_SECURITY",
+        "implementation_status": "DEPLOYED",
+        "audit_frequency": "QUARTERLY",
+        "created_at": "2026-11-25T23:30:17.000Z"
+      },
+      {
+        "tenant_id": "ST_PETER_SCHOOL",
+        "safeguard_id": "SAF-02",
+        "safeguard_title": "Parent Consent Verification & Encrypted Student DB",
+        "control_type": "ENCRYPTION_AT_REST",
+        "implementation_status": "DEPLOYED",
+        "audit_frequency": "CONTINUOUS",
+        "created_at": "2026-11-25T23:30:17.000Z"
       }
     ]
   },
   "autoInc": {
-    "dpdp_consent_records": 3,
-    "dpdp_consent_items": 6,
+    "dpdp_consent_records": 12,
+    "dpdp_consent_items": 45,
     "dpdp_disposal_log": 1
   }
 }

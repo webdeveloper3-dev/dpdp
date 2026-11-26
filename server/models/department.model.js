@@ -18,6 +18,14 @@ const Department = sequelize.define(
       primaryKey: true,
       allowNull: false
     },
+    entity_id: {
+      type: DataTypes.STRING(32),
+      allowNull: true
+    },
+    company_id: {
+      type: DataTypes.STRING(32),
+      allowNull: true
+    },
     department_name: {
       type: DataTypes.STRING(255),
       allowNull: false
@@ -28,6 +36,22 @@ const Department = sequelize.define(
     },
     department_head_email: {
       type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    staff_count: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    locations: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    handles_personal_data: {
+      type: DataTypes.STRING(20),
+      defaultValue: "Yes"
+    },
+    uses_external_vendors: {
+      type: DataTypes.TEXT,
       allowNull: true
     }
   },

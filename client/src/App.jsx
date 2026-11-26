@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { API_BASE } from './config';
 import { Icons } from './components/Icons';
+import Form01Hierarchy from './components/Form01Hierarchy';
 
 function nextId(items, field, prefix) {
   const maxNum = (items || []).reduce((max, item) => {
@@ -223,7 +224,7 @@ export default function App() {
           title: "1. Organization & Data Discovery",
           subtitle: "Departments, PII Catalog, Systems & Storage",
           forms: [
-            { id: "01", title: "Departments & Processes", stat: `${c.form01_departments ?? 0} DEP / ${c.form01_processes ?? 0} PRO`, ref: "Form 01" },
+            { id: "01", title: "Org, Entities, Companies & Depts", stat: `${c.form01_entities ?? 0} ENT / ${c.form01_companies ?? 0} CMP / ${c.form01_departments ?? 0} DEP`, ref: "Form 01" },
             { id: "02", title: "Personal Data (PII)", stat: `${c.form02_catalog ?? 0} Fields`, ref: "Form 02" },
             { id: "03", title: "Applications & Systems", stat: `${c.form03_applications ?? 0} Apps`, ref: "Form 03" },
             { id: "04", title: "Storage & Locations", stat: `${c.form04_storageLocations ?? 0} Stores`, ref: "Form 04" }
@@ -330,7 +331,7 @@ export default function App() {
 
           {/* Form Detailed Workspace View */}
           <div className="bg-[#111827] border border-[#253349] p-4">
-            {selectedForm === "01" && <Form01Detail tenantId={tenantId} />}
+            {selectedForm === "01" && <Form01Hierarchy tenantId={tenantId} onChanged={refreshRopa} />}
             {selectedForm === "02" && <Form02Detail tenantId={tenantId} />}
             {selectedForm === "03" && <Form03Detail tenantId={tenantId} />}
             {selectedForm === "04" && <Form04Detail tenantId={tenantId} />}
@@ -2600,26 +2601,49 @@ export default function App() {
     // 4. EMBEDDABLE CONSENT MODAL SIMULATOR (SECTIONS 6 & 9)
     // ====================================================================
     function ConsentSimulatorTab({ tenantId, client }) {
-      const [lang, setLang] = useState("hi");
+      const [lang, setLang] = useState("en");
+      const [principalId, setPrincipalId] = useState("");
       const [isMinor, setIsMinor] = useState(false);
       const [guardianName, setGuardianName] = useState("");
-      const [chkMkt, setChkMkt] = useState(false);
-      const [chkAnalytics, setChkAnalytics] = useState(false);
+      const [notice, setNotice] = useState(null);
+      const [choices, setChoices] = useState({});
       const [receipt, setReceipt] = useState(null);
 
-      const handleGrant = async () => {
+      useEffect(() => {
+        setReceipt(null);
+        fetch(`${API_BASE}/dpdp/notice/active?tenant_id=${tenantId}&lang=${lang}`)
+          .then(r => r.json())
+          .then(res => {
+            if (res.success && res.data) {
+              setNotice(res.data);
+              const init = {};
+              (res.data.purposes || []).forEach(p => {
+                init[p.purposeId] = p.isMandatory ? true : false;
+              });
+              setChoices(init);
+            } else {
+              setNotice(null);
+            }
+          })
+          .catch(() => setNotice(null));
+      }, [tenantId, lang]);
+
+      const handleGrant = async (rejectOptional = false) => {
+        if (!notice) return;
+        const resolvedId = principalId.trim() || (isMinor ? "MINOR_" + Date.now().toString().slice(-4) : "USER_" + Date.now().toString().slice(-4));
+        const items = (notice.purposes || []).map(p => ({
+          purposeId: p.purposeId,
+          isGranted: p.isMandatory ? true : (rejectOptional ? false : Boolean(choices[p.purposeId]))
+        }));
+
         const payload = {
           tenantId,
-          principalId: isMinor ? "MINOR_USER_99" : "USER_" + Date.now().toString().slice(-4),
-          noticeId: "NOT-01",
-          noticeVersion: "v1.0",
+          principalId: resolvedId,
+          noticeId: notice.noticeId,
+          noticeVersion: notice.version,
           isMinor,
-          guardianPrincipalId: isMinor ? "GUARDIAN_" + guardianName : null,
-          items: [
-            { purposeId: "PUR-01", isGranted: true },
-            { purposeId: "PUR-02", isGranted: chkMkt },
-            { purposeId: "PUR-03", isGranted: chkAnalytics }
-          ]
+          guardianPrincipalId: isMinor ? ("GUARDIAN_" + (guardianName || "PARENT")) : null,
+          items
         };
 
         const res = await fetch(`${API_BASE}/dpdp/consent/record`, {
@@ -2635,17 +2659,31 @@ export default function App() {
         <div className="space-y-4 max-w-2xl mx-auto">
           <div className="bg-[#111827] p-3 border border-[#253349] text-center">
             <h2 className="text-xs font-bold text-white uppercase tracking-wider">Client Web / Mobile SDK Simulator</h2>
-            <p className="text-[11px] text-slate-400 mt-0.5">Section 6 Unbundled Opt-In Checkboxes with Section 9 Age Gating.</p>
+            <p className="text-[11px] text-slate-400 mt-0.5">Live Section 5 Notice &amp; Section 6 Unbundled Purposes loaded from Form 07 &amp; Form 13 ({tenantId}).</p>
           </div>
 
           <div className="bg-[#111827] border border-[#253349] p-4 space-y-3">
             <div className="flex justify-between items-center pb-2 border-b border-[#253349]">
-              <span className="font-bold text-white text-xs">{client.client_name} Privacy Consent</span>
+              <div>
+                <span className="font-bold text-white text-xs">{notice?.title || `${client.client_name} Privacy Consent`}</span>
+                {notice && <div className="text-[10px] text-slate-400">Notice {notice.noticeId} ({notice.version}) • DPO: {notice.dpoContact?.name} ({notice.dpoContact?.email})</div>}
+              </div>
               <select value={lang} onChange={e=>setLang(e.target.value)} className="bg-[#0b0f19] border border-[#253349] text-sky-400 text-xs px-2 py-0.5 outline-none">
                 <option value="en">English</option>
                 <option value="hi">हिन्दी</option>
                 <option value="mr">मराठी</option>
               </select>
+            </div>
+
+            {notice?.bodyMarkdown && (
+              <p className="text-[11px] text-slate-300 bg-[#0b0f19] p-2.5 border border-[#253349] leading-relaxed">
+                {notice.bodyMarkdown}
+              </p>
+            )}
+
+            <div>
+              <label className="text-[10px] font-semibold text-slate-400 uppercase">Principal / Employee / Student ID (Optional — auto-generates if blank)</label>
+              <input value={principalId} onChange={e=>setPrincipalId(e.target.value)} placeholder="e.g. EMP_1003 or STU_102" className="w-full bg-[#0b0f19] border border-[#253349] px-2.5 py-1 text-xs text-white mono-font" />
             </div>
 
             {/* Minor Verification */}
@@ -2660,40 +2698,43 @@ export default function App() {
             {isMinor && (
               <div className="p-2.5 bg-rose-500/10 border border-rose-500/30 space-y-2">
                 <div className="text-rose-400 font-bold text-[11px]">Verifiable Parental Consent (VPC) Required</div>
-                <input value={guardianName} onChange={e=>setGuardianName(e.target.value)} placeholder="Parent/Guardian Name" className="w-full bg-[#0b0f19] border border-[#253349] px-2 py-1 text-xs text-white" />
+                <input value={guardianName} onChange={e=>setGuardianName(e.target.value)} placeholder="Parent/Guardian Name or ID" className="w-full bg-[#0b0f19] border border-[#253349] px-2 py-1 text-xs text-white" />
               </div>
             )}
 
-            {/* Checkboxes */}
+            {/* Dynamic Purposes from Form 07 */}
             <div className="space-y-2 text-xs">
-              <label className="flex items-start space-x-2 p-2 bg-[#0b0f19] border border-[#253349]">
-                <input type="checkbox" checked disabled className="mt-0.5 w-3.5 h-3.5" />
-                <div>
-                  <strong className="text-white">Core Application Operations (Mandatory)</strong>
-                  <p className="text-[10px] text-slate-400">Authentication, profile management, and essential communications.</p>
+              {!notice ? (
+                <div className="p-3 bg-[#0b0f19] border border-[#253349] text-amber-400 text-[11px]">
+                  No active notice found for {tenantId}. Add one in Form 13 / Multilingual Notices.
                 </div>
-              </label>
-
-              <label className="flex items-start space-x-2 p-2 bg-[#0b0f19] border border-[#253349] cursor-pointer">
-                <input type="checkbox" checked={chkMkt} onChange={e=>setChkMkt(e.target.checked)} className="mt-0.5 w-3.5 h-3.5 accent-sky-500" />
-                <div>
-                  <strong className="text-white">Promotional SMS & Partner Offers (Optional)</strong>
-                  <p className="text-[10px] text-slate-400">Marketing updates, seasonal discounts, and partner promotions.</p>
-                </div>
-              </label>
-
-              <label className="flex items-start space-x-2 p-2 bg-[#0b0f19] border border-[#253349] cursor-pointer">
-                <input type="checkbox" checked={chkAnalytics} onChange={e=>setChkAnalytics(e.target.checked)} className="mt-0.5 w-3.5 h-3.5 accent-sky-500" />
-                <div>
-                  <strong className="text-white">Application Performance Analytics (Optional)</strong>
-                  <p className="text-[10px] text-slate-400">Anonymized telemetry to diagnose bugs and improve responsiveness.</p>
-                </div>
-              </label>
+              ) : (notice.purposes || []).map(p => (
+                <label key={p.purposeId} className={`flex items-start space-x-2 p-2 bg-[#0b0f19] border border-[#253349] ${p.isMandatory ? '' : 'cursor-pointer'}`}>
+                  <input
+                    type="checkbox"
+                    checked={p.isMandatory ? true : !!choices[p.purposeId]}
+                    disabled={p.isMandatory}
+                    onChange={e=>setChoices({ ...choices, [p.purposeId]: e.target.checked })}
+                    className="mt-0.5 w-3.5 h-3.5 accent-sky-500"
+                  />
+                  <div>
+                    <strong className="text-white">
+                      {p.code} <span className="text-[10px] text-sky-400">({p.isMandatory ? `Required • ${p.lawfulBasis}` : 'Optional'} • {p.retentionMonths} mo)</span>
+                    </strong>
+                    <p className="text-[10px] text-slate-400">{p.description}</p>
+                  </div>
+                </label>
+              ))}
             </div>
 
-            <button onClick={handleGrant} className="w-full py-1.5 bg-sky-500 hover:bg-sky-600 text-slate-950 font-bold text-xs">
-              Record Consent & Generate SHA-256 Receipt
-            </button>
+            <div className="flex space-x-2">
+              <button onClick={() => handleGrant(true)} disabled={!notice} className="px-3 py-1.5 bg-[#161f30] border border-[#253349] text-slate-200 font-semibold text-xs disabled:opacity-50">
+                Reject Optional
+              </button>
+              <button onClick={() => handleGrant(false)} disabled={!notice} className="flex-1 py-1.5 bg-sky-500 hover:bg-sky-600 text-slate-950 font-bold text-xs disabled:opacity-50">
+                Record Consent &amp; Generate SHA-256 Receipt
+              </button>
+            </div>
           </div>
 
           {receipt && (

@@ -5,7 +5,10 @@
 const db = require("../database/db");
 
 const FORMS_CONFIG = [
+  { path: "entity", table: "dpdp_entities", idField: "entity_id" },
+  { path: "company", table: "dpdp_companies", idField: "company_id" },
   { path: "department", table: "dpdp_departments", idField: "department_id" },
+  { path: "function", table: "dpdp_functions", idField: "function_id" },
   { path: "process", table: "dpdp_business_processes", idField: "process_id" },
   { path: "catalog", table: "dpdp_data_catalog", idField: "item_id" },
   { path: "application", table: "dpdp_applications", idField: "app_id" },
@@ -27,7 +30,10 @@ class RopaService {
 
   async getOverview(tenantId = "ASCII_GROUP") {
     const [
+      entities,
+      companies,
       departments,
+      functions,
       processes,
       catalog,
       applications,
@@ -42,7 +48,10 @@ class RopaService {
       securitySafeguards,
       notices
     ] = await Promise.all([
+      db.all("dpdp_entities", e => e.tenant_id === tenantId),
+      db.all("dpdp_companies", co => co.tenant_id === tenantId),
       db.all("dpdp_departments", d => d.tenant_id === tenantId),
+      db.all("dpdp_functions", fn => fn.tenant_id === tenantId),
       db.all("dpdp_business_processes", p => p.tenant_id === tenantId),
       db.all("dpdp_data_catalog", c => c.tenant_id === tenantId),
       db.all("dpdp_applications", a => a.tenant_id === tenantId),
@@ -71,7 +80,10 @@ class RopaService {
       tenantId,
       complianceScore: Math.min(100, score),
       counts: {
+        form01_entities: entities.length,
+        form01_companies: companies.length,
         form01_departments: departments.length,
+        form01_functions: functions.length,
         form01_processes: processes.length,
         form02_catalog: catalog.length,
         form03_applications: applications.length,
@@ -87,7 +99,7 @@ class RopaService {
         form13_notices: notices.length
       },
       forms: {
-        form01: { departments, processes },
+        form01: { entities, companies, departments, functions, processes },
         form02: catalog,
         form03: applications,
         form04: locations,
@@ -104,10 +116,15 @@ class RopaService {
     };
   }
 
-  async getFormItems(formPath, tenantId = "ASCII_GROUP") {
+  async getFormItems(formPath, tenantId = "ASCII_GROUP", filters = {}) {
     const config = FORMS_CONFIG.find(f => f.path === formPath);
     if (!config) throw new Error(`Unknown RoPA form: ${formPath}`);
-    return await db.all(config.table, item => item.tenant_id === tenantId);
+    return await db.all(config.table, item => {
+      if (item.tenant_id !== tenantId) return false;
+      if (filters.entityId && item.entity_id !== filters.entityId) return false;
+      if (filters.companyId && item.company_id !== filters.companyId) return false;
+      return true;
+    });
   }
 
   async addFormItem(formPath, data) {

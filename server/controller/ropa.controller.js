@@ -19,7 +19,9 @@ class RopaController {
     try {
       const { formPath } = req.params;
       const tenantId = req.query.tenant_id || "ASCII_GROUP";
-      const items = await ropaService.getFormItems(formPath, tenantId);
+      const entityId = req.query.entity_id || null;
+      const companyId = req.query.company_id || null;
+      const items = await ropaService.getFormItems(formPath, tenantId, { entityId, companyId });
       return res.json({ success: true, count: items.length, items });
     } catch (err) {
       next(err);

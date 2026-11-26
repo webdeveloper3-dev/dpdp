@@ -23,7 +23,10 @@ const DB_FILE = path.join(__dirname, "dpdp_data.json");
 // Primary keys mapping for the 21 DPDP compliance tables
 const TABLE_PKS = {
   dpdp_clients: ["tenant_id"],
+  dpdp_entities: ["tenant_id", "entity_id"],
+  dpdp_companies: ["tenant_id", "company_id"],
   dpdp_departments: ["tenant_id", "department_id"],
+  dpdp_functions: ["tenant_id", "function_id"],
   dpdp_business_processes: ["tenant_id", "process_id"],
   dpdp_applications: ["tenant_id", "app_id"],
   dpdp_storage_locations: ["tenant_id", "storage_id"],
@@ -48,7 +51,10 @@ const TABLE_PKS = {
 // Initial in-memory table structures matching schema.sql
 let tables = {
   dpdp_clients: [],
+  dpdp_entities: [],
+  dpdp_companies: [],
   dpdp_departments: [],
+  dpdp_functions: [],
   dpdp_business_processes: [],
   dpdp_applications: [],
   dpdp_storage_locations: [],

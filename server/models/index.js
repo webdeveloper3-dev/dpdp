@@ -7,7 +7,10 @@ const sequelize = require("../database/sequelize");
 
 // Import All Models
 const Client = require("./client.model");
+const Entity = require("./entity.model");
+const Company = require("./company.model");
 const Department = require("./department.model");
+const BusinessFunction = require("./function.model");
 const BusinessProcess = require("./process.model");
 const Application = require("./application.model");
 const StorageLocation = require("./storage.model");
@@ -29,6 +32,15 @@ const DisposalLog = require("./disposalLog.model");
 const BreachIncident = require("./breachIncident.model");
 
 // Model Associations
+Client.hasMany(Entity, { foreignKey: "tenant_id", onDelete: "CASCADE" });
+Entity.belongsTo(Client, { foreignKey: "tenant_id" });
+
+Client.hasMany(Company, { foreignKey: "tenant_id", onDelete: "CASCADE" });
+Company.belongsTo(Client, { foreignKey: "tenant_id" });
+
+Client.hasMany(BusinessFunction, { foreignKey: "tenant_id", onDelete: "CASCADE" });
+BusinessFunction.belongsTo(Client, { foreignKey: "tenant_id" });
+
 Client.hasMany(Department, { foreignKey: "tenant_id", onDelete: "CASCADE" });
 Department.belongsTo(Client, { foreignKey: "tenant_id" });
 
@@ -60,7 +72,10 @@ const db = {
   sequelize,
   Sequelize,
   Client,
+  Entity,
+  Company,
   Department,
+  BusinessFunction,
   BusinessProcess,
   Application,
   StorageLocation,
